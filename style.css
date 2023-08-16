@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Raleway:wght@400;500;700&family=Roboto:wght@900&display=swap');
 
 *{box-sizing: border-box  ;
     margin: 0;
@@ -59,6 +59,7 @@ figure{
     width: auto;
     object-fit: cover;
     align-items: center;
+    gap:5%;
 
 }
 h3{
@@ -70,11 +71,13 @@ color: #FFFFFF;
 }
 
 
-p{font-family: Raleway;
+p{
+    font-family: Raleway;
     font-size: 18px;
     font-weight: 400;
- color: #FFFFFF;
-    }
+    color: #FFFFFF;
+    margin-top: 2%;
+}
 
 .banner__article{
     display: flex;
