@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:wght@900&display=swap');
+
+*{box-sizing: border-box  ;
+    margin: 0;
+}
+
+header {
+    display: grid;
+    height: 144px;
+    background-color: #30343F;
+    ;
+    }
+
+nav {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+figure{
+    display: flex;
+    gap: 20.84px;
+    height: 65.19194793701172px;
+    max-width: 372px;   
+}
+.logo{
+    max-width: 80.23529815673828px;
+    max-height: 65.19194793701172px;
+}
+.logo__texto{
+    margin: auto 0;
+    max-width: 270.9243469238281px;
+    max-height: 30.308128356933594px;
+}
+.botonera{
+    display: flex;
+    width: 406px;
+    height: 31px;
+    align-items: center;
+    justify-content: space-between;
+}
+.botonera__tipografia{
+    font-family: 'Raleway', sans-serif;
+    max-height: 23px;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+
