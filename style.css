@@ -50,3 +50,49 @@ figure{
 
 }
 
+.banner{
+    display: flex;
+    padding: 4%;
+    background-image: url(./multimedia/funkos-banner.webp);
+    background-size: cover;
+    height: 388px;
+    width: auto;
+    object-fit: cover;
+    align-items: center;
+
+}
+h3{
+    font-family: Raleway;
+font-size: 38px;
+font-weight: 700;
+color: #FFFFFF;
+
+}
+
+
+p{font-family: Raleway;
+    font-size: 18px;
+    font-weight: 400;
+ color: #FFFFFF;
+    }
+
+.banner__article{
+    display: flex;
+    width: 397px;
+    height: 168px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.banner__button{
+    width: 211px;
+    height: 47px;
+    font-family: Inter;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    margin-top: 13%;
+
+}
