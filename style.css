@@ -40,6 +40,7 @@ figure{
     height: 31px;
     align-items: center;
     justify-content: space-between;
+    list-style: none;
 }
 .botonera__tipografia{
     font-family: 'Raleway', sans-serif;
