@@ -15,7 +15,8 @@ nav {
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 0 2%;
 }
 
 figure{
@@ -62,23 +63,6 @@ figure{
     gap:5%;
 
 }
-h3{
-    font-family: Raleway;
-font-size: 38px;
-font-weight: 700;
-color: #FFFFFF;
-
-}
-
-
-p{
-    font-family: Raleway;
-    font-size: 18px;
-    font-weight: 400;
-    color: #FFFFFF;
-    margin-top: 2%;
-}
-
 .banner__article{
     display: flex;
     width: 397px;
@@ -88,6 +72,23 @@ p{
     justify-content: space-between;
 
 }
+.banner__h3{
+    font-family: Raleway;
+font-size: 38px;
+font-weight: 700;
+color: #FFFFFF;
+
+}
+
+
+.banner__p{
+    font-family: Raleway;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin-top: 2%;
+}
+
 .banner__button{
     width: 211px;
     height: 47px;
@@ -98,4 +99,78 @@ p{
     border: none;
     margin-top: 13%;
 
+}
+.cards{
+    display: grid;
+    gap: 1%;
+    justify-content:space-evenly
+}
+
+.card {
+    display: flex;
+    width: 1220px;
+    justify-content: space-evenly;  
+}
+.card__article{
+    display: flex;
+    height: 645px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3%;
+}
+.card__h3{
+    width: 441px;
+    height: 108px;    
+    font-family: Raleway;
+    font-size: 46px;
+    font-weight: 500;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    
+
+
+
+}
+
+.card__p{
+    width: 458px;
+    height: 56px;
+    font-family: Raleway;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    
+}
+hr {
+    width: 645px;
+    height: 3px;
+    background-color: red;
+    border: none;
+  }
+.card__button{
+    width: 291.8085021972656px;
+    height: 65px;
+    border-radius: 50px;
+    background: #30343F;
+    border: none;
+    margin-top: 7%;
+    border-top-style:solid red;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #FFFFFF;
+
+
+}
+.invertir{
+    flex-direction:row-reverse
 }
