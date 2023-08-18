@@ -1,7 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Raleway:wght@400;500;700&family=Roboto:wght@900&display=swap');
 
-*{box-sizing: border-box  ;
+*,
+*::before,
+*::after{  
+    box-sizing: border-box  ;
     margin: 0;
+    padding: 0;
+}
+:root{
+    --primary-color-solid:#FF3333;
+    --primary-color-900:rgba(255, 51, 51,90);
+    --primary-color-500:rgba(255, 51, 51,50);
+    --primary-color-300:rgba(255, 51, 51,30);
+
+    --secundary-color-solid:#1d84b5;
+    --secundary-color-900:rgba(29, 132, 181,90);
+    --secundary-color-500:rgba(29, 132, 181,50);
+    --secundary-color-300:rgba(29, 132, 181,30);
+
+    --dark-color-solid:#1f1f1f;
+    --dark-color-900:rgba(31, 31, 31,90);
+    --dark-color-500:rgba(31, 31, 31,50);
+    --dark-color-300:rgba(31, 31, 31,30);
+
+    --light-bg-color:#FAFAFF;
+    --dark-bg-color:#30343F;    
+    --light-font-color:#FFFFFF;
+
+    --primary-font:'Inter', sans-serif;
+    --secundary-font:'Raleway', sans-serif;
+
+    --font-display: 4.6em;
+    --font-jumbo: 3.8em;
+    --font-xlarge: 3em ;
+    --font-large: 2.4em ;
+    --font-medium: 1.8em ;
+    --font-small: 1.6em;
+    --font-xsmall: 1.4em;
+
+    --spacing-128: 12.8rem ;
+    --spacing-68: 6.8rem;
+    --spacing-36: 3.6rem;
+    --spacing-28: 2.8rem;
+    --spacing-16: 1.6rem;
+    --spacing-12: 1.2rem;
+    --spacing-8: 0.8rem;
+
+}
+
+html{
+    font-size: 62.5%;
+    font-family: var(--primary-font);
 }
 
 header {
@@ -43,9 +92,9 @@ figure{
     list-style: none;
 }
 .botonera__tipografia{
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--secundary-font);
     max-height: 23px;
-    font-size: 20px;
+    font-size: var(--font-medium);
     font-weight: 500;
     text-decoration: none;
     color: #FFFFFF;
@@ -74,17 +123,17 @@ figure{
 
 }
 .banner__h3{
-    font-family: Raleway;
-font-size: 38px;
-font-weight: 700;
-color: #FFFFFF;
+    font-family: var(--secundary-font);
+    font-size: var(--font-jumbo);
+    font-weight: 700;
+    color: #FFFFFF;
 
 }
 
 
 .banner__p{
-    font-family: Raleway;
-    font-size: 18px;
+    font-family: var(--secundary-font);
+    font-size: var(--font-medium);
     font-weight: 400;
     color: #FFFFFF;
     margin-top: 2%;
@@ -93,9 +142,9 @@ color: #FFFFFF;
 .banner__button{
     width: 211px;
     height: 47px;
-    font-family: Inter;
+    font-family: var(--primary-font);
     border-radius: 50px;
-    font-size: 20px;
+    font-size: var(--font-medium);
     font-weight: 500;
     border: none;
     margin-top: 13%;
@@ -123,8 +172,8 @@ color: #FFFFFF;
 .card__h3{
     width: 441px;
     height: 108px;    
-    font-family: Raleway;
-    font-size: 46px;
+    font-family: var(--secundary-font);
+    font-size: var(--font-display);
     font-weight: 500;
     line-height: 54px;
     letter-spacing: 0em;
@@ -139,8 +188,8 @@ color: #FFFFFF;
 .card__p{
     width: 458px;
     height: 56px;
-    font-family: Raleway;
-    font-size: 24px;
+    font-family: var(--secundary-font);
+    font-size: var(--font-large);
     font-weight: 400;
     line-height: 28px;
     letter-spacing: 0em;
@@ -162,8 +211,8 @@ hr {
     border: none;
     margin-top: 7%;
     border-top-style:solid red;
-    font-family: Inter;
-    font-size: 24px;
+    font-family: var(--primary-font);
+    font-size: var(--font-large);
     font-weight: 500;
     line-height: 29px;
     letter-spacing: 0em;
