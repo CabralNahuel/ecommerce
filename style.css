@@ -224,3 +224,73 @@ hr {
 .invertir{
     flex-direction:row-reverse
 }
+.lanzamientos{
+    display: grid;
+    justify-content: initial;
+}
+.card__p__lanzamientos{
+    font-family: var(--secundary-font);
+    font-size: var(--font-display);
+    height: 54px;
+    font-weight: 700;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+.img__lanzamientos{
+    width: 359.9664611816406px;
+    max-height: 512px;
+   
+}
+
+.cards__article__lanzamientos{
+    display: flex;
+    width: 359.9664611816406px;
+    height: 512px;
+    gap:6%
+
+}
+.picture__lanzamientos{
+    display: grid;
+    gap: 13px;
+
+}
+.p__lanzamiento__coleccion{
+    font-family: var(--primary-font);
+    font-size: var(--font-xsmall);
+    font-weight: 500;
+    height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+.h3__lanzamiento{
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: var(--font-medium);
+    height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+.p__lanzamiento__precio{
+    font-family: var(--primary-font);
+    font-size: var(--font-small);
+    font-weight: 400;
+    line-height: 19px;
+    height: 19px;
+    letter-spacing: 0em;
+    text-align: left;}
+
+.p__lanzamiento__cuota{
+    font-family: var(--primary-font);
+    font-size: var(--font-xsmall);
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--secundary-color-solid);
+;
+
+}
