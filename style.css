@@ -74,6 +74,8 @@ figure{
     height: 65.19194793701172px;
     max-width: 372px;   
 }
+a{text-decoration: none;
+}
 .logo{
     max-width: 80.23529815673828px;
     max-height: 65.19194793701172px;
@@ -251,9 +253,12 @@ hr {
     gap:6%
 
 }
-.picture__lanzamientos{
+.a__lanzamientos,
+.a__lanzamientos :link,
+.a__lanzamientos :visited{
     display: grid;
     gap: 13px;
+    color: var(--dark-color-900);
 
 }
 .p__lanzamiento__coleccion{
