@@ -229,6 +229,7 @@ hr {
 .lanzamientos{
     display: grid;
     justify-content: initial;
+    gap: 57px;
 }
 .card__p__lanzamientos{
     font-family: var(--secundary-font);
@@ -247,10 +248,14 @@ hr {
 }
 
 .cards__article__lanzamientos{
-    display: flex;
+       display: flex;
     width: 359.9664611816406px;
     height: 512px;
     gap:6%
+
+}
+.picture__lanzamientos{
+    position: relative;
 
 }
 .a__lanzamientos,
@@ -289,6 +294,7 @@ hr {
     text-align: left;}
 
 .p__lanzamiento__cuota{
+    
     font-family: var(--primary-font);
     font-size: var(--font-xsmall);
     font-weight: 700;
@@ -299,3 +305,23 @@ hr {
 ;
 
 }
+.p__lanzamiento__p_emergente{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    left: 76%;
+    top: 0%;
+    width: 96.12741088867188px;
+    height: 30px;
+    font-family: var(--primary-font);
+    font-size: var(--font-xsmall);
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    background: var(--primary-color-solid);
+    color: var(--light-font-color);
+  
+}
+
