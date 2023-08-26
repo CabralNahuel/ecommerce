@@ -3,9 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
+    <title>CARRITO</title>
 </head>
 <body>
-    
+    <header>
+        <!-- inicio de header -->
+        <nav>
+            <!-- logo es un enlace ahome -->
+            <picture>
+                <a href="./index.html"> 
+                    <img src="./multimedia/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca FunkoShop">
+                </a>
+            </picture>
+            <ul>
+                <li>
+                    <a href="./shop.html">SHOP</a>
+                </li>
+                <li>
+                    <a href="./contact.html">CONTACTO</a>
+                </li>
+                <li>
+                    <a href="./login.html">LOGIN</a>
+                </li>
+                <li>
+                    <a href="./carrito.html">
+                        <!-- podemos usar agina iconify -->
+                        <img src="./../multimedia/icons/cart-icon.svg" alt="icono de carrito">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- fin de header -->
+    </header>
+    <main>
+        <section>
+            <h2>CARRITO DE COMPRAS</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>DETALLE DE PRODUCTO</th>
+                        <th>CANTIDAD</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <section> <!-- PRODUCTO SELECCIONADO --> 
+                                <article>
+                                        <picture>
+                                            <img src="./../multimedia/star-wars/baby-yoda-1.webp" alt="Figura colecionable Funko de Grogu de la serie The Mandalorian">
+                                        </picture>
+                                        <div>
+                                            <h5>BABY YODA BLUEBALL</h5>
+                                            <p>STAR WARS</p>
+                                            <p>precio</p>
+                                            <p>$ 1799,99</p>
+                                        </div>
+                                </article>
+                            </section>
+                        </td>
+                        <td>
+                            <input type="number" id="cantidadItemsROW" name="cantidadItemsROW">
+                        </td>
+                        <td>
+                            <p>$ 1799,99</p>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </section>
+        <section>
+            <h2>RESUMEN</h2>
+            <div>
+                <p>CANTIDAD DE ELEMENTOS               3</p>
+                <p>SUBTOTAL                    $5.399,87</p>
+                <p>Total                       $5.399,87</p>
+                <a href="#">IR A PAGAR</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="./shop.html">SHOP</a>
+                    </li>
+                    <li>
+                        <a href="./register.html">REGISTRARSE</a></li>
+                    <li>
+                        <a href="./login.html">LOGIN</a></li>
+                    <li>
+                        <a href="./contact.html">CONTACTO</a></li>
+                </ul>
+            </nav>
+            <picture>
+                <img src="./multimedia/branding/isotype.svg" alt="Isotipo de la Marca Funkoshop">
+            </picture>
+        </section>
+        <p>All rights reserved 2023 - Funkoshop &copy;</p>
+
+    </footer>
 </body>
 </html>
