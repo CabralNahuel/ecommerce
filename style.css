@@ -63,62 +63,6 @@ a:link, a:visited, a:active {
     text-decoration:none;
 }
 
-@layer header{
-    
-    nav{
-        display: flex;
-        align-items: center;
-        padding: 0.5rem;
-        background-color: var(--dark-bg-color);
-    }
-
-    figure{
-            display: flex;
-            justify-content: flex-start;
-            width: 50vw;
-            
-            &>a{
-                display: flex;
-                align-items: center;
-
-                &>img{
-                    padding: .5rem;
-                }
-            }
-    }
-
-    .botonera{
-        display: flex;
-        justify-content: end;
-        flex-wrap: wrap;
-        align-items: center;
-        width: 50vw;
-        flex-direction: row;
-        gap: 3rem;
-        padding: 1rem;
-        margin-right: 3rem;
-
-        &>li{
-            list-style: none;
-
-            &>a{
-                color: var(--light-font-color);
-                font-size: 12px;
-
-                &>img{
-                    width: 20px;
-                }
-            }
-        }
-        
-    }
-}
-
-@layer main{
-
-
-
-
 a{
     text-decoration: none;
     font-family: inherit;
