@@ -266,14 +266,10 @@ header{
     text-transform: uppercase;
     
 }
-.slider__items{
+/* .slider__items{
     display: flex;
-    gap: var(--spacing-24);
-    
-}
-.card-item{
-    
-}
+    gap: var(--spacing-24);  
+} */
 .card-item__content{
     display: flex;
     flex-direction: column;

@@ -112,10 +112,11 @@
           </picture>
         </section>
 
-        <section class="slider container">
+        <section class="slider container glide">
           <h2 class="slider__title">ÚLTIMOS LANZAMIENTOS</h2>
-          <ul class="slider__items">
-            <li class="slider__item">
+          <div class="glide__track" data-glide-el="track">
+          <ul class="slider__items glide__slides">
+            <li class="slider__item glide__slide">
               <article class="card-item">
                 <a href="./pages/shop.html">
                   <picture class="card-item__cover">
@@ -140,7 +141,7 @@
                 </a>
               </article>
             </li>
-            <li class="slider__item">
+            <li class="slider__item glide__slide">
               <article class="card-item">
                 <a href="./pages/shop.html">
                   <picture class="card-item__cover">
@@ -165,7 +166,7 @@
                 </a>
               </article>
             </li>
-            <li class="slider__item">
+            <li class="slider__item glide__slide">
               <article class="card-item">
                 <a href="./pages/shop.html">
                   <picture class="card-item__cover">
@@ -192,7 +193,12 @@
               </article>
             </li>
           </ul>
+          </div>
         </section>
+      </div>
+      <div class = 'glide__arrows' data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<<"> Start </button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">>"> End </button>
       </div>
     </main>
     <footer class="footer">
@@ -225,5 +231,21 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="./main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script>
+      new Glide('.glide', {
+        type: 'carrousel',
+        startAt: 0,
+        perView: 3,
+        gap: 30,
+        breakpoint:{
+          991:{
+            perView: 2
+          },
+          768:{
+            perView:1
+         },
+        }
+      }).mount();
+    </script>
   </body>
 </html>
