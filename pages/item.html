@@ -3,134 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>REGISTER</title>
+    <link rel="stylesheet" href="../style.css">
+    <title>ITEM</title>
 </head>
 <body>
     <header>
-        <!-- inicio de header -->
-        <nav>
-            <!-- logo es un enlace ahome -->
-            <picture>
-                <a href="./index.html"> 
-                    <img src="./multimedia/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca FunkoShop">
-                </a>
-            </picture>
-            <ul>
-                <li>
-                    <a href="./pages/shop.html">SHOP</a>
-                </li>
-                <li>
-                    <a href="./pages/contact.html">CONTACTO</a>
-                </li>
-                <li>
-                    <a href="./pages/login.html">LOGIN</a>
-                </li>
-                <li>
-                    <a href="./pages/cart.html">
-                        <!-- podemos usar agina iconify -->
-                        <img src="./multimedia/icons/cart-icon.svg" alt="icono de carrito">
-                    </a>
-                </li>
-            </ul>
+        <nav class="navbar container">
+          <picture class="navbar__logo">
+            <a href="../index.html">
+              <img
+                src="../multimedia/branding/logo_light_horizontal.svg"
+                alt="logo del ecommer"
+              />
+            </a>
+          </picture>
+          <ul class="navbar__menu">
+            <li class="navbar__item">
+              <a class="navbar__link with-icon" href="./shop.html"
+                >SHOP<iconify-icon icon="bi:chevron-down"> </iconify-icon>
+              </a>
+              <ul class="submenu">
+                <li class="submenu__link">Funkos</li>
+                <li class="submenu__link">Remeras</li>
+                <li class="submenu__link">Llaveros</li>
+              </ul>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="./contact.html">CONTACTO </a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="./login.html">LOGIN </a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__cart" href="./carrito.html">
+                <img
+                  src="../multimedia/icons/cart-icon.svg"
+                  alt="carrito de compra"
+                />
+              </a>
+            </li>
+          </ul>
         </nav>
-        <!-- fin de header -->
     </header>
-    <main>
-        <section> <!-- PRODUCTO SELECCIONADO --> 
-            <article>
-                    <picture>
-                        <img src="./multimedia/star-wars/baby-yoda-1.webp" alt="Figura colecionable Funko de Grogu de la serie The Mandalorian">
-                    </picture>
-                    <div>
-                        <p>STAR WARS</p>
-                        <h3>BABY YODA BLUEBALL</h3>
-                        <h4>Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.</h4>
-                        <h3>$ 1799,99</h3>
-                        <input type="number" id="cantidadItems" name="cantidadItems">
-                        <button>Agregar al Carrito</button>
-                        <br>
-                        <a href="#">Ver métodos de pago</a>
-                        -
-                        <span> 3 CUOTAS SIN INTERÉS</span>
-                    </div>
+    <main class="container">
+        <section class="item"> <!-- PRODUCTO SELECCIONADO --> 
+            <picture class="item__img card-item__cover">
+                <img class="card-item__img--front" src="../multimedia/star-wars/baby-yoda-1.webp" alt="Figura colecionable Funko de Grogu de la serie The Mandalorian">
+                <img class="card-item__img--back"  src="../multimedia/star-wars/baby-yoda-box.webp" alt="BOX de Figura colecionable Funko de Grogu de la serie The Mandalorian">
+            </picture>
+            <article class="item__info">
+                <p class="item__license">STAR WARS</p>
+                <h3 class="item__title">BABY YODA BLUEBALL</h3>
+                <h4 class="item__content">Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.</h4>
+                <h3 class="item__price">$ 1799,99</h3>
+                <div class="item__cart">
+                    <button id="menos" class="item__quantity" type="button">-</button>
+                    <input class="item__input" type="text" id="quantity" name="quantity" placeholder="0">
+                    <button id="mas" class="item__quantity" type="button">+</button>
+                    <button class="item__submit" type="submit">Agregar al Carrito</button>
+                </div>
+                <p class="item__promo">
+                    <a class="item__promo" href="#">Ver métodos de pago</a> - 3 CUOTAS SIN INTERÉS
+                </p>
             </article>
         </section>
-        <section><!-- coleccion PRODUCTOS RELACIONADOS --> 
-            <h2>PRODUCTOS RELACIONADOS</h2>
-            <ul>
-                <li>
-                    <article>
-                        <a href="">
-                            <p>NUEVO</p>
-                            <picture>
-                                <img src="./multimedia/star-wars/trooper-1.webp" alt="Figura colecionable Funko de un Storm Tropper">
-                            </picture>
-                            <div>
-                                <p>STAR WARS</p>
-                                <h4>STORMTROOPER LIGHTSABER</h4>
-                                <p>$ 1799,99</p>
-                                <p>3 CUOTAS SIN INTERÉS</p>
-                            </div>
-                        </a>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <a href="">
-                            <p>NUEVO</p>
-                            <picture>
-                                <img src="./multimedia/harry-potter/luna-1.webp" alt="Figura colecionable Funko de LUNA LOVEGOOD LION MASK">
-                            </picture>
-                            <div>
-                                <p>HARRY POTTER</p>
-                                <h4>LUNA LOVEGOOD LION MASK</h4>
-                                <p>$ 1799,99</p>
-                                <p>3 CUOTAS SIN INTERÉS</p>
-                            </div>
-                        </a>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <a href="">
-                            <p>NUEVO</p>
-                            <picture>
-                                <img src="./multimedia/pokemon/pidgeotto-1.webp" alt="Figura colecionable Funko de PIDGEOTTO">
-                            </picture>
-                            <div>
-                                <p>POKEMON</p>
-                                <h4>PIDGEOTTO</h4>
-                                <p>$ 1799,99</p>
-                                <p>3 CUOTAS SIN INTERÉS</p>
-                            </div>
-                        </a>
-                    </article>
-                </li>
-            </ul>
+        <!-- coleccion PRODUCTOS RELACIONADOS --> 
+        <section class="slider container glide"><!-- coleccion ultimos lanzamientos --> 
+            <h2 class="slider__title">PRODUCTOS RELACIONADOS</h2>
+            <!-- slider de ultimos lanzaminetos los pongo en lista  -->
+            <div class="glide__track" data-glide-el="track">
+                <ul class="slider__items glide__slides">
+                    <li class="slider__item glide__slide">
+                        <article class="card-item">
+                            <a class="card-item__link" href="./item.html">
+                                <picture class="card-item__cover">
+                                    <span class="card-item__tag">Nuevo</span>
+                                    <img class="card-item__img--front" src="../multimedia/star-wars/trooper-1.webp"
+                                        alt="Figura colecionable Funko de un Storm Tropper">
+                                    <img class="card-item__img--back" src="../multimedia/star-wars/trooper-box.webp"
+                                        alt="Figura colecionable Funko de un Storm Tropper en caja">
+                                </picture>
+                                <div class="card-item__content">
+                                    <p class="card-item__license">STAR WARS</p>
+                                    <h4 class="card-item__name">STORMTROOPER LIGHTSABER</h4>
+                                    <p class="card-item__price">$ 1799,99</p>
+                                    <p class="card-item__promo">3 CUOTAS SIN INTERÉS</p>
+                                </div>
+                            </a>
+                        </article>
+                    </li>
+                    <li class="slider__item glide__slide">
+                        <article class="card-item">
+                            <a class="card-item__link" href="./item.html">
+                                <picture class="card-item__cover">
+                                    <span class="card-item__tag">Nuevo</span>
+                                    <img class="card-item__img--front" src="../multimedia/harry-potter/luna-1.webp"
+                                        alt="Figura colecionable Funko de LUNA LOVEGOOD LION MASK">
+                                    <img class="card-item__img--back" src="../multimedia/harry-potter/luna-box.webp"
+                                        alt="Figura colecionable Funko de LUNA LOVEGOOD LION MASK en caja">
+                                </picture>
+                                <div class="card-item__content">
+                                    <p class="card-item__license">HARRY POTTER</p>
+                                    <h4 class="card-item__name">LUNA LOVEGOOD LION MASK</h4>
+                                    <p class="card-item__price">$ 1799,99</p>
+                                    <p class="card-item__promo">3 CUOTAS SIN INTERÉS</p>
+                                </div>
+                            </a>
+                        </article>
+                    </li>
+                    <li class="slider__item glide__slide">
+                        <article class="card-item">
+                            <a class="card-item__link" href="./item.html">
+                                <picture class="card-item__cover">
+                                    <span class="card-item__tag">Nuevo</span>
+                                    <img class="card-item__img--front" src="../multimedia/pokemon/pidgeotto-1.webp"
+                                        alt="Figura colecionable Funko de PIDGEOTTO">
+                                    <img class="card-item__img--back" src="../multimedia/pokemon/pidgeotto-box.webp"
+                                        alt="Figura colecionable Funko de PIDGEOTTO en caja">
+                                </picture>
+                                <div class="card-item__content">
+                                    <p class="card-item__license">POKEMON</p>
+                                    <h4 class="card-item__name">PIDGEOTTO</h4>
+                                    <p class="card-item__price">$ 1799,99</p>
+                                    <p class="card-item__promo">3 CUOTAS SIN INTERÉS</p>
+                                </div>
+                            </a>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                    <iconify-icon icon="ic:round-chevron-left"></iconify-icon>
+                </button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                    <iconify-icon icon="ic:round-chevron-right"></iconify-icon>
+                </button>
+            </div>
+
         </section>
     </main>
-    <footer>
-        <section>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="./pages/shop.html">SHOP</a>
-                    </li>
-                    <li>
-                        <a href="./pages/register.html">REGISTRARSE</a></li>
-                    <li>
-                        <a href="./pages/login.html">LOGIN</a></li>
-                    <li>
-                        <a href="./pages/contact.html">CONTACTO</a></li>
-                </ul>
-            </nav>
+    <footer class="footer">
+        <nav class="navbar container">
+            <ul class="navbar__item">
+                <li class="navbar__item">
+                    <a class="navbar__link" href="./shop.html">SHOP</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="./register.html">REGISTRARSE</a></li>
+                <li>
+                    <a class="navbar__link" href="./login.html">LOGIN</a></li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="./contact.html">CONTACTO</a></li>
+            </ul>
             <picture>
-                <img src="./multimedia/branding/isotype.svg" alt="Isotipo de la Marca Funkoshop">
+                <img  src="../multimedia/branding/isotype.svg" alt="Isotipo de la Marca Funkoshop">
             </picture>
-        </section>
-        <p>All rights reserved 2023 - Funkoshop &copy;</p>
-
-    </footer>
+        </nav>
+        
+        <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
+ |   </footer>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="../js/item.js"></script>
+    <script src="../js/glide.js"></script>
 </body>
 </html>
