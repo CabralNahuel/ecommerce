@@ -1,42 +1,36 @@
 //importacion de librerias
-import express from 'express'
-import path from 'path'
+import express from "express";
 
 //creo variables
-const router = express.Router()
-const root = path.resolve()
+const router = express.Router();
 
-const adminController = require('../controllers/adminController.js')
-
+import adminController from "../controllers/adminController.js";
 //---------metodos get------------
 
 // admin
-router.get('/admin',adminController.getAdmin)
+router.get("/", adminController.getAdmin);
 
 // /admin/create
-router.get('/admin/create',adminController.getAdminCreate)
+router.get("/create", adminController.getAdminCreate);
 
 // /admin/edit/:id
-router.get('/admin/edit/:id',adminController.getAdminEditId)
-
+router.get("/edit/:id", adminController.getAdminEditId);
 
 //---------metodos post-------------------
 
 // /admin/create
-router.post('/admin/create',adminController.postAdminCreate)
-
+router.post("/create", adminController.postAdminCreate);
 
 //------------metodos put ----------------
 
 // /admin/edit/:id
-router.put('/admin/edit/:id',adminController.putAdminEditId)
-
+router.put("/edit/:id", adminController.putAdminEditId);
 
 //------------metodos delete--------------
 
 // /admin/delete/:id
-router.delete('/admin/delete/:id',adminController.deleteAdminDeleteId)
+router.delete("/delete/:id", adminController.deleteAdminDeleteId);
 
 // ---------export-----------------
 
-module.exports = router;
+export default router;

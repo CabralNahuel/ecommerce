@@ -1,9 +1,10 @@
 //importacion de modulosy librerias
 import express from "express";
-// import mainRoutes from "../routes/mainRoutes.js";
-// import admindRoutes from "../routes/adminRoutes.js";
-// import authRoutes from "../routes/authRoutes.js";
-// import shopRoutes from "../routes/shopRoutes.js";
+
+import mainRoutes from "./public/src/routes/mainRoutes.js";
+import adminRoutes from "./public/src/routes/adminRoutes.js";
+import authRoutes from "./public/src/routes/authRoutes.js";
+import shopRoutes from "./public/src/routes/shopRoutes.js";
 
 //const mainRoutes = require('./src/routes/mainRoutes.js')
 
@@ -31,18 +32,13 @@ const PORT = 4000;
 // app.use(express.urlencoded({ extended: true }));
 // //-----------------------------------------------
 
-// //-------------rutas----------------------------
-
-// app.use("/", mainRoutes);
-// app.use("/", admindRoutes);
-// app.use("/", authRoutes);
-// app.use("/", shopRoutes);
-
 // //app
 app.use(express.static("public"));
 app.listen(PORT, () =>
   console.log(`el sv esta funcionando en http://localhost:${PORT}`)
 );
-app.get("/ping", (req, res) => {
-  res.send("pong");
-});
+// //-------------rutas----------------------------
+app.use("/", mainRoutes);
+app.use("/shop", shopRoutes);
+app.use("/auth", authRoutes);
+app.use("/admin", adminRoutes);

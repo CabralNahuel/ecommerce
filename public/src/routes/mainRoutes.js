@@ -1,30 +1,18 @@
 //importacion de librerias
-import express from 'express'
-import path from 'path'
-
+import express from "express";
+import mainController from "../controllers/mainController.js";
 //creo variables
-const router = express.Router()
-const root = path.resolve()
-
-const mainController = require('../controllers/mainController.js')
-
+const router = express.Router();
 
 //metodos get
 
 //home
-router.get('/home',mainController.home);
-
-
+router.get("/home", mainController.home);
 //contact
-router.get('/contact',mainController.contact);
-
-
+router.get("/contact", mainController.contact);
 //about
-router.get('/about',mainController.about);
-
-
+router.get("/about", mainController.about);
 //faqs
-router.get('/faqs',mainController.faqs);
-
-//--------export-------------
-module.exports = router;
+router.get("/faqs", mainController.faqs);
+//--------export-------------s
+export default router;
