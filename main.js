@@ -5,8 +5,7 @@ import mainRoutes from "./public/src/routes/mainRoutes.js";
 import adminRoutes from "./public/src/routes/adminRoutes.js";
 import authRoutes from "./public/src/routes/authRoutes.js";
 import shopRoutes from "./public/src/routes/shopRoutes.js";
-
-//const mainRoutes = require('./src/routes/mainRoutes.js')
+import path from "path";
 
 //declaracion de variables
 const app = express();
@@ -27,13 +26,17 @@ const PORT = 4000;
 //-----------------------------------------------
 
 //traductor antes de la ruta
+
+// //app
 // -------------parsing data --------------------
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 // //-----------------------------------------------
 
-// //app
 app.use(express.static("public"));
+app.set("views", path.resolve() + "/public/src/views");
+app.set("view engine", "ejs");
+app.get("/", (req, res) => res.render("index"));
 app.listen(PORT, () =>
   console.log(`el sv esta funcionando en http://localhost:${PORT}`)
 );

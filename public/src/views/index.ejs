@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"/>
-    <link rel="stylesheet" href="./src/style.css" />
-    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+        <title>Inicio</title>
   </head>
   <body>
-    <header>http://localhost:4000/
+    <header>
       <nav class="navbar container">
         <picture class="navbar__logo">
-          <a href="./src/index.html">
+          <a href="/">
             <img
               src="./src/multimedia/branding/logo_light_horizontal.svg"
               alt="logo del ecommer"
@@ -23,7 +23,7 @@
         </picture>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <a class="navbar__link with-icon" href="./src/pages/shop.html"
+            <a class="navbar__link with-icon" href="/shop"
               >SHOP<iconify-icon icon="bi:chevron-down"> </iconify-icon>
             </a>
             <ul class="submenu">
@@ -33,13 +33,13 @@
             </ul>
           </li>
           <li class="navbar__item">
-            <a class="navbar__link" href="./src/pages/contact.html">CONTACTO </a>
+            <a class="navbar__link" href="/contact">CONTACTO </a>
           </li>
           <li class="navbar__item">
-            <a class="navbar__link" href="./src/pages/login.html">LOGIN </a>
+            <a class="navbar__link" href="/login">LOGIN </a>
           </li>
           <li class="navbar__item">
-            <a class="navbar__cart" href="./src/pages/carrito.html">
+            <a class="navbar__cart" href="/carrito">
               <img
                 src="./src/multimedia/icons/cart-icon.svg"
                 alt="carrito de compra"
@@ -53,7 +53,7 @@
       <article class="hero__content container">
         <h3 class="hero__title">Nuevos Ingresos</h3>
         <p class="hero__text">Descubrí el próximo Funko Pop de tu colección</p>
-        <a class="hero__link" href="./src/pages/shop.html">SHOP</a>
+        <a class="hero__link" href="/shop">SHOP</a>
       </article>
     </section>
     <main class="main-container">
@@ -65,7 +65,7 @@
               Disfruta de una saga que sigue agregando personajes a su
               colección.
             </p>
-            <a class="collection__link" href="./src/pages/shop.html"
+            <a class="collection__link" href="/shop"
               >VER COLECCIÓN</a>
           </article>
           <picture class="collection__cover">
@@ -83,7 +83,7 @@
               amigos.
             </p>
 
-            <a class="collection__link" href="./src/pages/shop.html"
+            <a class="collection__link" href="/shop"
               >VER COLECCIÓN</a
             >
           </article>
@@ -98,7 +98,7 @@
               Revive los recuerdos de una saga llena de magia y encanto.
             </p>
 
-            <a class="collection__link" href="./src/pages/shop.html"
+            <a class="collection__link" href="/shop"
               >VER COLECCIÓN</a
             >
           </article>
@@ -115,7 +115,7 @@
             <ul class="slider__items glide__slides">
               <li class="slider__item glide__slide">
                 <article class="card-item">
-                  <a href="./src/pages/item.html">
+                  <a href="/item">
                     <picture class="card-item__cover">
                       <span class="card-item__tag"> NUEVO</span>
                       <img class="card-item__img--front" src="./src/multimedia/star-wars/trooper-1.webp" alt=" Funko trooper" />
@@ -132,7 +132,7 @@
               </li>
               <li class="slider__item glide__slide">
                 <article class="card-item">
-                  <a href="./src/pages/item.html">
+                  <a href="/item">
                     <picture class="card-item__cover">
                       <span class="card-item__tag"> NUEVO</span>
                       <img class="card-item__img--front" src="./src/multimedia/pokemon/pidgeotto-1.webp" alt=" Funko pidgeotto" />
@@ -150,7 +150,7 @@
               </li>
               <li class="slider__item glide__slide">
                 <article class="card-item">
-                  <a href="./src/pages/item.html">
+                  <a href="/item">
                     <picture class="card-item__cover">
                       <span class="card-item__tag"> NUEVO</span>
                       <img class="card-item__img--front" src="./src/multimedia/harry-potter/luna-1.webp" alt=" Funko luna" />
@@ -177,20 +177,20 @@
       <nav class="navbar container">
         <ul>
           <li class="navbar__item">
-            <a class="navbar__link" href="./src/pages/shop.html">SHOP </a>
+            <a class="navbar__link" href="/shop">SHOP </a>
           </li>
           <li class="navbar__item">
-            <a class="navbar__link" href="./src/pages/register.html">REGISTER</a>
+            <a class="navbar__link" href="/register">REGISTER</a>
           </li>
           <li class="navbar__item">
-            <a class="navbar__link" href="./src/pages/login.html">LOGIN</a>
+            <a class="navbar__link" href="/login">LOGIN</a>
           </li>
           <li class="navbar__item">
-            <a class="navbar__link" href="./src/pages/contact.html">CONTACTO</a>
+            <a class="navbar__link" href="/contact">CONTACTO</a>
           </li>
         </ul>
         <figure>
-          <a href="./src/index.html">
+          <a href="/">
             <img
               src="./src/multimedia/branding/isotype.svg "
               alt="logo del ecommer"
@@ -203,7 +203,7 @@
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="./src/main.js"></script>
+    <script type="js" src="/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="./src/js/glide.js"></script>
   </body>

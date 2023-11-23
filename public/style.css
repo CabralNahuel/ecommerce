@@ -163,7 +163,7 @@ header{
 
 .hero{
     padding: var(--spacing-128);
-    background-image: url(./multimedia/funkos-banner.webp);
+    background-image: url(./src/multimedia/funkos-banner.webp);
     background-position: topg;
     background-size: cover;
     background-attachment: fixed;
