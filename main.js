@@ -12,7 +12,7 @@ import path from "path";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const funkos = require("./funkos.json");
-//console.log(funkos)
+
 
 //declaracion de variables
 const app = express();
