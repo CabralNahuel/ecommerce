@@ -44,6 +44,8 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve() + "/public/src/views");
 app.get("/", (req, res) => res.render("index"));
 
+app.get("/shop", (req, res) => res.render("shop",{funkos : funkos}));
+
 app.listen(PORT, () =>
   console.log(`el sv esta funcionando en http://localhost:${PORT}`)
 );
