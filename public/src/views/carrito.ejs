@@ -8,41 +8,7 @@
     <title>CARRITO</title>
   </head>
   <body>
-    <header>
-      <!-- inicio de header -->
-      <nav>
-        <!-- logo es un enlace ahome -->
-        <picture>
-          <a href="../index.html">
-            <img
-              src="../multimedia/branding/logo_light_horizontal.svg"
-              alt="Isologotipo de la marca FunkoShop"
-            />
-          </a>
-        </picture>
-        <ul>
-          <li>
-            <a href="./shop.html">SHOP</a>
-          </li>
-          <li>
-            <a href="./contact.html">CONTACTO</a>
-          </li>
-          <li>
-            <a href="./login.html">LOGIN</a>
-          </li>
-          <li>
-            <a href="./carrito.html">
-              <!-- podemos usar agina iconify -->
-              <img
-                src="../multimedia/icons/cart-icon.svg"
-                alt="icono de carrito"
-              />
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- fin de header -->
-    </header>
+    <%- include('partials/header') -%>
     <main>
       <section>
         <h2>CARRITO DE COMPRAS</h2>
@@ -100,32 +66,7 @@
         </div>
       </section>
     </main>
-    <footer>
-      <section>
-        <nav>
-          <ul>
-            <li>
-              <a href="./shop.html">SHOP</a>
-            </li>
-            <li>
-              <a href="./register.html">REGISTRARSE</a>
-            </li>
-            <li>
-              <a href="./login.html">LOGIN</a>
-            </li>
-            <li>
-              <a href="./contact.html">CONTACTO</a>
-            </li>
-          </ul>
-        </nav>
-        <picture>
-          <img
-            src="../multimedia/branding/isotype.svg"
-            alt="Isotipo de la Marca Funkoshop"
-          />
-        </picture>
-      </section>
-      <p>All rights reserved 2023 - Funkoshop &copy;</p>
-    </footer>
+
+    <%- include('partials/footer') -%>
   </body>
 </html>

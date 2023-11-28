@@ -17,6 +17,7 @@ router.get("/item/:id", shopController.getShopItemId);
 
 // /shop/cart
 router.get("/cart", shopController.getShopCart);
+// /shop/cart
 
 //---------metodos post-------------------
 
