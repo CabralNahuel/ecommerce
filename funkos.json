@@ -8,8 +8,8 @@
     "product_price": 1799.99,
     "dues": 10,
     "product_sku": "STW001001",
-    "img_front": "/img/pokemon/pidgeotto-1.webp",
-    "img_back": "/img/pokemon/pidgeotto-box.webp"
+    "img_front": "../multimedia/pokemon/pidgeotto-1.webp",
+    "img_back": "../multimedia/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 2,
@@ -20,8 +20,8 @@
     "product_price": 1799.99,
     "dues": 10,
     "product_sku": "PKM001002",
-    "img_front": "/img/pokemon/pidgeotto-1.webp",
-    "img_back": "/img/pokemon/pidgeotto-box.webp"
+    "img_front": "../multimedia/pokemon/pidgeotto-1.webp",
+    "img_back": "../multimedia/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 3,
@@ -32,8 +32,8 @@
     "product_price": 1799.99,
     "dues": 10,
     "product_sku": "PKM001003",
-    "img_front": "/img/pokemon/pidgeotto-1.webp",
-    "img_back": "/img/pokemon/pidgeotto-box.webp"
+    "img_front": "../multimedia/pokemon/pidgeotto-1.webp",
+    "img_back": "../multimedia/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 4,
@@ -44,8 +44,8 @@
     "product_price": 1799.99,
     "dues": 10,
     "product_sku": "PKM001004",
-    "img_front": "/img/pokemon/pidgeotto-1.webp",
-    "img_back": "/img/pokemon/pidgeotto-box.webp"
+    "img_front": "../multimedia/star-wars/trooper-1.webp",
+    "img_back": "../multimedia/star-wars/trooper-box.webp"
   },
   {
     "product_id": 5,
