@@ -9,8 +9,11 @@ import authRoutes from "./public/src/routes/authRoutes.js";
 import shopRoutes from "./public/src/routes/shopRoutes.js";
 import path from "path";
 
-import funkos from "./funkos.json";
-console.log(funkos)
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const funkos = require("./funkos.json");
+//console.log(funkos)
+
 //declaracion de variables
 const app = express();
 const PORT = 4000;
