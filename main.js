@@ -2,12 +2,14 @@
 import express from "express";
 import ejs from "ejs";
 
+
 import mainRoutes from "./public/src/routes/mainRoutes.js";
 import adminRoutes from "./public/src/routes/adminRoutes.js";
 import authRoutes from "./public/src/routes/authRoutes.js";
 import shopRoutes from "./public/src/routes/shopRoutes.js";
 import path from "path";
 
+import funkos from "./funkos.json" assert { type: "json" };
 //declaracion de variables
 const app = express();
 const PORT = 4000;
