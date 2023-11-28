@@ -1,0 +1,110 @@
+[
+  {
+    "product_id": 1,
+    "licence_name": "STARWARS",
+    "category_name”": "Figuras coleccionables",
+    "product_name": "BABY YODA BLUEBALL",
+    "product_description": "Figura coleccionable Star Wars",
+    "product_price": 1799.99,
+    "dues": 10,
+    "product_sku": "STW001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
+  },
+  {
+    "product_id": 2,
+    "licence_name": "STARWARS",
+    "category_name": "Figuras coleccionables",
+    "product_name": "BOBA FETT FIGHTER",
+    "product_description": "Figura coleccionable Star Wars",
+    "product_price": 1799.99,
+    "dues": 10,
+    "product_sku": "PKM001002",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
+  },
+  {
+    "product_id": 3,
+    "licence_name": "STARWARS",
+    "category_name": "Figuras coleccionables",
+    "product_name": "LUKE AND GROGU",
+    "product_description": "Figura coleccionable Star Wars",
+    "product_price": 1799.99,
+    "dues": 10,
+    "product_sku": "PKM001003",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
+  },
+  {
+    "product_id": 4,
+    "licence_name": "STARWARS",
+    "category_name": "Figuras coleccionables",
+    "product_name": "STORMTROPPER",
+    "product_description": "Figura coleccionable Star Wars",
+    "product_price": 1799.99,
+    "dues": 10,
+    "product_sku": "PKM001004",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
+  },
+  {
+    "product_id": 5,
+    "licence_name": "Pokemon",
+    "category_name": "Figuras coleccionables",
+    "product_name": "Pidgeotto",
+    "product_description": "Figura coleccionable pokemon",
+    "product_price": 1799.99,
+    "dues": 10,
+    "product_sku": "PKM001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
+  },
+  {
+    "product_id": 6,
+    "licence_name": "Pokemon",
+    "category_name": "Figuras coleccionables",
+    "product_name": "Pidgeotto",
+    "product_description": "Figura coleccionable pokemon",
+    "product_price": 1799.99,
+    "dues": 10,
+    "product_sku": "PKM001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
+  },
+  {
+    "product_id": 7,
+    "licence_name": "Pokemon",
+    "category_name": "Figuras coleccionables",
+    "product_name": "Pidgeotto",
+    "product_description": "Figura coleccionable pokemon",
+    "product_price": 1799.99,
+    "dues": 10,
+    "product_sku": "PKM001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
+  },
+  {
+    "product_id": 8,
+    "licence_name": "HARRY POTTER",
+    "category_name": "Figuras coleccionables",
+    "product_name": " Pidgeotto",
+    "product_description": "Figura coleccionable pokemon",
+    "product_price": 1799.99,
+    "dues": 10,
+    "product_sku": "PKM001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
+  },
+  {
+    "product_id": 9,
+    "licence_name": "HARRY POTTER",
+    "category_name": "Figuras coleccionables",
+    "product_name": "Pidgeotto",
+    "product_description": "Figura coleccionable pokemon",
+    "product_price": 1799.99,
+    "dues": 10,
+    "product_sku": "PKM001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
+  }
+]
