@@ -13,7 +13,7 @@ router.get("/", autController.getAuthLogin);
 router.get("/", autController.getAuthLogout);
 
 // /auth/register
-router.get("login/register", autController.getAuthRegister);
+router.get("/register", autController.getAuthRegister);
 
 //---------metodos post-------------------
 

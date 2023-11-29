@@ -1,21 +1,29 @@
 <ul class="items">
-    <% funkos.forEach(function(funko) { %>
-        <li class="item_size">
-            <article>
-                <a href="/shop/item">
-                   <picture class="item_img">
-                        <span class="item_title">Nuevo</span>
-                        <img class="item_img1" src="../multimedia/star-wars/trooper-1.webp" alt="<%= funko.product_description %>">
-                        <img class="item_img2" src="../multimedia/star-wars/trooper-box.webp" alt="<%= funko.product_description %> en caja">
-                    </picture>
-                   <div class="item_content">
-                        <p class="item_content1"> <%= funko.licence_name %> </p>
-                        <h4 class="item_content2"> <%= funko.product_name %> </h4>
-                        <p class="item_content3">$ <%=funko.product_price%> .-</p>
-                        <p class="item_content4">3 CUOTAS SIN INTERÉS</p>
-                   </div>
-                </a>
-            </article>
-        </li>
-    <%}); %>
+  <% funkos.forEach(function(funko) { %>
+  <li class="item_size">
+    <article>
+      <a href="/shop/item">
+        <picture class="item_img">
+          <span class="item_title">Nuevo</span>
+          <img
+            class="item_img1"
+            src="<%= funko.img_front %>"
+            alt="<%= funko.product_description %>"
+          />
+          <img
+            class="item_img2"
+            src="<%= funko.img_back %>"
+            alt="<%= funko.product_description %> en caja"
+          />
+        </picture>
+        <div class="item_content">
+          <p class="item_content1"><%= funko.licence_name %></p>
+          <h4 class="item_content2"><%= funko.product_name %></h4>
+          <p class="item_content3">$ <%=funko.product_price%> .-</p>
+          <p class="item_content4">3 CUOTAS SIN INTERÉS</p>
+        </div>
+      </a>
+    </article>
+  </li>
+  <%}); %>
 </ul>
