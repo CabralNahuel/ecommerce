@@ -8,7 +8,7 @@ export const sequelize= new Sequelize({
     dialect:'mysql',
     host: process.env.HOST || 'localhost',
     username: process.env.USER || 'root',
-    password: process.env.PASS || 'hepatalgina',
+    password: process.env.PASS || '',
     database: process.env.DATABASE || 'funkoshop',
     port : process.env.MYSQLPORT || 3306,
     pool:{ max:10,min:0,}
