@@ -1,0 +1,46 @@
+<aside class="shop__aside">
+    <form name="aside__search__form" action="">
+        <div class="search__form__div-buscar aside__search">
+            <label class="search__form__label" for="buscar">BUSCAR</label>
+            <br>
+            <input  class="search__form__input" type="search" id="buscar" name="buscar" placeholder="item o categoria">
+        </div>
+        <div class="search__form__div-OrdenarPor aside__search">
+            <label class="search__form__label" for="ordenarPor">ORDENAR POR</label>
+            <br>
+            <select class="search__form__combo" name="ordenarPor" id="ordenarPor">
+                <option class="search__form__combo-option" value="1">STAR WARS</option>
+                <option class="search__form__combo-option" value="2">POKEMON INDIGO</option>
+                <option class="search__form__combo-option" value="3">HARRY POTTER</option>
+                <option class="search__form__combo-option" value="4">ÚLTIMOS LANZAMIENTOS</option>
+                <option class="search__form__combo-option" value="5">LOS MAS VENDIDOS</option>
+            </select>
+        </div>
+        <div class="search__form__precio  aside__search">
+            <label class="search__form__label" for="">PRECIO</label>
+            <br>
+            <div class="search__form__div-precio-maxmin">
+                <label class="search__form__label-price" for="precio_min">MIN</label>
+                <input class="search__form__input-price"type="number" id="precio_min" name="precio_min">
+                -
+                <label class="search__form__label-price" for="precio_max">MAX</label>
+                <input class="search__form__input-price" type="number" id="precio_max" name="precio_max">
+            </div>
+        </div>
+        <div class="search__form__filtrar">
+            <label class="search__form__label" for="filtro">FILTRAR</label>
+            <br>
+            <input class="search__form__filtrar-check" type="checkbox" name="filtro" id="filtro" value="0">
+            <label class="search__form__filtrar-label" for="filtro">NUEVOS</label>
+            <br>
+            <input class="search__form__filtrar-check" type="checkbox" name="filtro" id="filtro" value="1">
+            <label class="search__form__filtrar-label" for="filtro">OFERTAS</label>
+            <br>
+            <input class="search__form__filtrar-check" type="checkbox" name="filtro" id="filtro" value="2">
+            <label class="search__form__filtrar-label" for="filtro">EDICION ESPECIAL</label>
+            <br>
+            <input class="search__form__filtrar-check" type="checkbox" name="filtro" id="filtro" value="3">
+            <label class="search__form__filtrar-label" for="filtro">FAVORITOS</label>
+        </div>
+    </form>
+</aside>

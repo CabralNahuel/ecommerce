@@ -7,6 +7,7 @@ const router = express.Router();
 //metodos get
 
 //home
+router.get("/", mainController.home);
 router.get("/home", mainController.home);
 //contact
 router.get("/contact", mainController.contact);

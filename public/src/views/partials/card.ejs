@@ -1,0 +1,18 @@
+
+    <article class="card-item">
+        <a class="card-item__link" href="./pages/shop/item.html">
+            <picture class="card-item__cover">
+                <span class="card-item__tag">Nuevo</span>
+                <img class="card-item__img--front" src="<%= card.img_front %>"
+                    alt="<%= card.alt_img1 %>">
+                <img class="card-item__img--back" src="<%= card.img_back %>"
+                    alt="<%= card.product_description %>">
+            </picture>
+            <div class="card-item__content">
+                <p class="card-item__license"><%= card.licence_name %></p>
+                <h4 class="card-item__name"><%= card.product_name %></h4>
+                <p class="card-item__price">$ <%= card.product_price %></p>
+                <p class="card-item__promo">3 cuotas sin interes</p>
+            </div>
+        </a>
+    </article>
