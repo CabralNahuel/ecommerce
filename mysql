@@ -2,6 +2,8 @@
 npm i
 reemplazar el pasword en conection.js  y en .env
 copiar este script y ejecutat para crear BD 
+carrito ; https://www.youtube.com/watch?v=f-e9_8YCFI0
+Figura colecionable Funko de Grogu de la serie The Mandalorian
 */
 create database  funkoshop;
 
@@ -29,24 +31,24 @@ CREATE TABLE products
 INSERT INTO `funkoshop`.`products`  VALUES
  (1,'STARWARS','Figuras Coleccionables',
  'BABY YODA BLUEBALL','Figura coleccionable Star Wars',1799.99,10,'STW001001',
- './src/multimedia/star-wars/baby-yoda-1.webp',
- './src/multimedia/star-wars/baby-yoda-box.webp',1,1,'Star Wars & The Mandalorian','Disfruta de una saga que sigue agregando personajes a su colección.')	;
+ '/multimedia/star-wars/baby-yoda-1.webp',
+ '/multimedia/star-wars/baby-yoda-box.webp',1,1,'Star Wars & The Mandalorian','Disfruta de una saga que sigue agregando personajes a su colección.')	;
  
 INSERT INTO `funkoshop`.`products` 
  VALUES
  (2,'STARWARS','Figuras Coleccionables','BOBA FETT FIGHTER',
  'Figura coleccionable Star Wars',1799.99,10,
  'STW001002',
- './src/multimedia/star-wars/bobbafeth-1.webp',
- './src/multimedia/star-wars/bobbafeth-box.webp',0,0,'','')	;
+ '/multimedia/star-wars/bobbafeth-1.webp',
+ '/multimedia/star-wars/bobbafeth-box.webp',0,0,'','')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
  (3,'STARWARS','Figuras Coleccionables','LUKE AND GROGU',
  'Figura coleccionable Star Wars',1799.99,10,
  'STW001003',
-  './src/multimedia/star-wars/luke-1.webp',
-  './src/multimedia/star-wars/luke-box.webp',1,0,'','')	;
+  '/multimedia/star-wars/luke-1.webp',
+  '/multimedia/star-wars/luke-box.webp',1,0,'','')	;
  
 
 INSERT INTO `funkoshop`.`products` 
@@ -54,81 +56,95 @@ INSERT INTO `funkoshop`.`products`
  (4,'STARWARS','Figuras Coleccionables','STORMTROPPER',
  'Figura coleccionable Star Wars',1799.99,10,
  'STW001004',
-  './src/multimedia/star-wars/trooper-1.webp',
-  './src/multimedia/star-wars/trooper-box.webp',0,0,'','');
+  '/multimedia/star-wars/trooper-1.webp',
+  '/multimedia/star-wars/trooper-box.webp',0,0,'','');
 
 INSERT INTO `funkoshop`.`products` 
  VALUES
  (5,'POKEMON','Figuras Coleccionables','CHARMANDER',
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001001',
-  './src/multimedia/pokemon/charmander-1.webp',
-  './src/multimedia/pokemon/charmander-box.webp',0,0,'','')	;
+  '/multimedia/pokemon/charmander-1.webp',
+  '/multimedia/pokemon/charmander-box.webp',0,0,'','')	;
 
 INSERT INTO `funkoshop`.`products` 
  VALUES
  ( 6,'POKEMON','Figuras Coleccionables','DRAGONITE',
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001002',
-  './src/multimedia/pokemon/dragonite-1.webp',
-  './src/multimedia/pokemon/dragonite-box.webp',1,0,'','')	;
+  '/multimedia/pokemon/dragonite-1.webp',
+  '/multimedia/pokemon/dragonite-box.webp',1,0,'','')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
  (7,'POKEMON','Figuras Coleccionables','PIDGEOTTO',
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001003',
-  './src/multimedia/pokemon/pidgeotto-1.webp',
-  './src/multimedia/pokemon/pidgeotto-box.webp',1,0,'','')	;
+  '/multimedia/pokemon/pidgeotto-1.webp',
+  '/multimedia/pokemon/pidgeotto-box.webp',1,0,'','')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
  (8,'POKEMON','Figuras Coleccionables','PIKACHU',
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001004',
-  './src/multimedia/pokemon/pikachu-1.webp',
-  './src/multimedia/pokemon/pikachu-box.webp',0,0,'','')	;
+  '/multimedia/pokemon/pikachu-1.webp',
+  '/multimedia/pokemon/pikachu-box.webp',0,0,'','')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
  (9,'POKEMON','Figuras Coleccionables','VULPIX',
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001005',
-  './src/multimedia/pokemon/vulpix-1.webp',
-  './src/multimedia/pokemon/vulpix-box.webp',0,1, 'POKEMON INDIGO', 'Atrapa todos los que puedas y disfruta de una colección llena de amigos.')	;
+  '/multimedia/pokemon/vulpix-1.webp',
+  '/multimedia/pokemon/vulpix-box.webp',0,1, 'POKEMON INDIGO', 'Atrapa todos los que puedas y disfruta de una colección llena de amigos.')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
  (10,'HARRY POTTER','Figuras Coleccionables','HARRY',
  'Figura coleccionable Harry Potter',1799.99,10,
  'HPT001001',
-  './src/multimedia/harry-potter/harry-1.webp',
-  './src/multimedia/harry-potter/harry-box.webp',0,0,'','')	;
+  '/multimedia/harry-potter/harry-1.webp',
+  '/multimedia/harry-potter/harry-box.webp',0,0,'','')	;
  
 	INSERT INTO `funkoshop`.`products` 
  VALUES
  (11,'HARRY POTTER','Figuras Coleccionables','HERMIONE',
  'Figura coleccionable Harry Potter',1799.99,10,
  'HPT001002',
-  './src/multimedia/harry-potter/hermione-1.webp',
-  './src/multimedia/harry-potter/hermione-box.webp',0,0,'','')	;
+  '/multimedia/harry-potter/hermione-1.webp',
+  '/multimedia/harry-potter/hermione-box.webp',0,0,'','')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
  (12,'HARRY POTTER','Figuras Coleccionables','LUNA',
  'Figura coleccionable Harry Potter',1799.99,10,
  'HPT001003',
-  './src/multimedia/harry-potter/luna-1.webp',
-  './src/multimedia/harry-potter/luna-box.webp',1,0,'','')	;
+  '/multimedia/harry-potter/luna-1.webp',
+  '/multimedia/harry-potter/luna-box.webp',1,0,'','')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
  (13,'HARRY POTTER','Figuras Coleccionables','SNAPE PATRONUS',
  'Figura coleccionable Harry Potter',1799.99,10,
  'HPT001004',
-  './src/multimedia/harry-potter/snape-patronus-1.webp',
-  './src/multimedia/harry-potter/snape-patronus-box.webp',1,1,'HARRY POTTER', 'Revive los recuerdos de una saga llena\n de magia y encanto.')	;
+  '/multimedia/harry-potter/snape-patronus-1.webp',
+  '/multimedia/harry-potter/snape-patronus-box.webp',1,1,'HARRY POTTER', 'Revive los recuerdos de una saga llena\n de magia y encanto.')	;
 
- 
+ 	INSERT INTO `funkoshop`.`products` 
+ VALUES
+ (14,'HARRY POTTER','Figuras Coleccionables','HERMIONE',
+ 'Figura coleccionable Harry Potter',1799.99,10,
+ 'HPT001002',
+  '/multimedia/harry-potter/hermione-1.webp',
+  '/multimedia/harry-potter/hermione-box.webp',0,0,'','')	;
+
+INSERT INTO `funkoshop`.`products` 
+ VALUES
+ (15,'POKEMON','Figuras Coleccionables','CHARMANDER',
+ 'Figura coleccionable pokemon',1799.99,10,
+ 'PKM001001',
+  '/multimedia/pokemon/charmander-1.webp',
+  '/multimedia/pokemon/charmander-box.webp',0,0,'','')	;
 
 

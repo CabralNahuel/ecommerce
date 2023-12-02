@@ -4,11 +4,11 @@ import dotenv from 'dotenv';
 import express from "express";
 import ejs from "ejs";
 
-import mainRoutes from "./public/src/routes/mainRoutes.js";
-import adminRoutes from "./public/src/routes/adminRoutes.js";
-import authRoutes from "./public/src/routes/authRoutes.js";
-import shopRoutes from "./public/src/routes/shopRoutes.js";
-import { dbConect } from './public/src/config/conection.js';
+import mainRoutes from "./src/routes/mainRoutes.js";
+import adminRoutes from "./src/routes/adminRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
+import shopRoutes from "./src/routes/shopRoutes.js";
+import { dbConect } from './src/config/conection.js';
 
 dbConect();
 dotenv.config();
@@ -43,7 +43,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-app.set("views", path.resolve() + "/public/src/views");
+app.set("views", path.resolve() + "/src/views");
 
 
 app.listen(PORT, () =>

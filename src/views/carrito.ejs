@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('partials/head.ejs', {titulo}) %>
+<body>
+    <%- include('partials/header') -%>
+    <main class="cart__main__container container">
+        <section class="cart__section">
+            <h2 class="cart__title">CARRITO DE COMPRAS</h2>
+            <table class="cart__table">
+                <thead>
+                    <tr class="table__head table__row">
+                        <th class="cart__table__head-th">DETALLE DE PRODUCTO</th>
+                        <th class="cart__table__head-th">CANTIDAD</th>
+                        <th class="cart__table__head-th">TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody class="cart__table__body">
+                    <tr class="table__row" >
+                        <td class="cart__table__body-td">
+                            <article class="table__data-article">
+                                <picture class="table__data-picture">
+                                    <img  src="../../img/star-wars/baby-yoda-1.webp" alt="Figura colecionable Funko de Grogu de la serie The Mandalorian">
+                                </picture>
+                                <div class="table__data__card_content">
+                                    <h5 class="table-data__card_title">BABY YODA BLUEBALL</h5>
+                                    <p class="table-data__card_license">STAR WARS</p>
+                                    <p class="table-data__card_price">precio: $1799,99</p>
+                                </div>
+                            </article>
+                        </td>
+                        <td class="cart__table__body-td">
+                            <input class="cart__table-td__card_input-quantity" type="number" id="cantidadItemsROW" name="cantidadItemsROW">
+                        </td>
+                        <td class="cart__table__body-td">
+                            <p class="cart__table-td__card_totalPrice">$ 1799,99</p>
+                        </td>
+                    </tr>
+                    <tr class="table__row" >
+                        <td>
+                            <section class="cart__table__body-td"> 
+                                <article class="table__data-article">
+                                    <picture class="table__data-picture">
+                                        <img  src="../../img/star-wars/baby-yoda-1.webp" alt="Figura colecionable Funko de Grogu de la serie The Mandalorian">
+                                    </picture>
+                                    <div class="table__data__card_content">
+                                        <h5 class="table-data__card_title">BABY YODA BLUEBALL</h5>
+                                        <p class="table-data__card_license">STAR WARS</p>
+                                        <p class="table-data__card_price">precio: $1799,99</p>
+                                    </div>
+                                </article>
+                            </section>
+                        </td>
+                        <td class="cart__table__body-td">
+                            <input class="cart__table-td__card_input-quantity" type="number" id="cantidadItemsROW" name="cantidadItemsROW">
+                        </td>
+                        <td class="cart__table__body-td">
+                            <p class="cart__table-td__card_totalPrice">$ 1799,99</p>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </section>
+        <section class="cart__resume">
+            <h2>RESUMEN</h2>
+            <div>
+                <p>CANTIDAD DE ELEMENTOS               3</p>
+                <p>SUBTOTAL                    $5.399,87</p>
+                <p>Total                       $5.399,87</p>
+                <a href="#">IR A PAGAR</a>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer') -%>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+</html>
+
+
+

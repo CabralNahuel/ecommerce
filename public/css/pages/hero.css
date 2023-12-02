@@ -1,0 +1,56 @@
+.hero{
+    padding: var(--spacing-128);
+    background-image: url(../../multimedia/funkos-banner.webp);
+    background-position: topg;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.hero::before{
+    content: '';
+    background-color: rgba(0, 0, 0, 0);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px) brightness(0.9);
+}
+
+.hero__content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-20);
+    align-items: start;
+    z-index: 2;
+    position: relative;
+}
+
+.hero__title{
+    font-family: var(--secundary-font);
+    color: var(--light-font-color);
+    font-size: var(--font-jumbo);
+}
+.hero__text{
+    font-family: var(--secundary-font);
+    color: var(--light-font-color);
+    font-size: var(--font-medium);
+}
+
+
+.hero__link{
+    display: inline-block;
+    font-size: var(--font-medium);
+    background: var(--light-bg-color);
+    padding: var(--spacing-12) var(--spacing-68);
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    
+}
+
+.hero__link:hover{
+    background-color: var(--primary-color-900);
+    color: var(--light-font-color);
+}

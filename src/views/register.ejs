@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('partials/head.ejs', {titulo}) %>
+  <body>
+    <%- include('partials/header') -%>
+    <main>
+      <section class="reg-container">
+        <h2>CREA TU CUENTA</h2>
+        <h3>Completa el formulario para ser parte del mundo de los Funkos</h3>
+        <div class="inner-container">
+          <div class="name">
+            <p>Nombre:</p>
+            <input type="text" />
+          </div>
+          <div class="last-name">
+            <p>Apellido:</p>
+            <input type="text" />
+          </div>
+          <div class="email">
+            <p>Email:</p>
+            <input type="text" />
+          </div>
+          <div class="pass">
+            <p>Contraseña:</p>
+            <input type="password" />
+          </div>
+          <div class="pass2">
+            <p>Repita Contraseña:</p>
+            <input type="password" />
+          </div>
+          <div class="lastdiv">
+            <button>Registrar</button>
+            <label
+              ><input type="checkbox" />
+              <p>
+                Acepto <a class="terms" href="">Terminos y Condiciones</a>
+              </p></label
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer') -%>
+  </body>
+</html>

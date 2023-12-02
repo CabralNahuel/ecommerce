@@ -1,0 +1,92 @@
+.cart__main__container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-36);
+}
+
+/* .cart__section{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-36);
+    padding: 36px;
+    background-color: black;
+}  */
+
+.cart__title{
+    font-family: var(--alternative-font);
+    color: var(--dark-solid);
+    font-size: var(--font-display);
+    font-weight:700;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-8);
+    border-bottom: 2px solid var(--primary-solid);
+}
+
+
+.table__row {
+    border-radius: 10px;
+    background: var(--light-bg-solid);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    width: 100%;
+}
+
+.cart__table__body{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-20);
+}
+
+
+
+.table__data-article{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: var(--spacing-8);
+    /* padding: var(--spacing-16) 0; */
+}
+
+.table__data-picture{
+    max-width: 200px;
+}
+
+.table__data__card_content{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.table-data__card_title{
+    font-size: var(--font-medium);
+    font-weight:700;
+
+}
+
+.table-data__card_license{
+    font-size: var(--font-small);
+    font-weight:500;
+}
+
+.table-data__card_price{
+    font-size: var(--font-xsmall);
+    font-weight:300;
+}
+
+/* .cart__table__head-th{
+    color: var(--dark-solid);
+    padding: var(--spacing-8);
+    font-size: var(--font-small) ;
+    font-weight: 700;
+    padding: var(--spacing-8);
+} */
+
+.cart__resume{
+    background-color: coral;
+}
+
+
+
+
+
+
+/* fin    carrito-------------*/
