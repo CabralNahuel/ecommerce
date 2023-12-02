@@ -2,8 +2,7 @@
 npm i
 reemplazar el pasword en conection.js  y en .env
 copiar este script y ejecutat para crear BD 
-carrito ; https://www.youtube.com/watch?v=f-e9_8YCFI0
-Figura colecionable Funko de Grogu de la serie The Mandalorian
+
 */
 create database  funkoshop;
 
