@@ -2,11 +2,17 @@
 import express from "express";
 import ejs from "ejs";
 
+
 import mainRoutes from "./public/src/routes/mainRoutes.js";
 import adminRoutes from "./public/src/routes/adminRoutes.js";
 import authRoutes from "./public/src/routes/authRoutes.js";
 import shopRoutes from "./public/src/routes/shopRoutes.js";
 import path from "path";
+
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const funkos = require("./funkos.json");
+
 
 //declaracion de variables
 const app = express();
@@ -37,6 +43,8 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", path.resolve() + "/public/src/views");
 app.get("/", (req, res) => res.render("index"));
+
+app.get("/shop", (req, res) => res.render("shop",{funkos : funkos}));
 
 app.listen(PORT, () =>
   console.log(`el sv esta funcionando en http://localhost:${PORT}`)
