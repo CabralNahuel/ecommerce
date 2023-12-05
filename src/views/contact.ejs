@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-   <%-include('partials/head.ejs', {titulo}) %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pages/contact.css" />
+    <title>CONTACTO</title>
+  </head>
+
   <body>
     <%- include('partials/header') -%>
-    <main>CONTACTO</main>
+    <main>
+      <section class="contform">
+        <form method="post" action="" onsubmit="return validar()">
+          <fieldset>
+            <legend>Formulario de Contacto</legend>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Nombre" />
+            <span id="nombre_error" class="mensaje_error"></span>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" placeholder="Apellido" />
+            <span id="apellido_error" class="mensaje_error"></span>
+            <label for="correo">Correo:</label>
+            <input type="text" id="correo" placeholder="usuario@dominio.com" />
+            <span id="correo_error" class="mensaje_error"></span>
+            <label for="asunto">Asunto:</label>
+            <input type="text" id="asunto" placeholder="Titulo del Asunto" />
+            <span id="asunto_error" class="mensaje_error"></span>
+            <label for="mensaje">Mensaje:</label>
+            <textarea
+              id="mensaje"
+              placeholder="Descripción del Asunto"
+              rows="5"
+              cols="50"
+            ></textarea>
+            <span id="mensaje_error" class="mensaje_error"></span>
+            <div id="botones">
+              <input type="submit" class="btn" value="Enviar" />
+              <input type="button" class="btn" id="borrar" value="Borrar" />
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </main>
 
     <%- include('partials/footer') -%>
+
+    <script src="/js/validar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
   </body>
 </html>
