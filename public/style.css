@@ -413,6 +413,7 @@ glide__arrow--right{
 
 .item__input{
     font-size: var(--font-small);
+    text-align: center;
     font-weight: 400;
     max-width: var(--spacing-36);   
 }
