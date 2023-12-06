@@ -1,0 +1,23 @@
+.search{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin: 36px auto
+    
+}
+.search_label{
+ 
+}
+.admin_input{
+    width: 529.76px;
+    height: 44.28px;
+    border-radius: 6px;
+    border: 2px solid #30343F;
+    padding-left: 1em;
+    font-family: Inter;
+    font-size: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    
+}

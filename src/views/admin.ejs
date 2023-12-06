@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="/css/pages/admin.css" />
+
+  <%-include('partials/head.ejs') %>
+
+  <body>
+    <%- include('partials/admin_header') -%>
+    <main class="container">
+      <section class="search">
+        <label for="search"
+          ><iconify-icon
+            icon="material-symbols:search"
+            width="30.8"
+            height="30.76"
+          ></iconify-icon>
+        </label>
+        <input
+          class="admin_input"
+          type="search"
+          name="search"
+          id="search"
+          placeholder="código, nombre o categoria"
+        />
+      </section>
+    </main>
+
+    <%- include('partials/admin_footer') -%>
+  </body>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</html>

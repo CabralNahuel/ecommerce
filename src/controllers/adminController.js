@@ -1,5 +1,9 @@
 const adminController = {
-  getAdmin: (req, res) => res.send("hola desde /admin"),
+  getAdmin: (req, res) => {
+    const titulo = "ADMIN";
+
+    res.render("admin", { titulo });
+  },
   getAdminCreate: (req, res) => res.send("hola desde /admin/create"),
   getAdminEditId: (req, res) => res.send("hola desde /admin/edit/:id"),
   postAdminCreate: (req, res) => res.send("hola desde post /admin/create"),
