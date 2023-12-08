@@ -1,0 +1,25 @@
+<tr class="table__row" >
+  <td class="cart__table__body-td">
+      <article class="table__data-article">
+          <picture class="table__data-picture">
+              <img  
+                  src="<%= funkoSelected.img_front %>" 
+                  alt="<%= funkoSelected.product_description %>">
+          </picture>
+          <div class="table__data__card_content">
+              <h5 class="table-data__card_title"><%= funkoSelected.product_name %></h5>
+              <p class="table-data__card_license"><%= funkoSelected.licence_name %></p>
+              <p class="table-data__card_price">precio: $  <%= funkoSelected.product_price %></p>
+          </div>
+      </article>
+  </td>
+  <td class="cart__table__body-td">
+      <input class="cart__table-td__card_input-quantity"
+       type="number" 
+       id="cantidadItemsROW" name="cantidadItemsROW">
+  </td>
+  <td class="cart__table__body-td">
+      <p class="cart__table-td__card_totalPrice">$  <%= funkoSelected.product_price %></p>
+  </td>
+</tr>
+

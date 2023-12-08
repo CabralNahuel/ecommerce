@@ -1,0 +1,202 @@
+/*Register-------------------*/
+
+.reg-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1023px; 
+    position: relative;
+}
+
+
+.reg-container h2{
+    font-size: 32px; 
+    font-family: Raleway; 
+    font-weight: 700; 
+    letter-spacing: 1.68px; 
+    word-wrap: break-word;
+}
+
+.reg-container h3{
+    font-size: 22px; 
+    font-family: Raleway; 
+    font-weight: 500; 
+    letter-spacing: 1.28px; 
+    word-wrap: break-word;
+}
+
+.inner-container{
+    width: 450px; 
+    position: relative;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.name{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:space-around;
+    width: 100%;
+}
+
+.name p{
+
+    font-size: 14px; 
+    font-family: Inter; 
+    font-weight: 400; 
+    letter-spacing: 0.96px; 
+    word-wrap: break-word;
+}
+
+.name input{
+    border:none;
+    border-bottom: 2px #FF3333 solid;
+    outline: none;
+    color: grey;
+}
+
+.last-name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    width: 100%;
+}
+
+.last-name p{
+    font-size: 14px; 
+    font-family: Inter; 
+    font-weight: 400; 
+    letter-spacing: 0.96px; 
+    word-wrap: break-word;
+}
+
+.last-name input{
+    border:none;
+    border-bottom: 2px #FF3333 solid;
+    outline: none;
+    color: grey;
+}
+
+
+
+.email{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    width: 100%;
+}
+
+.email p{
+    font-size: 14px; 
+    font-family: Inter; 
+    font-weight: 400; 
+    letter-spacing: 0.96px; 
+    word-wrap: break-word;
+    margin-right: 20px;
+}
+
+.email input{
+    border:none;
+    border-bottom: 2px #FF3333 solid;
+    outline: none;
+    color: grey;
+}
+
+.pass{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    width: 100%;
+}
+
+.pass p{
+    font-size: 14px; 
+    font-family: Inter; 
+    font-weight: 400; 
+    letter-spacing: 0.96px; 
+    word-wrap: break-word;
+    margin-left: 10px;
+}
+
+.pass input{
+    border:none;
+    border-bottom: 2px #FF3333 solid;
+    outline: none;
+    color: grey;
+    margin-right: 12px;
+}
+
+.pass2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+    width: 100%;
+    
+}
+
+.pass2 p{
+    font-size: 14px; 
+    font-family: Inter; 
+    font-weight: 400; 
+    letter-spacing: 0.96px; 
+    word-wrap: break-word;
+    margin-left: 15px;
+
+}
+
+.pass2 input{
+    border:none;
+    border-bottom: 2px #FF3333 solid;
+    outline: none;
+    color: grey;
+    margin-right: 20px;
+}
+
+div.lastdiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+div.lastdiv > label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+div.lastdiv > label > p{
+    font-size: 14px;
+}
+
+div.lastdiv > label > p > a{
+    color: #1D84B5;
+    margin-right: 20px;
+}
+
+
+div.lastdiv > button{
+    height: 39px;
+    width: 95px;
+    font-size: 12px;
+    font-weight: 200;
+    color:white;
+    border: none;
+    background: #FF3333;
+    margin-left: 20px;
+}
+
+/*--------------------------*/

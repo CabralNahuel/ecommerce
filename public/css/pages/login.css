@@ -1,0 +1,129 @@
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 515px; 
+    max-height: 289.13px; 
+    position: relative;
+   
+}
+
+.login-container h2{
+    text-align: center; 
+    color: #1F1F1F; 
+    font-size: 32px; 
+    font-family: Raleway; 
+    font-weight: 700; 
+    letter-spacing: 1.68px; 
+    word-wrap: break-word;
+}
+
+
+.login-container a{
+    color: #1D84B5;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+
+
+.cont-1{
+    
+    width: 100%;
+    display:flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.cont-1 label{
+    text-align: right; 
+    color: black; 
+    font-size: 20px; 
+    font-family: Inter; 
+    font-weight: 400; 
+    letter-spacing: 0.96px; 
+    word-wrap: break-word;
+    justify-self: start;
+    
+}
+
+.cont-1 input{
+    width: 150px; 
+    height: 2em;
+    border:none;
+    border-bottom: 2px #FF3333 solid;
+    margin: 5px 5px 5px 75px;
+
+}
+
+.cont-2{
+    
+    width: 100%;
+    display:flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+
+.cont-2 label{
+    justify-self: start;
+    text-align: right; 
+    color: black; 
+    font-size: 20px; 
+    font-family: Inter; 
+    font-weight: 400; 
+    letter-spacing: 0.96px; 
+    word-wrap: break-word;
+    justify-self: start;
+}
+
+
+.cont-2 input{
+    width: 150px; 
+    height: 2em;
+    border:none;
+    border-bottom: 2px #FF3333 solid;
+    margin: 5px 5px 5px 15px;
+}
+ 
+
+.cont-3{
+    
+    width: 100%;
+    display:flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+
+.cont-3 button{
+    height: 39px;
+    width: 105px;
+    font-size: 12px;
+    font-weight: 200;
+    color:white;
+    border: none;
+    background: #FF3333;
+    justify-self:right;
+    margin-left: 95px;
+}
+
+
+.cont-3 label{
+    color: black; 
+    font-size: 16px; 
+    font-family: Inter; 
+    font-weight: 200; 
+    letter-spacing: 0.96px; 
+    word-wrap: break-word;
+    justify-self:left;
+    align-self: center;
+    margin-right:95px ;
+}
+

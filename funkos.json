@@ -8,8 +8,8 @@
     "product_price": 1799.99,
     "dues": 10,
     "product_sku": "STW001001",
-    "img_front": "./src/multimedia/star-wars/baby-yoda-1.webp",
-    "img_back": "./src/multimedia/star-wars/baby-yoda-box.webp"
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 2,
@@ -19,9 +19,9 @@
     "product_description": "Figura coleccionable Star Wars",
     "product_price": 1799.99,
     "dues": 10,
-    "product_sku": "STW001002",
-    "img_front": "./src/multimedia/star-wars/bobbafeth-1.webp",
-    "img_back": "./src/multimedia/star-wars/bobbafeth-box.webp"
+    "product_sku": "PKM001002",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 3,
@@ -31,9 +31,9 @@
     "product_description": "Figura coleccionable Star Wars",
     "product_price": 1799.99,
     "dues": 10,
-    "product_sku": "STW001003",
-    "img_front": "./src/multimedia/star-wars/luke-1.webp",
-    "img_back": "./src/multimedia/star-wars/luke-box.webp"
+    "product_sku": "PKM001003",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 4,
@@ -43,116 +43,68 @@
     "product_description": "Figura coleccionable Star Wars",
     "product_price": 1799.99,
     "dues": 10,
-    "product_sku": "STW001004",
-    "img_front": "./src/multimedia/star-wars/trooper-1.webp",
-    "img_back": "./src/multimedia/star-wars/trooper-box.webp"
+    "product_sku": "PKM001004",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 5,
-    "licence_name": "POKEMON",
+    "licence_name": "Pokemon",
     "category_name": "Figuras coleccionables",
-    "product_name": "CHARMANDER",
+    "product_name": "Pidgeotto",
     "product_description": "Figura coleccionable pokemon",
     "product_price": 1799.99,
     "dues": 10,
     "product_sku": "PKM001001",
-    "img_front": "./src/multimedia/pokemon/charmander-1.webp",
-    "img_back": "./src/multimedia/pokemon/charmander-box.webp"
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 6,
-    "licence_name": "POKEMON",
+    "licence_name": "Pokemon",
     "category_name": "Figuras coleccionables",
-    "product_name": "DRAGONITE",
+    "product_name": "Pidgeotto",
     "product_description": "Figura coleccionable pokemon",
     "product_price": 1799.99,
     "dues": 10,
-    "product_sku": "PKM001002",
-    "img_front": "./src/multimedia/pokemon/dragonite-1.webp",
-    "img_back": "./src/multimedia/pokemon/dragonite-box.webp"
+    "product_sku": "PKM001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 7,
-    "licence_name": "POKEMON",
+    "licence_name": "Pokemon",
     "category_name": "Figuras coleccionables",
-    "product_name": "PIDGEOTTO",
+    "product_name": "Pidgeotto",
     "product_description": "Figura coleccionable pokemon",
     "product_price": 1799.99,
     "dues": 10,
-    "product_sku": "PKM001003",
-    "img_front": "./src/multimedia/pokemon/pidgeotto-1.webp",
-    "img_back": "./src/multimedia/pokemon/pidgeotto-box.webp"
+    "product_sku": "PKM001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 8,
-    "licence_name": "POKEMON",
+    "licence_name": "HARRY POTTER",
     "category_name": "Figuras coleccionables",
-    "product_name": " PIKACHU",
+    "product_name": " Pidgeotto",
     "product_description": "Figura coleccionable pokemon",
     "product_price": 1799.99,
     "dues": 10,
-    "product_sku": "PKM001004",
-    "img_front": "./src/multimedia/pokemon/pikachu-1.webp",
-    "img_back": "./src/multimedia/pokemon/pikachu-box.webp"
+    "product_sku": "PKM001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
   },
   {
     "product_id": 9,
-    "licence_name": "POKEMON",
+    "licence_name": "HARRY POTTER",
     "category_name": "Figuras coleccionables",
-    "product_name": "VULPIX",
+    "product_name": "Pidgeotto",
     "product_description": "Figura coleccionable pokemon",
     "product_price": 1799.99,
     "dues": 10,
-    "product_sku": "PKM001005",
-    "img_front": "./src/multimedia/pokemon/vulpix-1.webp",
-    "img_back": "./src/multimedia/pokemon/vulpix-box.webp"
-  },
-  {
-    "product_id": 10,
-    "licence_name": "HARRY POTTER",
-    "category_name": "Figuras coleccionables",
-    "product_name": "HARRY",
-    "product_description": "Figura coleccionable harry potter",
-    "product_price": 1799.99,
-    "dues": 10,
-    "product_sku": "HPT001001",
-    "img_front": "./src/multimedia/harry-potter/harry-1.webp",
-    "img_back": "./src/multimedia/harry-potter/harry-box.webp"
-  },
-  {
-    "product_id": 11,
-    "licence_name": "HARRY POTTER",
-    "category_name": "Figuras coleccionables",
-    "product_name": "HERMIONE",
-    "product_description": "Figura coleccionable harry potter",
-    "product_price": 1799.99,
-    "dues": 10,
-    "product_sku": "HPT001002",
-    "img_front": "./src/multimedia/harry-potter/hermione-1.webp",
-    "img_back": "./src/multimedia/harry-potter/hermione-box.webp"
-  },
-  {
-    "product_id": 12,
-    "licence_name": "HARRY POTTER",
-    "category_name": "Figuras coleccionables",
-    "product_name": "LUNA",
-    "product_description": "Figura coleccionable harry potter",
-    "product_price": 1799.99,
-    "dues": 10,
-    "product_sku": "HPT001003",
-    "img_front": "./src/multimedia/harry-potter/luna-1.webp",
-    "img_back": "./src/multimedia/harry-potter/luna-box.webp"
-  },
-  {
-    "product_id": 13,
-    "licence_name": "HARRY POTTER",
-    "category_name": "Figuras coleccionables",
-    "product_name": "SNAPE PATRONUS",
-    "product_description": "Figura coleccionable harry potter",
-    "product_price": 1799.99,
-    "dues": 10,
-    "product_sku": "HPT001004",
-    "img_front": "./src/multimedia/harry-potter/snape-patronus-1.webp",
-    "img_back": "./src/multimedia/harry-potter/snape-patronus-box.webp"
+    "product_sku": "PKM001001",
+    "img_front": "/img/pokemon/pidgeotto-1.webp",
+    "img_back": "/img/pokemon/pidgeotto-box.webp"
   }
 ]

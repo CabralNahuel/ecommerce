@@ -1,20 +1,24 @@
 //importacion de modulosy librerias
+import path from 'path';
+import dotenv from 'dotenv';
 import express from "express";
 import ejs from "ejs";
 
-import mainRoutes from "./public/src/routes/mainRoutes.js";
-import adminRoutes from "./public/src/routes/adminRoutes.js";
-import authRoutes from "./public/src/routes/authRoutes.js";
-import shopRoutes from "./public/src/routes/shopRoutes.js";
-import path from "path";
+import mainRoutes from "./src/routes/mainRoutes.js";
+import adminRoutes from "./src/routes/adminRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
+import shopRoutes from "./src/routes/shopRoutes.js";
+import { dbConect } from './src/config/conection.js';
 
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-const funkos = require("./funkos.json");
-
+dbConect();
+dotenv.config();
+const root=path.resolve(); 
 //declaracion de variables
 const app = express();
-const PORT = 4000;
+
+//constantes
+const PORT = process.env.Port || 8080;
+const ROOT = path.resolve();
 
 //---------method override------------------------
 // instalar con npm
@@ -39,10 +43,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-app.set("views", path.resolve() + "/public/src/views");
-app.get("/", (req, res) => res.render("index"));
+app.set("views", path.resolve() + "/src/views");
 
-app.get("/shop", (req, res) => res.render("shop", { funkos: funkos }));
 
 app.listen(PORT, () =>
   console.log(`el sv esta funcionando en http://localhost:${PORT}`)
@@ -52,3 +54,5 @@ app.use("/", mainRoutes);
 app.use("/shop", shopRoutes);
 app.use("/login", authRoutes);
 app.use("/admin", adminRoutes);
+
+
