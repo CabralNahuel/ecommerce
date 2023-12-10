@@ -10,6 +10,13 @@ const mainController = {
     res.render ('index', {titulo, collections, cards})
   },
 
+  get1: async (req, res) => {
+    // declaracion del contexto del render
+      const product_id='1'
+      const data = await services.getProduct(product_id)
+      res.send(data)
+  },
+
   contact: (req, res) => {
     const titulo = 'CONTACTO'
     res.render("contact", {titulo})

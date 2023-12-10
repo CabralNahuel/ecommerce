@@ -1,4 +1,5 @@
-import model from '../models/Products.js'
+import model from '../models/products.model.js'
+
 
 const getProducts = async (req, res) => {
     const result = await model.getProducts();
@@ -12,6 +13,7 @@ const getProducts = async (req, res) => {
 const getProduct = async (product_id) => {
     product_id = parseInt(product_id)
     const result = await model.getProduct(product_id)
+    console.log(result);
     return result.dataValues;
 }
 
