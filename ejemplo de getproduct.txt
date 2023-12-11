@@ -1,0 +1,54 @@
+Cuando tenemos una consulta con include 
+los datos de la tablas relacionadas se acceden 
+asi, por ejemplo :
+
+const data = await Products.findOne({
+            where: { product_id },
+            include:[Categorys,Collections]
+});
+console.log('------- data------------------------------------- ')
+console.log(data.product_id)
+console.log(data.product_name)
+console.log(data.category.category_name)
+console.log(data.collection.collection_description)
+return data;
+
+------- data-------------------------------------
+4
+STORMTROPPER
+FUNKOS
+Disfruta de una saga que sigue agregando personajes a su colección.
+-------------------------------
+data seria:
+
+products {
+  dataValues: {
+    product_id: 4,
+    product_name: 'STORMTROPPER',
+    product_description: 'Figura coleccionable Star Wars',
+    product_price: 1799.99,
+    product_stock: 10,
+    product_sku: 'STW001004',
+    dues: 10,
+    img_front: '/multimedia/star-wars/trooper-1.webp',
+    img_back: '/multimedia/star-wars/trooper-box.webp',
+    new_in: false,
+    categoryId: 1,
+    collectionId: 1,
+    category: categorys {
+      dataValues: [Object],
+      _previousDataValues: [Object],
+      uniqno: 1,
+      _changed: Set(0) {},
+      _options: [Object],
+      isNewRecord: false
+    },
+    collection: collections {
+      dataValues: [Object],
+      _previousDataValues: [Object],
+      uniqno: 1,
+      _changed: Set(0) {},
+      _options: [Object],
+      isNewRecord: false
+    }
+  },

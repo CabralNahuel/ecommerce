@@ -24,7 +24,7 @@ const getCollections = async (req, res) => {
 
 const getProduct = async (product_id) => {
     product_id = parseInt(product_id)
-    const result = await model.getProduct(product_id)
+    const result = await productModel.getProduct(product_id)
     console.log(result);
     return result.dataValues;
 }
@@ -32,17 +32,17 @@ const getProduct = async (product_id) => {
 
 const postProducts = async (req,res)=>{
     console.log(req.body);
-    const data = await model.postProducts(req.body);
+    const data = await productModel.postProducts(req.body);
     res.send(data);
 }
 
 const updProduct= async (req,res)=>{
-    const data = await model.updProduct( req.params.id, req.body);
+    const data = await productModel.updProduct( req.params.id, req.body);
     res.send(data?"se modifico":"no se modifico");
 }
 
 const delProduct =  async (req, res) => {
-    const result = await model.delProduct(req.params.id);
+    const result = await productModel.delProduct(req.params.id);
     console.log(result)
     res.send(result?"se borro":"no se borro")
 }
@@ -55,8 +55,6 @@ const getProductByNewIN = async (req,res) => {
     });
     return data;
 }
-
-
 
 const mainServices ={
     getProduct,
