@@ -4,17 +4,17 @@ import services from '../services/mainServices.js'
 const mainController = {
   home: async (req, res) => {
     // declaracion del contexto del render
-      const titulo = 'Home'
-      const collections = await services.getProductInCollection()
-      const cards = await services.getProductByNewIN()
-    res.render ('index', {titulo, collections, cards})
-  },
+      const titulo = 'Home';
+      const collections = await services.getCollections();
+      const cards = await services.getProductByNewIN();
 
-  get1: async (req, res) => {
-    // declaracion del contexto del render
-      const product_id='1'
-      const data = await services.getProduct(product_id)
-      res.send(data)
+      // const data= await services.getProducts()
+      //   console.log('------- pepe------------------------------------- ')
+      //   console.log(data[0].category.dataValues)
+      //   console.log(data[0].collection.dataValues)
+      //   console.log(data[0].product_id)
+      //   console.log(data[0].product_name)
+    res.render ('index', {titulo, collections, cards})
   },
 
   contact: (req, res) => {

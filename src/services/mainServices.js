@@ -1,12 +1,24 @@
-import model from '../models/products.model.js'
-
+import productModel from '../models/products.model.js'
+import collectionModel from '../models/collections.model.js'
+import categoryModel from '../models/category.model.js'
 
 const getProducts = async (req, res) => {
-    const result = await model.getProducts();
+    const result = await productModel.getProducts();
+    const data=[]
+    result.forEach(element => {
+         data.push(element.dataValues)
+    });
+    return data;
+}
+
+const getCollections = async (req, res) => {
+    const result = await collectionModel.getCollections();
     const data=[]
     result.forEach(element => {
         data.push(element.dataValues)
     });
+    console.log('desde main services');
+    console.log(data);
     return data;
 }
 
@@ -36,16 +48,7 @@ const delProduct =  async (req, res) => {
 }
 
 const getProductByNewIN = async (req,res) => {
-    const result= await model.getProductByNewIN();
-    const data=[]
-    result.forEach(element => {
-        data.push(element.dataValues)
-    });
-    return data;
-}
-
-const getProductInCollection = async (req,res) => {
-    const result= await model.getProductInCollection()
+    const result= await productModel.getProductByNewIN();
     const data=[]
     result.forEach(element => {
         data.push(element.dataValues)
@@ -62,8 +65,7 @@ const mainServices ={
     delProduct,
     updProduct,
     getProductByNewIN,
-    getProductInCollection
-    
+    getCollections
 }
 
 export default mainServices;
