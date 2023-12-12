@@ -58,10 +58,13 @@
 
 }
 .botones{
+    display: flex;
     border: none;
     background: transparent;
-
+    justify-content: space-between;
 }
+
+
 ul{
     padding: 0;
 }
@@ -69,13 +72,13 @@ p,h4{
     margin: 0;
 }
 .productos-items{
-    padding-left: var(--spacing-36);
+    padding: 0 var(--spacing-68) 0 var(--spacing-36)
 
 }
 .titulos{
     display: grid;
 
-    grid-template-columns: 10% 20% 30% 25% 15%;
+    grid-template-columns: 10% 20% 30% 30% 10%;
     justify-content: space-between;
 }
 .id,.codigo,.item-nombre, .categoria{
@@ -95,11 +98,9 @@ p,h4{
 }
 .producto-articulo{
     display: grid;
-    grid-template-columns: 10% 20% 30% 25% 15%;
+    grid-template-columns: 10% 20% 30% 30% 10%;
     align-items: baseline;
     
- 
-
 }
 
 .producto-id,
