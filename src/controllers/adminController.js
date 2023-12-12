@@ -7,7 +7,12 @@ const adminController = {
 
     res.render("admin", { titulo, cards });
   },
-  getAdminCreate: (req, res) => res.send("hola desde /admin/create"),
+  getAdminCreate: async (req, res) => {
+    const titulo = "CREATE";
+    const cards = await services.getProducts();
+
+    res.render("create", { titulo, cards });
+  },
   getAdminEditId: (req, res) => res.send("hola desde /admin/edit/:id"),
   postAdminCreate: (req, res) => res.send("hola desde post /admin/create"),
   putAdminEditId: (req, res) => res.send("hola desde put /admin/edit/:id"),
