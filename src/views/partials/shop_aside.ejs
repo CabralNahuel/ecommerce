@@ -1,0 +1,50 @@
+<aside class="container_aside gap_28">
+  <div class="container_aside gap_12">
+    <label class="title" for="search">BUSCAR</label>
+    <input
+      type="text"
+      name="search"
+      id="search"
+      placeholder="item o categoría"
+    />
+  </div>
+  <div class="container aside gap_12">
+    <label class="title" for="orderby">ORDENAR POR</label>
+    <select name="orderby" id="orderby">
+      <option value="AZ">A-Z</option>
+      <option value="ZA">Z-A</option>
+      <option value="Mayor">Mayor precio</option>
+      <option value="Menor">Menor precio</option>
+    </select>
+  </div>
+
+  <div class="container_price">
+    <span class="title">PRECIO</span>
+    <div>
+      <label for="price_min">MIN</label>
+      <input type="text" name="price_min" id="price_min" placeholder="0" />
+      <label for="price_max">- MAX</label>
+      <input type="text" name="price_max" id="price_max" placeholder="0" />
+    </div>
+  </div>
+
+  <div class="container_aside gap_8">
+    <span class="title" for="filter">FILTRAR</span>
+    <div>
+      <input type="checkbox" name="filter" id="f1" value="f1" />
+      <label for="">NUEVOS</label>
+    </div>
+    <div>
+      <input type="checkbox" name="filter" id="f2" value="f2" />
+      <label for="">OFERTAS</label>
+    </div>
+    <div>
+      <input type="checkbox" name="filter" id="f3" value="f3" />
+      <label for="">EDICIÓN ESPECIAL</label>
+    </div>
+    <div>
+      <input type="checkbox" name="filter" id="f4" value="f4" />
+      <label for="">FAVORITOS</label>
+    </div>
+  </div>
+</aside>
