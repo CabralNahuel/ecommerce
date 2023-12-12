@@ -31,6 +31,11 @@
 /*           ITEM             */
 @import url("./pages/item.css"); 
 
+/*           ADMIN             */
+@import url("./pages/admin.css"); 
+
+
+
 /* Ezequiel -------------------------------------*/
 /* Login */
 /* agregar media querys

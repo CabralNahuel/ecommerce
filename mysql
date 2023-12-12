@@ -39,7 +39,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable Star Wars',1799.99,10,
  'STW001002',
  '/multimedia/star-wars/bobbafeth-1.webp',
- '/multimedia/star-wars/bobbafeth-box.webp',0,0,'','')	;
+ '/multimedia/star-wars/bobbafeth-box.webp',0,0,'Star Wars & The Mandalorian','Disfruta de una saga que sigue agregando personajes a su colección.')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -47,7 +47,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable Star Wars',1799.99,10,
  'STW001003',
   '/multimedia/star-wars/luke-1.webp',
-  '/multimedia/star-wars/luke-box.webp',1,0,'','')	;
+  '/multimedia/star-wars/luke-box.webp',1,0,'Star Wars & The Mandalorian','Disfruta de una saga que sigue agregando personajes a su colección.')	;
  
 
 INSERT INTO `funkoshop`.`products` 
@@ -56,7 +56,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable Star Wars',1799.99,10,
  'STW001004',
   '/multimedia/star-wars/trooper-1.webp',
-  '/multimedia/star-wars/trooper-box.webp',0,0,'','');
+  '/multimedia/star-wars/trooper-box.webp',0,0,'Star Wars & The Mandalorian','Disfruta de una saga que sigue agregando personajes a su colección.');
 
 INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -64,7 +64,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001001',
   '/multimedia/pokemon/charmander-1.webp',
-  '/multimedia/pokemon/charmander-box.webp',0,0,'','')	;
+  '/multimedia/pokemon/charmander-box.webp',0,0,'POKEMON INDIGO', 'Atrapa todos los que puedas y disfruta de una colección llena de amigos.')	;
 
 INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -72,7 +72,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001002',
   '/multimedia/pokemon/dragonite-1.webp',
-  '/multimedia/pokemon/dragonite-box.webp',1,0,'','')	;
+  '/multimedia/pokemon/dragonite-box.webp',1,0,'POKEMON INDIGO', 'Atrapa todos los que puedas y disfruta de una colección llena de amigos.')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -80,7 +80,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001003',
   '/multimedia/pokemon/pidgeotto-1.webp',
-  '/multimedia/pokemon/pidgeotto-box.webp',1,0,'','')	;
+  '/multimedia/pokemon/pidgeotto-box.webp',1,0,'POKEMON INDIGO', 'Atrapa todos los que puedas y disfruta de una colección llena de amigos.')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -88,7 +88,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001004',
   '/multimedia/pokemon/pikachu-1.webp',
-  '/multimedia/pokemon/pikachu-box.webp',0,0,'','')	;
+  '/multimedia/pokemon/pikachu-box.webp',0,0,'POKEMON INDIGO', 'Atrapa todos los que puedas y disfruta de una colección llena de amigos.')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -104,7 +104,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable Harry Potter',1799.99,10,
  'HPT001001',
   '/multimedia/harry-potter/harry-1.webp',
-  '/multimedia/harry-potter/harry-box.webp',0,0,'','')	;
+  '/multimedia/harry-potter/harry-box.webp',0,0,'HARRY POTTER', 'Revive los recuerdos de una saga llena\n de magia y encanto.')	;
  
 	INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -112,7 +112,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable Harry Potter',1799.99,10,
  'HPT001002',
   '/multimedia/harry-potter/hermione-1.webp',
-  '/multimedia/harry-potter/hermione-box.webp',0,0,'','')	;
+  '/multimedia/harry-potter/hermione-box.webp',0,0,'HARRY POTTER', 'Revive los recuerdos de una saga llena\n de magia y encanto.')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -120,7 +120,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable Harry Potter',1799.99,10,
  'HPT001003',
   '/multimedia/harry-potter/luna-1.webp',
-  '/multimedia/harry-potter/luna-box.webp',1,0,'','')	;
+  '/multimedia/harry-potter/luna-box.webp',1,0,'HARRY POTTER', 'Revive los recuerdos de una saga llena\n de magia y encanto.')	;
  
  INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -136,7 +136,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable Harry Potter',1799.99,10,
  'HPT001002',
   '/multimedia/harry-potter/hermione-1.webp',
-  '/multimedia/harry-potter/hermione-box.webp',0,0,'','')	;
+  '/multimedia/harry-potter/hermione-box.webp',0,0,'HARRY POTTER', 'Revive los recuerdos de una saga llena\n de magia y encanto.')	;
 
 INSERT INTO `funkoshop`.`products` 
  VALUES
@@ -144,7 +144,7 @@ INSERT INTO `funkoshop`.`products`
  'Figura coleccionable pokemon',1799.99,10,
  'PKM001001',
   '/multimedia/pokemon/charmander-1.webp',
-  '/multimedia/pokemon/charmander-box.webp',0,0,'','')	;
+  '/multimedia/pokemon/charmander-box.webp',0,0,'POKEMON INDIGO', 'Atrapa todos los que puedas y disfruta de una colección llena de amigos.')	;
 
 //--------------------------------------------
 // tabla users ----------------  

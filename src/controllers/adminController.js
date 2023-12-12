@@ -1,5 +1,12 @@
+import services from "../services/mainServices.js";
+
 const adminController = {
-  getAdmin: (req, res) => res.send("hola desde /admin"),
+  getAdmin: async (req, res) => {
+    const titulo = "ADMIN";
+    const cards = await services.getProducts();
+
+    res.render("admin", { titulo, cards });
+  },
   getAdminCreate: (req, res) => res.send("hola desde /admin/create"),
   getAdminEditId: (req, res) => res.send("hola desde /admin/edit/:id"),
   postAdminCreate: (req, res) => res.send("hola desde post /admin/create"),
