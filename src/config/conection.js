@@ -20,4 +20,16 @@ export const dbConect = () => {
     .catch((err) => {console.error('No se pudo Conectar',err)})
 }
 
+export const dbCreate = () => {
+    sequelize.sync({force:true})
+    .then(()=>console.log('se borraron las tablas y se crearon de nuevo'))
+    .catch((err) => {console.error('No se pudo borrar o crer la BD',err)})
+}
+
+export const dbSync = () => {
+    sequelize.sync()
+    .then(()=>console.log('se syncronizaron con BD'))
+    .catch((err) => {console.error('No se pudo sincronizar BD',err)})
+}
+
 
