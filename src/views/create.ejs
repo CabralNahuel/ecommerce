@@ -5,7 +5,65 @@
   <body>
     <%- include('partials/admin_header') -%>
 
-    <main class="main-create"></main>
+    <main class="container">
+      <div class="container-item">
+        <h3 class="container-title">CREAR NUEVO ITEM</h3>
+        <label for=""
+          >Categoria :
+          <select>
+            <option>seleccionar</option>
+          </select>
+        </label>
+        <label for=""
+          >Licencia :
+          <select>
+            <option>seleccionar</option>
+          </select>
+        </label>
+        <label for=""
+          >Nombre del producto:
+          <input type="text" placeholder="Kakashi Hatake Shippuden Saga" />
+        </label>
+        <textarea
+          name="descripcion"
+          id="descripcion-textarea"
+          cols="30"
+          rows="10"
+          placeholder="Descripción del producto"
+        ></textarea>
+        <label for=""
+          >SKU:
+          <input type="text" placeholder="SSK111AB001" />
+        </label>
+        <label for=""
+          >Precio:
+          <input type="number" placeholder="$ 0.000,00" />
+        </label>
+        <label for=""
+          >Stock:
+          <input type="number" placeholder="0" />
+        </label>
+        <label for=""
+          >Descuento:
+          <input type="number" placeholder="0%" />
+        </label>
+        <label for=""
+          >Cuotas :
+          <select>
+            <option>3 Cuotas sin interés</option>
+          </select>
+        </label>
+        <label for=""
+          >Imágenes:
+          <button>Elegir archivos</button>
+          <p>No se ha seleccionado ningún archivo</p>
+        </label>
+        <div class="container-botones">
+          <button>Agregar Producto</button>
+          <button>Limpiar</button>
+        </div>
+      </div>
+    </main>
 
     <%- include('partials/admin_footer') -%>
   </body>
