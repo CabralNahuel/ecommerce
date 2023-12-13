@@ -1,20 +1,19 @@
 //importacion de modulosy librerias
-import path from 'path';
-import dotenv from 'dotenv';
+import path from "path";
+import dotenv from "dotenv";
 import express from "express";
 import ejs from "ejs";
 import mainRoutes from "./src/routes/mainRoutes.js";
 import adminRoutes from "./src/routes/adminRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import shopRoutes from "./src/routes/shopRoutes.js";
-import { dbConect, dbCreate, dbSync } from './src/config/conection.js';
+import { dbConect, dbCreate, dbSync } from "./src/config/conection.js";
+dbConect();
 
-dbConect()
-dbSync()
-
+dbSync();
 
 dotenv.config();
-const root=path.resolve(); 
+const root = path.resolve();
 //declaracion de variables
 const app = express();
 
@@ -47,7 +46,6 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", path.resolve() + "/src/views");
 
-
 app.listen(PORT, () =>
   console.log(`el sv esta funcionando en http://localhost:${PORT}`)
 );
@@ -56,5 +54,3 @@ app.use("/", mainRoutes);
 app.use("/shop", shopRoutes);
 app.use("/login", authRoutes);
 app.use("/admin", adminRoutes);
-
-

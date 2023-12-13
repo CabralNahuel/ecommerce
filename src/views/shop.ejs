@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%-include('partials/head.ejs', {titulo}) %>
-<body>
-   
+  <%-include('partials/head.ejs', {titulo}) %>
+  <body>
     <%- include('partials/header') -%>
 
     <main class="container_shop">
-        <%- include('partials/shop_aside') -%>
+      <%- include('partials/shop_aside') -%>
 
-        <section class="container_items">
-            <ul class="items">
-                <% cards.forEach(function(card) { %>
-                    <%-include('partials/shop_items', {card}) %>
-                <% }); %>
-            </ul>
+      <section class="container_items">
+        <ul class="items">
+          <% cards.forEach(function(card) { %> <%-include('partials/shop_items',
+          {card}) %> <% }); %>
+        </ul>
 
-            <div class="pages">
-                <a class="link_pages" href="#" > < </a>
-                <a class="link_pages link_pages1" href="#" >1</a>
-                <a class="link_pages" href="#" >2</a>
-                <a class="link_pages" href="#" >3</a>
-                <a class="link_pages" href="#" >4</a>
-                <a class="link_pages" href="#" >5</a>
-                <a class="link_pages" href="#" >></a>
-            </div>
-        </section>
+        <div class="pages">
+          <a class="link_pages" href="#"> < </a>
+          <a class="link_pages link_pages1" href="#">1</a>
+          <a class="link_pages" href="#">2</a>
+          <a class="link_pages" href="#">3</a>
+          <a class="link_pages" href="#">4</a>
+          <a class="link_pages" href="#">5</a>
+          <a class="link_pages" href="#">></a>
+        </div>
+      </section>
     </main>
-    
+
     <%- include('partials/footer') -%>
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script> 
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+  </body>
 </html>
