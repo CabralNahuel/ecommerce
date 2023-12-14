@@ -3,6 +3,7 @@
     height: 669.3px;
     padding: var(--spacing-36) 0;
     display: grid;
+    align-items: center;
 }
 .h3-title{
     width: 431px;
@@ -20,7 +21,7 @@
 .edit-div{
     display: flex;
     width: 387.29px;
-    height: 44.28px
+    height: 44.28px;
     font-family: var(--primary-font);
     font-size: 24px;
     font-weight: 300;
@@ -38,6 +39,7 @@
     text-align: left;
     border-radius: 6px;
     border: solid 2px #30343F;
+    padding-left: 1%;
     ;
     
 
@@ -73,7 +75,7 @@
     line-height: 22px;
     padding: 1%;
 }
-.contenedor-codigo-precio-stock{
+.contenedor-datos{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -95,11 +97,59 @@
     font-size: 18px;
     font-weight: 400;
     text-align: center;
-
 }
 .stock{
     max-width: 55px;
     height: 27.36px
+}
+.contenedor-img{
+    display: flex;
+    font-family: var(--primary-font);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    gap: 1%;
+    align-items: center;
+}
+.archivo{
+    max-width: 125.24px;
+    height: 25.29px;
+    border-radius: 3px;
+    border: 1px solid #30343FB2;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: 400;
+    }
+.img-p{
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
 
 
+}
+.contenedor-botones{
+    display: flex;
+    width: 384.14px;
+    height: 44.33px;
+    gap:8%;
+
+
+
+}
+.boton{
+    max-width: 175px;
+    height: 44.33px;
+    background: #FF3333;
+    font-family: var(--primary-font);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    border: none;
+    margin: 0;
+
+
+   
+    
 }

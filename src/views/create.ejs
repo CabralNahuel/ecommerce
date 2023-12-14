@@ -12,13 +12,17 @@
           <div class="edit-div">
             Categoria :
             <select class="edit-select">
-              <option>Seleccionar</option>
+              <option name="collection_name">FUNKOS</option>
+              <option name="collection_name">REMERAS</option>
+              <option name="collection_name">LLAVEROS</option>
             </select>
           </div>
           <div class="edit-div">
             Licencia :
             <select class="edit-select">
-              <option>Seleccionar</option>
+              <option name="collection_id">POKEMON</option>
+              <option name="collection_id">HARRY POTTER</option>
+              <option name="collection_id">STARWARS</option>
             </select>
           </div>
         </div>
@@ -28,48 +32,77 @@
             class="nombre_del_producto__input"
             type="text"
             placeholder="Kakashi Hatake Shippuden Saga"
+            name="product_name"
           />
         </div>
         <textarea
           class="descripcion-textarea"
-          name="descripcion"
+          name="product_description"
           id="descripcion-textarea"
           cols="30"
           rows="10"
           placeholder="Descripción del producto"
         ></textarea>
-        <div class="contenedor-codigo-precio-stock">
+        <div class="contenedor-datos">
           <div class="cpk">
             SKU:
-            <input class="cpk-input" type="text" placeholder="SSK111AB001" />
+            <input
+              name="product_sku"
+              class="cpk-input"
+              type="text"
+              placeholder="SSK111AB001"
+            />
           </div>
           <div class="cpk">
             Precio:
-            <input class="cpk-input" type="number" placeholder="$ 0.000,00" />
+            <input
+              name="product_price"
+              class="cpk-input"
+              type="number"
+              placeholder="$ 0.000,00"
+            />
           </div>
           <div class="cpk">
             Stock:
-            <input class="cpk-input stock" type="number" placeholder="0" />
+            <input
+              name="product_stock"
+              class="cpk-input stock"
+              type="number"
+              placeholder="0"
+            />
           </div>
         </div>
-        <div>
-          Descuento:
-          <input type="number" placeholder="0%" />
+        <div class="contenedor-datos">
+          <div class="cpk">
+            Descuento:
+            <input
+              name?="dues"
+              class="cpk-input"
+              type="number"
+              placeholder="0%"
+            />
+          </div>
+          <div class="cpk">
+            Cuotas :
+            <select class="edit-select">
+              <option>3 Cuotas sin interés</option>
+              <option>6 Cuotas sin interés</option>
+              <option>9 Cuotas sin interés</option>
+              <option>12 Cuotas sin interés</option>
+              <option>24 Cuotas sin interés</option>
+            </select>
+          </div>
         </div>
-        <div>
-          Cuotas :
-          <select>
-            <option>3 Cuotas sin interés</option>
-          </select>
-        </div>
-        <div>
+
+        <div class="contenedor-img">
           Imágenes:
-          <button>Elegir archivos</button>
-          <p>No se ha seleccionado ningún archivo</p>
+          <button class="archivo">Elegir archivos</button>
+          <p class="img-p">No se ha seleccionado ningún archivo</p>
         </div>
-        <div class="container-botones">
-          <button type="submit">Agregar Producto</button>
-          <button type="reset">Limpiar</button>
+
+        <div class="contenedor-botones">
+          <button class="boton" type="submit">Agregar Producto</button>
+          <button class="boton" type="reset">Limpiar</button>
         </div>
       </form>
     </main>
