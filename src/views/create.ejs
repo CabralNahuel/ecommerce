@@ -6,7 +6,7 @@
     <%- include('partials/admin_header') -%>
 
     <main class="container">
-      <div class="container-item">
+      <form action="/admin/create" method="post" class="container-item">
         <h3 class="container-title">CREAR NUEVO ITEM</h3>
         <label for=""
           >Categoria :
@@ -59,10 +59,10 @@
           <p>No se ha seleccionado ningún archivo</p>
         </label>
         <div class="container-botones">
-          <button>Agregar Producto</button>
-          <button>Limpiar</button>
+          <button type="submit">Agregar Producto</button>
+          <button type="reset">Limpiar</button>
         </div>
-      </div>
+      </form>
     </main>
 
     <%- include('partials/admin_footer') -%>
