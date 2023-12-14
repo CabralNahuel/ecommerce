@@ -7,57 +7,66 @@
 
     <main class="container">
       <form action="/admin/create" method="post" class="container-item">
-        <h3 class="container-title">CREAR NUEVO ITEM</h3>
-        <label for=""
-          >Categoria :
-          <select>
-            <option>seleccionar</option>
-          </select>
-        </label>
-        <label for=""
-          >Licencia :
-          <select>
-            <option>seleccionar</option>
-          </select>
-        </label>
-        <label for=""
-          >Nombre del producto:
-          <input type="text" placeholder="Kakashi Hatake Shippuden Saga" />
-        </label>
+        <h3 class="h3-title">CREAR NUEVO ITEM</h3>
+        <div class="contenedor-select">
+          <div class="edit-div">
+            Categoria :
+            <select class="edit-select">
+              <option>Seleccionar</option>
+            </select>
+          </div>
+          <div class="edit-div">
+            Licencia :
+            <select class="edit-select">
+              <option>Seleccionar</option>
+            </select>
+          </div>
+        </div>
+        <div class="nombre_del_producto">
+          Nombre del producto:
+          <input
+            class="nombre_del_producto__input"
+            type="text"
+            placeholder="Kakashi Hatake Shippuden Saga"
+          />
+        </div>
         <textarea
+          class="descripcion-textarea"
           name="descripcion"
           id="descripcion-textarea"
           cols="30"
           rows="10"
           placeholder="Descripción del producto"
         ></textarea>
-        <label for=""
-          >SKU:
-          <input type="text" placeholder="SSK111AB001" />
-        </label>
-        <label for=""
-          >Precio:
-          <input type="number" placeholder="$ 0.000,00" />
-        </label>
-        <label for=""
-          >Stock:
-          <input type="number" placeholder="0" />
-        </label>
-        <label for=""
-          >Descuento:
+        <div class="contenedor-codigo-precio-stock">
+          <div class="cpk">
+            SKU:
+            <input class="cpk-input" type="text" placeholder="SSK111AB001" />
+          </div>
+          <div class="cpk">
+            Precio:
+            <input class="cpk-input" type="number" placeholder="$ 0.000,00" />
+          </div>
+          <div class="cpk">
+            Stock:
+            <input class="cpk-input stock" type="number" placeholder="0" />
+          </div>
+        </div>
+        <div>
+          Descuento:
           <input type="number" placeholder="0%" />
-        </label>
-        <label for=""
-          >Cuotas :
+        </div>
+        <div>
+          Cuotas :
           <select>
             <option>3 Cuotas sin interés</option>
           </select>
-        </label>
-        <label for=""
-          >Imágenes:
+        </div>
+        <div>
+          Imágenes:
           <button>Elegir archivos</button>
           <p>No se ha seleccionado ningún archivo</p>
-        </label>
+        </div>
         <div class="container-botones">
           <button type="submit">Agregar Producto</button>
           <button type="reset">Limpiar</button>
