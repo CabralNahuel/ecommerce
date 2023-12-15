@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('partials/head.ejs') %>
+  <head>
+    <%- include('partials/head.ejs') %>
+    <title>Título de tu página</title>
+  </head>
 
   <body>
-    <%- include('partials/admin_header') -%>
+    <%- include('partials/admin_header') %>
 
     <main class="container">
       <form
@@ -14,90 +17,104 @@
       >
         <h3 class="h3-title">CREAR NUEVO ITEM</h3>
         <div class="contenedor-select">
-          <div class="edit-div">
-            Categoria :
-            <select class="edit-select">
-              <option name="collection_name">FUNKOS</option>
-              <option name="collection_name">REMERAS</option>
-              <option name="collection_name">LLAVEROS</option>
+          <div class="edit-div" id="categoriaDiv">
+            <label for="collection_name">Categoria :</label>
+            <select
+              class="edit-select"
+              name="collection_name"
+              id="collection_name"
+            >
+              <option>FUNKOS</option>
+              <option>REMERAS</option>
+              <option>LLAVEROS</option>
             </select>
           </div>
-          <div class="edit-div">
-            Licencia :
-            <select class="edit-select">
-              <option name="collection_id">POKEMON</option>
-              <option name="collection_id">HARRY POTTER</option>
-              <option name="collection_id">STARWARS</option>
+          <div class="edit-div" id="licenciaDiv">
+            <label for="collection_id">Licencia :</label>
+            <select class="edit-select" name="collection_id" id="collection_id">
+              <option>POKEMON</option>
+              <option>HARRY POTTER</option>
+              <option>STARWARS</option>
             </select>
           </div>
         </div>
+
         <div class="nombre_del_producto">
-          Nombre del producto:
+          <label for="product_name">Nombre del producto:</label>
           <input
+            id="product_name"
             class="nombre_del_producto__input"
             type="text"
             placeholder="Kakashi Hatake Shippuden Saga"
             name="product_name"
           />
         </div>
-        <textarea
-          class="descripcion-textarea"
-          name="product_description"
-          id="descripcion-textarea"
-          cols="30"
-          rows="10"
-          placeholder="Descripción del producto"
-        ></textarea>
+
+        <label for="descripcion-textarea">
+          <textarea
+            name="product_description"
+            id="descripcion-textarea"
+            cols="30"
+            rows="10"
+            placeholder="Descripción del producto"
+            class="descripcion-textarea"
+          ></textarea>
+        </label>
+
         <div class="contenedor-datos">
           <div class="cpk">
-            SKU:
+            <label for="product_sku">SKU:</label>
             <input
               name="product_sku"
               class="cpk-input"
               type="text"
               placeholder="SSK111AB001"
+              id="product_sku"
             />
           </div>
           <div class="cpk">
-            Precio:
+            <label for="product_price">Precio:</label>
             <input
               name="product_price"
               class="cpk-input"
               type="number"
               placeholder="$ 0.000,00"
+              id="product_price"
             />
           </div>
           <div class="cpk">
-            Stock:
+            <label for="product_stock">Stock:</label>
             <input
               name="product_stock"
               class="cpk-input stock"
               type="number"
               placeholder="0"
+              id="product_stock"
             />
           </div>
         </div>
-        <div class="contenedor-datos">
-          <div class="cpk">
-            Descuento:
-            <input
-              name?="dues"
-              class="cpk-input"
-              type="number"
-              placeholder="0%"
-            />
-          </div>
-          <div class="cpk">
-            Cuotas :
-            <select class="edit-select">
-              <option>3 Cuotas sin interés</option>
-              <option>6 Cuotas sin interés</option>
-              <option>9 Cuotas sin interés</option>
-              <option>12 Cuotas sin interés</option>
-              <option>24 Cuotas sin interés</option>
-            </select>
-          </div>
-        </div>
+
+        <label for="dues" class="cpk">
+          Descuento:
+          <input
+            name="dues"
+            class="cpk-input"
+            type="number"
+            placeholder="0%"
+            id="dues"
+          />
+        </label>
+
+        <label for="installments" class="cpk">
+          Cuotas :
+          <select id="installments" class="edit-select" name="installments">
+            <option>3 Cuotas sin interés</option>
+            <option>6 Cuotas sin interés</option>
+            <option>9 Cuotas sin interés</option>
+            <option>12 Cuotas sin interés</option>
+            <option>24 Cuotas sin interés</option>
+          </select>
+        </label>
 
         <label for="imagen" class="contenedor-img">
           Imágenes:
@@ -117,6 +134,6 @@
       </form>
     </main>
 
-    <%- include('partials/admin_footer') -%>
+    <%- include('partials/admin_footer') %>
   </body>
 </html>
