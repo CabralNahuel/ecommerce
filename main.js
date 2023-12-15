@@ -8,6 +8,7 @@ import adminRoutes from "./src/routes/adminRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import shopRoutes from "./src/routes/shopRoutes.js";
 import { dbConect, dbCreate, dbSync } from "./src/config/conection.js";
+
 dbConect();
 
 dbSync();

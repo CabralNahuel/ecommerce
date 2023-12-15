@@ -1,6 +1,6 @@
 //importacion de librerias
 import express from "express";
-
+import { uploadMiddleware } from "../middlewares/uploadMiddleware.js";
 //creo variables
 const router = express.Router();
 
@@ -19,7 +19,11 @@ router.get("/edit/:id", adminController.getAdminEditId);
 //---------metodos post-------------------
 
 // /admin/create
-router.post("/create", adminController.postAdminCreate);
+router.post(
+  "/create",
+  uploadMiddleware.single("imagen"),
+  adminController.postAdminCreate
+);
 
 //------------metodos put ----------------
 

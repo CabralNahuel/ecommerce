@@ -6,7 +6,12 @@
     <%- include('partials/admin_header') -%>
 
     <main class="container">
-      <form action="/admin/create" method="post" class="container-item">
+      <form
+        action="/admin/create"
+        method="POST"
+        enctype="multipart/form-data"
+        class="container-item"
+      >
         <h3 class="h3-title">CREAR NUEVO ITEM</h3>
         <div class="contenedor-select">
           <div class="edit-div">
@@ -94,11 +99,16 @@
           </div>
         </div>
 
-        <div class="contenedor-img">
+        <label for="imagen" class="contenedor-img">
           Imágenes:
-          <button class="archivo">Elegir archivos</button>
-          <p class="img-p">No se ha seleccionado ningún archivo</p>
-        </div>
+          <input
+            multiple
+            type="file"
+            class="archivo"
+            name="imagen"
+            id="imagen"
+          />
+        </label>
 
         <div class="contenedor-botones">
           <button class="boton" type="submit">Agregar Producto</button>
