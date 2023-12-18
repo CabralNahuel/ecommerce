@@ -31,7 +31,7 @@ const getProduct = async (product_id) => {
         const data = await Products.findOne({
             where: { product_id },
             include:[Categorys,Collections]
-         });
+        });
         // console.log('------- data------------------------------------- ')
         // console.log(data.product_id)
         // console.log(data.product_name)

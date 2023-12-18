@@ -19,7 +19,6 @@ const getCategory= async (id) =>{
   return data;
 };
 
-
 // const updCategory = async (id,data) => {
 //   const result =  await Categorys.update( data , { where : {id} });
 //   return result[0];

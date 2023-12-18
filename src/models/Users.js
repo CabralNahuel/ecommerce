@@ -1,65 +1,26 @@
 import {sequelize} from '../config/conection.js';
-import { Model,INTEGER,FLOAT,STRING,Op} from 'sequelize';
+import { Model,INTEGER,STRING} from 'sequelize';
 
-class Users extends Model{}
+export class Users extends Model{}
 
-Users.init({
-  id : {type:INTEGER, allowNull:false, primaryKey:true, autoIncrement:true},
-  name : {type:STRING, allowNull:false},
-  last_name : {type:STRING, allowNull:false},
-  email : {type:STRING, allowNull:false},
-  pass : {type:STRING, allowNull:false},
-  admin : {type:INTEGER,allowNull:false , defaultValue:0},
-  recordame : {type:INTEGER,allowNull:false , defaultValue:0}
-},
-{
-  sequelize,
-  modelName:'users', 
-  timestamps:false,
-})
+Users.init(
+    {
+      id : {type:INTEGER, allowNull:false, primaryKey:true, autoIncrement:true},
+      name : {type:STRING, allowNull:false},
+      last_name : {type:STRING, allowNull:false},
+      email : {type:STRING, allowNull:false},
+      pass : {type:STRING, allowNull:false},
+      admin : {type:INTEGER,allowNull:false , defaultValue:0},
+      recordame : {type:INTEGER,allowNull:false , defaultValue:0}
+    },
+    {
+      sequelize,
+      modelName:'users', 
+      timestamps:false,
+    }
+)
 
-const postUser = async (data) =>{
-  const result = await Users.create(data);
-  return result;
-};
 
-const getUsers= async () =>{
-  const data =  await Users.findAll();
-  return data;
-};
-
-const getUserByEmail= async (email) =>{
-  const data =  await Users.findOne({ where : {email} });
-  
-  console.log(data);
-  return data;
-}
-
-const getUser= async (id) =>{
-  const data =  await Users.findOne({ where : {id} });
-  return data;
-};
-
-const updUser = async (id,data) => {
-  const result =  await Users.update( data , { where : {id} });
-  return result[0];
-}
-
-const delUser = async (id) =>{
-  const data =  await Users.destroy({ where : {id} });
-  return data;
-};
-
-const model={
-  getUsers,
-  getUser,
-  getUserByEmail,
-  postUser,
-  delUser,
-  updUser,
-};
-
-export default model;
 
 
 

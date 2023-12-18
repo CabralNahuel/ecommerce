@@ -29,7 +29,6 @@ const getProduct = async (product_id) => {
     return result.dataValues;
 }
 
-
 const postProducts = async (req,res)=>{
     console.log(req.body);
     const data = await productModel.postProducts(req.body);
@@ -57,6 +56,7 @@ const getProductByNewIN = async (req,res) => {
 }
 
 const mainServices ={
+    
     getProduct,
     getProducts,
     postProducts,

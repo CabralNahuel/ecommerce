@@ -12,8 +12,6 @@ Si quiere investigar RELACIONES EN BD---------------------------------------
 
 */
 
-
-
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -34,7 +32,7 @@ CREATE SCHEMA IF NOT EXISTS `funkoshop` DEFAULT CHARACTER SET utf8mb4 COLLATE ut
 USE `funkoshop` ;
 
 -- -----------------------------------------------------
--- Table `funkoshop`.`category`
+-- Table `funkoshop`.`categorys`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `funkoshop`.`categorys` (
   `category_id` INT NOT NULL AUTO_INCREMENT,
@@ -49,7 +47,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `funkoshop`.`collection`
+-- Table `funkoshop`.`collections`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `funkoshop`.`collections` (
   `collection_id` INT NOT NULL AUTO_INCREMENT,
@@ -87,14 +85,10 @@ CREATE TABLE IF NOT EXISTS `funkoshop`.`products` (
   INDEX `fk_products_collection1_idx` (`collectionId` ASC) VISIBLE,
   CONSTRAINT `fk_products_categorys`
     FOREIGN KEY (`categoryId`)
-    REFERENCES `funkoshop`.`categorys` (`category_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `funkoshop`.`categorys` (`category_id`),
   CONSTRAINT `fk_products_collection1`
     FOREIGN KEY (`collectionId`)
-    REFERENCES `funkoshop`.`collections` (`collection_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `funkoshop`.`collections` (`collection_id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 20
 DEFAULT CHARACTER SET = utf8mb4
@@ -120,9 +114,40 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
+-- -----------------------------------------------------
+-- Table `funkoshop`.`cart`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `funkoshop`.`cart` (
+  `cart_id` INT NOT NULL AUTO_INCREMENT,
+  `product_id` INT NOT NULL,
+  `users_id` INT NOT NULL,
+  `cart_quantity` INT NOT NULL,
+  `cart_price` FLOAT NOT NULL,
+  `cart_total_price` FLOAT NOT NULL,
+  `cart_date` DATE NOT NULL,
+  `cart_delivered` TINYINT NOT NULL,
+  `cart_delivered_date` DATE NOT NULL,
+  PRIMARY KEY (`cart_id`),
+  UNIQUE INDEX `cart_id_UNIQUE` (`cart_id` ASC) VISIBLE,
+  UNIQUE INDEX `product_id_UNIQUE` (`product_id` ASC) VISIBLE,
+  UNIQUE INDEX `users_id_UNIQUE` (`users_id` ASC) VISIBLE,
+  INDEX `fk_products_has_users_users1_idx` (`users_id` ASC) VISIBLE,
+  INDEX `fk_products_has_users_products1_idx` (`product_id` ASC) VISIBLE,
+  CONSTRAINT `fk_products_has_users_products1`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `funkoshop`.`products` (`product_id`),
+  CONSTRAINT `fk_products_has_users_users1`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `funkoshop`.`users` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 
 INSERT INTO `funkoshop`.`categorys`
