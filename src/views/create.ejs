@@ -30,8 +30,12 @@
             </select>
           </div>
           <div class="edit-div" id="licenciaDiv">
-            <label for="collection_id">Licencia :</label>
-            <select class="edit-select" name="collection_id" id="collection_id">
+            <label for="collection_license">Licencia :</label>
+            <select
+              class="edit-select"
+              name="collection_license"
+              id="collection_license"
+            >
               <option>POKEMON</option>
               <option>HARRY POTTER</option>
               <option>STARWARS</option>
@@ -50,9 +54,9 @@
           />
         </div>
 
-        <label for="descripcion-textarea">
+        <label for="collection_description">
           <textarea
-            name="product_description"
+            name="collection_description"
             id="descripcion-textarea"
             cols="30"
             rows="10"
@@ -105,9 +109,9 @@
           />
         </label>
 
-        <label for="installments" class="cpk">
+        <label for="cuotas" class="cpk">
           Cuotas :
-          <select id="installments" class="edit-select" name="installments">
+          <select id="cuotas" class="edit-select" name="cuotas">
             <option>3 Cuotas sin interés</option>
             <option>6 Cuotas sin interés</option>
             <option>9 Cuotas sin interés</option>
@@ -116,13 +120,13 @@
           </select>
         </label>
 
-        <label for="imagen" class="contenedor-img">
+        <label for="collection_image" class="contenedor-img">
           Imágenes:
           <input
             multiple
             type="file"
             class="archivo"
-            name="imagen"
+            name="collection_image"
             id="imagen"
           />
         </label>

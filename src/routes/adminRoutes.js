@@ -21,7 +21,7 @@ router.get("/edit/:id", adminController.getAdminEditId);
 // /admin/create
 router.post(
   "/create",
-  uploadMiddleware.single("imagen"),
+  uploadMiddleware.array("collection_image", 2),
   adminController.postAdminCreate
 );
 

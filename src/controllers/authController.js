@@ -21,7 +21,7 @@ const autController = {
     const userDB = await services.getUserByEmail(email);
 
     if (userDB) {
-      if (user.pass === userDB.pass) {
+      if (user.password === userDB.password) {
         if (userDB.recordarme === 1)
           res.send(
             " usuario registrado y recordable asi que taer el pass al input"
@@ -51,7 +51,7 @@ const autController = {
     const data = await services.postUser(newUser);
     // actualizo la base de datos y voy al login
     const titulo = "LOGIN";
-    res.render("login.ejs", { titulo });
+    res.render("login", { titulo });
   },
 };
 

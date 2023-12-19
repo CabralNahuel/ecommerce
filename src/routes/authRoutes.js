@@ -1,27 +1,34 @@
 //importacion de librerias
+import { registerValidation } from "../middlewares/loginMiddleware.js";
 import express from "express";
 import autController from "../controllers/authController.js";
+import { validacion } from "../middlewares/validatorMiddleware.js";
 //creo variables
 const router = express.Router();
 
 //---------metodos get------------
 
-// auth/login
+// /login
 router.get("/", autController.getAuthLogin);
 
-// auth/logout
+// login/logout
 router.get("/", autController.getAuthLogout);
 
-// /auth/register
+// /login/register
 router.get("/register", autController.getAuthRegister);
 
 //---------metodos post-------------------
 
-// auth/login
+// login/
 router.post("/", autController.postAuthLogin);
 
-// /auth/register
-router.post("/register", autController.postAuthRegister);
+// /login/register
+router.post(
+  "/register",
+  registerValidation,
+  validacion,
+  autController.postAuthRegister
+);
 
 // ---------export-----------------
 
