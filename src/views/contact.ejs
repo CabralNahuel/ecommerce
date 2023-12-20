@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pages/contact.css" />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
+    <title>CONTACTO</title>
+  </head>
+
+  <body>
+    <%- include('partials/header') -%>
+    <main>
+      <section class="contform">
+        <form id="form">
+          <fieldset class="titform">
+            <h2>CONTACTO</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Nombre" />
+            <span id="nombre_error" class="mensaje_error"></span>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" placeholder="Apellido" />
+            <span id="apellido_error" class="mensaje_error"></span>
+            <label for="correo">Correo:</label>
+            <input type="text" id="correo" placeholder="usuario@dominio.com" />
+            <span id="correo_error" class="mensaje_error"></span>
+            <label for="asunto">Asunto:</label>
+            <input type="text" id="asunto" placeholder="Titulo del Asunto" />
+            <span id="asunto_error" class="mensaje_error"></span>
+            <label for="mensaje">Mensaje:</label>
+            <textarea
+              id="mensaje"
+              placeholder="Descripción del Asunto"
+              rows="5"
+              cols="50"
+            ></textarea>
+            <span id="mensaje_error" class="mensaje_error"></span>
+            <div class="cont-3">
+              <input type="button" class="btn" id="enviar" onclick="validarf()" value="Enviar" />
+              <input type="reset" class="btn" value="Borrar" />
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+    
+    <%- include('partials/footer') -%>
+
+    <script src="/js/validar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
+

@@ -1,0 +1,199 @@
+/* 
+npm i
+reemplazar el pasword en conection.js 
+ejecutar script
+
+Si quiere investigar RELACIONES EN BD---------------------------------------
+  video : 
+      https://www.youtube.com/watch?v=J8oLwY5114c&t=71s
+  documentacion
+      https://sequelize.org/docs/v6/advanced-association-concepts/creating-with-associations/
+
+
+*/
+
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema funkoshop
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema funkoshop
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `funkoshop` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `funkoshop` ;
+
+-- -----------------------------------------------------
+-- Table `funkoshop`.`categorys`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `funkoshop`.`categorys` (
+  `category_id` INT NOT NULL AUTO_INCREMENT,
+  `category_name` VARCHAR(100) NULL DEFAULT NULL,
+  `category_description` VARCHAR(250) NULL DEFAULT NULL,
+  PRIMARY KEY (`category_id`),
+  UNIQUE INDEX `category_id_UNIQUE` (`category_id` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `funkoshop`.`collections`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `funkoshop`.`collections` (
+  `collection_id` INT NOT NULL AUTO_INCREMENT,
+  `collection_license` VARCHAR(45) NOT NULL,
+  `collection_name` VARCHAR(100) NOT NULL,
+  `collection_description` VARCHAR(255) NOT NULL,
+  `collection_image` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`collection_id`),
+  UNIQUE INDEX `collection_id_UNIQUE` (`collection_id` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `funkoshop`.`products`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `funkoshop`.`products` (
+  `product_id` INT NOT NULL AUTO_INCREMENT,
+  `product_name` VARCHAR(100) NOT NULL,
+  `product_description` VARCHAR(100) NOT NULL,
+  `product_price` FLOAT NOT NULL,
+  `product_stock` INT NOT NULL DEFAULT '0',
+  `product_sku` VARCHAR(10) NOT NULL,
+  `dues` INT NOT NULL,
+  `img_front` VARCHAR(100) NOT NULL,
+  `img_back` VARCHAR(100) NOT NULL,
+  `new_in` INT NOT NULL,
+  `categoryId` INT NOT NULL,
+  `collectionId` INT NOT NULL,
+  PRIMARY KEY (`product_id`, `categoryId`, `collectionId`),
+  UNIQUE INDEX `product_id_UNIQUE` (`product_id` ASC) VISIBLE,
+  INDEX `fk_products_category_idx` (`categoryId` ASC) VISIBLE,
+  INDEX `fk_products_collection1_idx` (`collectionId` ASC) VISIBLE,
+  CONSTRAINT `fk_products_categorys`
+    FOREIGN KEY (`categoryId`)
+    REFERENCES `funkoshop`.`categorys` (`category_id`),
+  CONSTRAINT `fk_products_collection1`
+    FOREIGN KEY (`collectionId`)
+    REFERENCES `funkoshop`.`collections` (`collection_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 20
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `funkoshop`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `funkoshop`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `pass` VARCHAR(12) NOT NULL,
+  `admin` INT NOT NULL DEFAULT '0',
+  `recordame` INT NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `idclient_UNIQUE` (`id` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `funkoshop`.`cart`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `funkoshop`.`cart` (
+  `cart_id` INT NOT NULL AUTO_INCREMENT,
+  `product_id` INT NOT NULL,
+  `users_id` INT NOT NULL,
+  `cart_quantity` INT NOT NULL,
+  `cart_price` FLOAT NOT NULL,
+  `cart_total_price` FLOAT NOT NULL,
+  `cart_date` DATE NOT NULL,
+  `cart_delivered` TINYINT NOT NULL,
+  `cart_delivered_date` DATE NOT NULL,
+  PRIMARY KEY (`cart_id`),
+  UNIQUE INDEX `cart_id_UNIQUE` (`cart_id` ASC) VISIBLE,
+  UNIQUE INDEX `product_id_UNIQUE` (`product_id` ASC) VISIBLE,
+  UNIQUE INDEX `users_id_UNIQUE` (`users_id` ASC) VISIBLE,
+  INDEX `fk_products_has_users_users1_idx` (`users_id` ASC) VISIBLE,
+  INDEX `fk_products_has_users_products1_idx` (`product_id` ASC) VISIBLE,
+  CONSTRAINT `fk_products_has_users_products1`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `funkoshop`.`products` (`product_id`),
+  CONSTRAINT `fk_products_has_users_users1`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `funkoshop`.`users` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+INSERT INTO `funkoshop`.`categorys`
+VALUES ( 1	,'FUNKOS',	'Figuras Coleccionables');
+INSERT INTO `funkoshop`.`categorys`
+VALUES ( 2	,'REMERAS',	'Remeras con el Funko de tu eleccion');
+INSERT INTO `funkoshop`.`categorys`
+VALUES ( 3	,'LLAVEROS',	'Mágicos llaveros colleccionables');
+
+INSERT INTO `funkoshop`.`collections` VALUES (1,	'STARWARS'	,'STAR WARS & THE MANDALORIAN' , 'Disfruta de una saga que sigue agregando personajes a su colección.'
+,'/multimedia/star-wars/baby-yoda-1.webp');
+INSERT INTO `funkoshop`.`collections`VALUES
+(2,	'POKEMON'	,'POKEMON INDIGO' , 'Atrapa todos los que puedas y disfruta de una colección llena de amigos.'	,'/multimedia/pokemon/vulpix-1.webp'	);
+INSERT INTO `funkoshop`.`collections`VALUES
+(3,	'HARRY POTTER'	,'HARRY POTTER' , 'Revive los recuerdos de una saga llena de magia y encanto.'	,'/multimedia/harry-potter/snape-patronus-1.webp'	);
+
+INSERT INTO `funkoshop`.`products`  VALUES
+ (1, 'BABY YODA BLUEBALL','Figura coleccionable Star Wars',1799.99, 10,'STW001001', 10,'/multimedia/star-wars/baby-yoda-1.webp',
+ '/multimedia/star-wars/baby-yoda-box.webp',1,1,1)	; 
+INSERT INTO `funkoshop`.`products`  VALUES (2,'BOBA FETT FIGHTER', 'Figura coleccionable Star Wars',1799.99,10, 'STW001002',10,'/multimedia/star-wars/bobbafeth-1.webp',
+ '/multimedia/star-wars/bobbafeth-box.webp',0,1,1)	;
+  INSERT INTO `funkoshop`.`products`  VALUES (3,'LUKE AND GROGU', 'Figura coleccionable Star Wars',1799.99,10, 'STW001003',10,  '/multimedia/star-wars/luke-1.webp',
+  '/multimedia/star-wars/luke-box.webp',0,1,1)	;
+ INSERT INTO `funkoshop`.`products`  VALUES (4,'STORMTROPPER', 'Figura coleccionable Star Wars',1799.99,10, 'STW001004',10,  '/multimedia/star-wars/trooper-1.webp',
+  '/multimedia/star-wars/trooper-box.webp',0,1,1);
+
+INSERT INTO `funkoshop`.`products`  VALUES  (5,'CHARMANDER', 'Figura coleccionable pokemon',1799.99,10, 'PKM001001',10,
+  '/multimedia/pokemon/charmander-1.webp',  '/multimedia/pokemon/charmander-box.webp',0,1,2)	;
+INSERT INTO `funkoshop`.`products`  VALUES ( 6,'DRAGONITE', 'Figura coleccionable pokemon',1799.99,10, 'PKM001002',10, 
+ '/multimedia/pokemon/dragonite-1.webp',  '/multimedia/pokemon/dragonite-box.webp',1,1,2)	;
+ INSERT INTO `funkoshop`.`products`  VALUES  (7,'PIDGEOTTO', 'Figura coleccionable pokemon',1799.99,10, 'PKM001003',10,
+  '/multimedia/pokemon/pidgeotto-1.webp',  '/multimedia/pokemon/pidgeotto-box.webp',1,1,2)	;
+ INSERT INTO `funkoshop`.`products`  VALUES (8,'PIKACHU', 'Figura coleccionable pokemon',1799.99,10, 'PKM001004',10,
+  '/multimedia/pokemon/pikachu-1.webp',  '/multimedia/pokemon/pikachu-box.webp',0,1,2)	;
+  INSERT INTO `funkoshop`.`products`  VALUES (9,'VULPIX', 'Figura coleccionable pokemon',1799.99,10, 'PKM001005',10,
+  '/multimedia/pokemon/vulpix-1.webp',  '/multimedia/pokemon/vulpix-box.webp',0,1, 2)	;
+ 
+ INSERT INTO `funkoshop`.`products`  VALUES (10,'HARRY', 'Figura coleccionable Harry Potter',1799.99,10, 'HPT001001',10,
+  '/multimedia/harry-potter/harry-1.webp',  '/multimedia/harry-potter/harry-box.webp',0,1,3)	; 
+INSERT INTO `funkoshop`.`products`  VALUES (11,'HERMIONE', 'Figura coleccionable Harry Potter',1799.99,10, 'HPT001002',10,
+  '/multimedia/harry-potter/hermione-1.webp',  '/multimedia/harry-potter/hermione-box.webp',0,1,3)	;
+ INSERT INTO `funkoshop`.`products`  VALUES (12,'LUNA', 'Figura coleccionable Harry Potter',1799.99,10, 'HPT001003',10,
+  '/multimedia/harry-potter/luna-1.webp',  '/multimedia/harry-potter/luna-box.webp',1,1,3)	;
+ INSERT INTO `funkoshop`.`products`  VALUES (13,'SNAPE PATRONUS', 'Figura coleccionable Harry Potter',1799.99,10,'HPT001004',10,
+  '/multimedia/harry-potter/snape-patronus-1.webp','/multimedia/harry-potter/snape-patronus-box.webp',1,1,3)	;
+ INSERT INTO `funkoshop`.`products`  VALUES (14,'HARRY', 'Figura coleccionable Harry Potter',1799.99,10, 'HPT001001',10,
+  '/multimedia/harry-potter/harry-1.webp',  '/multimedia/harry-potter/harry-box.webp',0,1,3)	; 
+INSERT INTO `funkoshop`.`products`  VALUES (15,'HERMIONE', 'Figura coleccionable Harry Potter',1799.99,10, 'HPT001002',10,
+  '/multimedia/harry-potter/hermione-1.webp',  '/multimedia/harry-potter/hermione-box.webp',0,1,3)	;

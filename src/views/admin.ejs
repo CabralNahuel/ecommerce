@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('partials/head.ejs') %>
+
+  <body>
+    <%- include('partials/admin_header') -%>
+    <main class="admin_main container">
+      <section class="search">
+        <label for="search"
+          ><iconify-icon
+            icon="material-symbols:search"
+            width="30.8"
+            height="30.76"
+          ></iconify-icon>
+        </label>
+        <input
+          class="admin_input"
+          type="search"
+          name="search"
+          id="search"
+          placeholder="código, nombre o categoria"
+        />
+      </section>
+      <section class="productos">
+        <h3 class="productos_titulo">LISTADO DE PRODUCTOS</h3>
+        <div class="botonAdmin">
+          <h5 class="boton_h5">AGREGAR</h5>
+          <a href="/admin/create" class="links">
+            <iconify-icon
+              icon="mdi:plus-box"
+              style="color: #f33"
+              width="39"
+              height="39"
+            ></iconify-icon>
+          </a>
+        </div>
+        <div></div>
+      </section>
+      <section class="productos-items">
+        <div class="titulos">
+          <p class="id">ID</p>
+          <p class="codigo">Código</p>
+          <p class="item-nombre">Nombre del Producto</p>
+          <p class="categoria">Categoria</p>
+        </div>
+        <ul>
+          <% cards.forEach(function(card) { %>
+          <%-include('partials/admin_items', {card}) %> <% }); %>
+        </ul>
+      </section>
+    </main>
+
+    <%- include('partials/admin_footer') -%>
+  </body>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</html>

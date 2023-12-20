@@ -1,0 +1,96 @@
+.contform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+form {
+    width: 50%;
+    background-color: white;
+    padding: 1em 3.5em;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.titform h2 {
+    text-align: center;
+    color: #1F1F1F;
+    font-size: 32px;
+    font-family: Raleway;
+    font-weight: 700;
+    letter-spacing: 1.68px;
+    word-wrap: break-word;
+}
+
+label,
+input,
+textarea {
+    display: block;
+    width: 100%;
+    border-color:transparent;
+    border-bottom-color: red;
+    border-color:transparent;
+    font-size: 19px;
+    font-weight:400;
+    font-family: Inter;
+    letter-spacing: 0.96px;
+    word-wrap: break-word;
+}
+
+input,
+textarea {
+    background-color: rgba(233, 247, 247, 0.914);
+    border-bottom: 2.5px #FF3333 solid;
+    padding: 0.75em;
+    margin-right: 16px;
+    color: black;
+    font-size: 15px;
+}
+
+input:invalid:focus,
+textarea:invalid:focus {
+    outline: none;
+    border: 0;
+    border-bottom: 3px solid #ff000d;
+}
+
+input:valid:focus,
+textarea:valid:focus {
+    outline: none;
+    border: 0;
+    border-bottom: 3px solid #0ec72a;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid;
+    background-color: rgb(178, 175, 175);
+}
+
+.mensaje_error {
+	color: #ef2929;
+	display: block;
+	text-align: center;
+    font-family: Inter;
+	font-size: 14px;
+	font-style:normal;
+	margin: 3px auto;
+}
+
+.btn {
+    background-color: rgb(187, 12, 12);
+    color: white;
+    cursor: pointer;
+    padding: 0.8em;
+    margin-top: 1em;
+    font-size: 16px;
+    font-weight:bold;
+}

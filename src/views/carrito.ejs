@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pages/carrito.css" />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
+    <title>CARRITO</title>
+  </head>
+  <body>
+    <%- include('partials/header') -%>
+
+    <main class="carrito">
+      <h1 class="carrito-titulo">CARRITO DE COMPRAS</h1>
+
+      <div class="carrito-tabla">
+        <div class="carrito-tabla-h">
+          <div class="carrito-tabla-h-text">Detalle de Producto</div>
+          <div class="carrito-tabla-h-text">Cantidad</div>
+          <div class="carrito-tabla-h-text">Total</div>
+        </div>
+
+        <%product.forEach(item => {%>  
+        <div name="items" id="item-<%= item.product_id%>" class="carrito-tabla-item">
+          <div  class="carrito-item">
+            <img class="item-imagen" img src="<%= item.img_front %>"  alt="Producto"/>
+            <div>
+              <h2 class="item-texto-titulo"><%=item.product_name%></h2>
+              <p class="item-texto-licencia"><%=item.licence_name%></p>
+              <p class="item-texto-precio">Precio: $ <%=item.product_price%></p>
+            </div>
+          </div>
+
+          <div class="item-card">
+            <span class="item-count" name="count" id="count-<%=item.product_id%>">0</span>
+            <div>
+              <button onclick="add(<%=item.product_id%>, <%=item.product_price%>)" class="item__quantityadd">+</button>
+              <button onclick="subs(<%=item.product_id%>, <%=item.product_price%>)" class="item__quantitysubtract">-</button>
+            </div>
+          </div>
+           
+          <div class="carrito-tabla-total">
+            <p name="totalp" id="total-<%= item.product_id%>"> 0.00</p>
+          </div>
+          <button onclick="remove(<%=item.product_id%>)" class="carrito-tabla-boton">
+              <img src="/multimedia/icons/gg_close-o (1).svg" alt="" />
+          </button>
+        </div>
+        <%})%> 
+      </div>
+
+      <section class="total container">
+        <article class="total-grid">
+          <div>
+            <h2 class="carrito-titulo">RESUMEN</h2>
+          </div>
+          <div class="total-card">
+            <div class="total-grupo-card">
+              <div class="total-descri-card">
+                <span>CANTIDAD DE ELEMENTOS </span>
+                <span>SUBTOTAL</span>
+                <span>ENVIO </span>
+              </div>
+              <div class="total-precio-card">
+                <span id="canti">0</span>
+                <span id="subtot"> 0.00</span>
+                <span> 0.00</span>
+              </div>
+            </div>
+            <div class="total-grupo-card total-grupo-card-cont">
+              <span>TOTAL</span>
+              <span id="total"> 0.00</span>
+            </div>
+            <input type="button" id="pagar" class ="total-item-boton" value="IR A PAGAR" />
+          </div>
+        </article>
+      </section>
+
+    </main>
+
+    <%- include('partials/footer') -%>
+
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
+
+
