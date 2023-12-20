@@ -1,4 +1,5 @@
 import services from "../services/mainServices.js";
+import shopServices from "../services/shopServices.js";
 
 const shopController = {
   getShop: async (req, res) => {
@@ -20,10 +21,32 @@ const shopController = {
     res.render("carrito", { titulo });
   },
 
-  postShopCart: (req, res) => res.send("hola desde post shop/cart"),
+  postShopCart: async (req, res) => {
+    //const {quantity,price} = req.body
+    const quantity = 10;
+    const id = 6;
+    const product_id = 3;
+    const productData = await shopServices.postShopCart(
+      product_id,
+      id,
+      quantity
+    );
+    res.send(productData);
+  },
 
-  postShopItemIdAdd: (req, res) =>
-    res.send("hola desde post /shop/item/:id/add"),
+  postShopItemIdAdd: (req, res) => {
+    console.log("-------------------------------------postshop item add");
+
+    const product_id = req.params.product_id;
+    if (req.sesssion.userID) {
+      const id = req.sesssion.userID;
+    } else {
+      // pedir al usuari que se loguue
+    }
+    console.log(id, product_id, req.body.quantity);
+    console.log(req.body);
+    res.send("hola desde post /shop/item/:id/add");
+  },
 };
 
 export default shopController;

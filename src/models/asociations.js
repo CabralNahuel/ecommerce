@@ -1,7 +1,8 @@
 import { Products } from "./Products.js";
 import { Categorys } from "./Categorys.js";
 import { Collections } from "./Collections.js";
-import Users from "./Users.js";
+import { Users } from "./Users.js";
+import { Carts } from "./Cart.js";
 
 // definicion de relaciones m-1
 
@@ -11,6 +12,8 @@ Categorys.hasMany(Products, { foreignKey: "categoryId" });
 Products.belongsTo(Collections, { foreignKey: "collectionId" });
 Collections.hasMany(Products, { foreignKey: "collectionId" });
 
-const asociatedModels = { Products, Categorys, Collections, Users };
+// definicion de relaciones m-m  de users y products a travez de la tabla cart
+Users.belongsToMany(Products, { through: "Carts" });
+Products.belongsToMany(Users, { through: "Carts" });
 
-export { Products, Categorys, Collections, Users }; // Exportar los modelos individualmente
+export { Products, Categorys, Collections, Users, Carts }; // Exportar los modelos individualmente
