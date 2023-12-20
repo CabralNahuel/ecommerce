@@ -1,33 +1,29 @@
 {
   "type": "module",
-  "name": "proyects",
+  "name": "node-proyects",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon main.js",
-    "start": "node main.js"
+    "start": "nodemon main.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "nodemon": "^3.0.1",
+    "express-validator": "^7.0.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.5",
+    "nodemon": "^3.0.1",
     "sequelize": "^6.35.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CabralNahuel/ecommerce.git"
-  },
-  "bugs": {
-    "url": "https://github.com/CabralNahuel/ecommerce/issues"
-  },
-  "homepage": "https://github.com/CabralNahuel/ecommerce#readme"
+  }
 }

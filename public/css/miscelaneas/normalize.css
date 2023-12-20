@@ -1,0 +1,51 @@
+
+/* normalizamos los estilos */
+*, 
+*::before
+*::after   {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box; /* come espacio hacia adentro*/
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: var(--primary-font);
+    color:var(--dark-color-solid); 
+} 
+
+
+a{
+    text-decoration: none;
+    font-family: inherit;
+    color:inherit
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+header,footer {
+    font-family: var(--secundary-font);
+    color:var(--light-font-color);  
+}
+
+p{
+    font-size: 1.8em;
+}
+
+img{
+    width: 100%;
+}
+h1,h2,h3,h4,h5{
+    margin: 0;
+}

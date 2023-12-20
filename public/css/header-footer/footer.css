@@ -1,0 +1,13 @@
+.footer{
+    background-color: var(--dark-color-solid);
+    padding: var(--spacing-68);
+}
+
+.footer__copy{
+    text-align: center;
+    font-family: var(--secundary-font);
+    margin-top: var(--spacing-36);
+    color: var(--light-font-color);
+    font-size: var(--spacing-20);
+    font-weight: 500;
+}

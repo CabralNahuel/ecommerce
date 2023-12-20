@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <%-include('partials/head.ejs', {titulo}) %>
+  
+  <body>
+    <%- include('partials/header') -%>
+
+    <%-include('partials/hero.ejs') %>
+    
+    
+    <main class="main-container">
+      
+        <!-- colecciones -->
+        <% collections.forEach(function(collection) { %>
+          <%-include('partials/collection', {collection}) %>
+        <% }); %>
+
+      <section class="slider container glide">
+          <h2 class="slider__title">ÚLTIMOS LANZAMIENTOS</h2>
+          <div class="glide__track" data-glide-el="track">
+            <ul class="slider__items glide__slides">
+
+              <% cards.forEach(function(card) { %>
+                <li class="slider__item glide__slide">
+                  <%-include('partials/card', {card}) %>
+                </li>
+              <% }); %>
+              
+            </ul>
+          </div>
+
+          <%-include('partials/glide_arrows.ejs') %> 
+
+          
+      </section>
+    </main>
+
+    <%- include('partials/footer') -%>
+    <%- include('partials/scripts.ejs') %>
+  </body>
+</html>

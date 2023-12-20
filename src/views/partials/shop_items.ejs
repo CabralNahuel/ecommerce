@@ -1,0 +1,25 @@
+<li class="item_size">
+  <article>
+    <a href="/shop/item/<%= card.product_id %>">
+      <picture class="item_img">
+        <span class="item_title">Nuevo</span>
+        <img
+          class="item_img1"
+          src="<%= card.img_front %>"
+          alt="<%= card.product_description %>"
+        />
+        <img
+          class="item_img2"
+          src="<%= card.img_back %>"
+          alt="<%= card.product_description %> en caja"
+        />
+      </picture>
+      <div class="item_content">
+        <p class="item_content1"><%= card.collection.collection_license %></p>
+        <h4 class="item_content2"><%= card.product_name %></h4>
+        <p class="item_content3">$ <%= card.product_price %>.-</p>
+        <p class="item_content4">3 CUOTAS SIN INTERÉS</p>
+      </div>
+    </a>
+  </article>
+</li>

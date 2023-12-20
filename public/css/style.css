@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Raleway:wght@400;500;700&family=Roboto:wght@900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css");
+@import url("https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css");
+
+/* micelaneas */
+
+    /* DESIGN SISTEMS*/
+    @import url("./miscelaneas/designSistem.css");
+
+    /* Normalizaciones */
+    @import url("./miscelaneas/normalize.css");
+
+    /*HELPERS*/
+    @import url("./miscelaneas/helpers.css");
+
+/* HEADER */
+@import url("./header-footer/header.css");
+
+/* HERO */
+@import url("./pages/hero.css");
+
+/* COLLECTIONS  */
+@import url("./pages/collecciones.css"); 
+
+/* SLIDER  */
+@import url("./pages/slider.css"); 
+
+/*   FOOTER   */
+@import url("./header-footer/footer.css");
+
+/*           ITEM             */
+@import url("./pages/item.css"); 
+
+/*           ADMIN             */
+@import url("./pages/admin.css"); 
+
+/*           CREATE             */
+@import url("./pages/create.css"); 
+
+
+
+/* Ezequiel -------------------------------------*/
+/* Login */
+/* agregar media querys
+hasta las 430 px de ancho no se rompe la parte del section del login*/
+@import url("./pages/login.css");
+
+/*Register-------------------*/
+@import url("./pages/register.css");
+
+/* Pagina SHOP CardCollections*/
+@import url("./pages/shop.css");
+/* fin Shop -----------------*/
+
+/* Pagina Carrito        */
+@import url("./pages/cart.css");
+/* fin    carrito        */
+
+/* ANIMATIONS */
+@keyframes fade{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+
+@media screen and (max-width: 768px){
+
+    .card__collection__items{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        gap:var(--spacing-24);
+        row-gap: var(--spacing-36);
+    }
+}
+
+@media screen and (max-width: 425px){
+
+    .card__collection__items{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        align-items: center;
+        gap:var(--spacing-24);
+        row-gap: var(--spacing-36);
+    }
+}

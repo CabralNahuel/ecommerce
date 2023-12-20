@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('partials/head.ejs', {titulo}) %>
+
+  <body>
+    <%- include('partials/header') -%>
+    <main>
+      <section class="login-container">
+        <form action="/login" method="POST">
+          <h2>INGRESAR A MI CUENTA</h2>
+          <div class="cont-1">
+            <label class="email"
+              >Email:
+              <input id="email" name="email" type="text" class="email-input"
+            /></label>
+          </div>
+          <div class="cont-2">
+            <label class="pass"
+              >Contraseña:
+              <input id="pass" name="pass" type="password" class="pass-input"
+            /></label>
+          </div>
+          <div class="cont-3">
+            <button>Ingresar</button>
+            <label class="label-check"
+              ><input type="checkbox" class="check-input" />Recordarme</label
+            >
+          </div>
+          <a href="">Olvide mi Contraseña</a>
+        </form>
+      </section>
+    </main>
+
+    <%- include('partials/footer') -%>
+  </body>
+</html>
