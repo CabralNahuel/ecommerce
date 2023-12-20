@@ -1,7 +1,6 @@
 import productModel from "../models/products.model.js";
 import collectionModel from "../models/collections.model.js";
 import categoryModel from "../models/category.model.js";
-
 const getProducts = async (req, res) => {
   const result = await productModel.getProducts();
   const data = [];
@@ -17,8 +16,17 @@ const getCollections = async (req, res) => {
   result.forEach((element) => {
     data.push(element.dataValues);
   });
-  console.log("desde main services");
-  console.log(data);
+
+  return data;
+};
+
+const getCategory = async (req, res) => {
+  const result = await categoryModel.getCategorys();
+  const data = [];
+  result.forEach((element) => {
+    data.push(element.dataValues);
+  });
+
   return data;
 };
 
@@ -30,13 +38,17 @@ const getProduct = async (product_id) => {
 };
 
 const postProducts = async (req, res) => {
-  console.log(req.body);
+  req.body.img_front = "/assets/imagenes/" + req.file.filename;
+
   const data = await productModel.postProducts(req.body);
-  res.send(data);
+
+  res.send("se agrego correctamente");
 };
 
 const updProduct = async (req, res) => {
-  const data = await productModel.updProduct(req.params.id, req.body);
+  const produc_id = parseInt(req.params.id);
+
+  const data = await productModel.updProduct(produc_id, req.body);
   res.send(data ? "se modifico" : "no se modifico");
 };
 
@@ -57,12 +69,13 @@ const getProductByNewIN = async (req, res) => {
 
 const mainServices = {
   getProduct,
-  getProducts,
   postProducts,
   delProduct,
   updProduct,
   getProductByNewIN,
   getCollections,
+  getCategory,
+  getProducts,
 };
 
 export default mainServices;

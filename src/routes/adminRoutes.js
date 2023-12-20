@@ -5,6 +5,7 @@ import { uploadMiddleware } from "../middlewares/uploadMiddleware.js";
 const router = express.Router();
 
 import adminController from "../controllers/adminController.js";
+import mainServices from "../services/mainServices.js";
 //---------metodos get------------
 
 // admin
@@ -21,14 +22,14 @@ router.get("/edit/:id", adminController.getAdminEditId);
 // /admin/create
 router.post(
   "/create",
-  uploadMiddleware.array("collection_image", 2),
-  adminController.postAdminCreate
+  uploadMiddleware.single("img_front"),
+  mainServices.postProducts
 );
 
 //------------metodos put ----------------
 
 // /admin/edit/:id
-router.put("/edit/:id", adminController.putAdminEditId);
+router.post("/edit/:id", mainServices.updProduct);
 
 //------------metodos delete--------------
 

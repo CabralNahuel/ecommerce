@@ -2,7 +2,7 @@
 import path from "path";
 import dotenv from "dotenv";
 import express from "express";
-import ejs from "ejs";
+import methodOverride from "method-override";
 import mainRoutes from "./src/routes/mainRoutes.js";
 import adminRoutes from "./src/routes/adminRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
@@ -29,7 +29,7 @@ const ROOT = path.resolve();
 // Override para habilitar los métodos PUT y DELETE
 
 //const methodOverride = require('method-override');
-//app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 //-------------------------------------------------
 
 //----------- public ----------------------------

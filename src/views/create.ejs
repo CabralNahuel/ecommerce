@@ -19,26 +19,26 @@
         <div class="contenedor-select">
           <div class="edit-div" id="categoriaDiv">
             <label for="collection_name">Categoria :</label>
-            <select
-              class="edit-select"
-              name="collection_name"
-              id="collection_name"
-            >
-              <option>FUNKOS</option>
-              <option>REMERAS</option>
-              <option>LLAVEROS</option>
+            <select class="edit-select" name="categoryId" id="collection_name">
+              <% categorys.forEach(items => { %>
+              <option value="<%= items.category_id %>">
+                <%= items.category_name %>
+              </option>
+              <% }); %>
             </select>
           </div>
           <div class="edit-div" id="licenciaDiv">
             <label for="collection_license">Licencia :</label>
             <select
               class="edit-select"
-              name="collection_license"
+              name="collectionId"
               id="collection_license"
             >
-              <option>POKEMON</option>
-              <option>HARRY POTTER</option>
-              <option>STARWARS</option>
+              <% collection.forEach(items => { %>
+              <option value="<%= items.collection_id %>">
+                <%= items.collection_license %>
+              </option>
+              <% }); %>
             </select>
           </div>
         </div>
@@ -54,9 +54,9 @@
           />
         </div>
 
-        <label for="collection_description">
+        <label for="product_description">
           <textarea
-            name="collection_description"
+            name="product_description"
             id="descripcion-textarea"
             cols="30"
             rows="10"
@@ -120,21 +120,18 @@
           </select>
         </label>
 
-        <label for="collection_image" class="contenedor-img">
+        <label for="img_front" class="contenedor-img">
           Imágenes:
-          <input
-            multiple
-            type="file"
-            class="archivo"
-            name="collection_image"
-            id="imagen"
-          />
+          <input type="file" class="archivo" name="img_front" id="img_front" />
         </label>
+
+        <input hidden name="img_back" id="img_back" value="foto" />
 
         <div class="contenedor-botones">
           <button class="boton" type="submit">Agregar Producto</button>
           <button class="boton" type="reset">Limpiar</button>
         </div>
+        <input class="new_in" name="new_in" hidden value="true" />
       </form>
     </main>
 

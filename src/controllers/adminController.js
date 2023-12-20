@@ -10,11 +10,21 @@ const adminController = {
   getAdminCreate: async (req, res) => {
     const titulo = "CREATE";
     const cards = await services.getProducts();
+    const collection = await services.getCollections();
+    const categorys = await services.getCategory();
 
-    res.render("create", { titulo, cards });
+    res.render("create", { titulo, cards, collection, categorys });
   },
-  getAdminEditId: (req, res) => res.send("hola desde /admin/edit/:id"),
-  postAdminCreate: (req, res) => res.send("hola desde post /admin/create"),
+  getAdminEditId: async (req, res) => {
+    const titulo = "EDIT";
+    const product_id = req.params.id;
+    const producto = await services.getProduct(product_id);
+    const collection = await services.getCollections();
+    const categorys = await services.getCategory();
+
+    res.render("edit", { titulo, producto, collection, categorys });
+  },
+  // postAdminCreate: (req, res) => mainServices.postProducts(),
   putAdminEditId: (req, res) => res.send("hola desde put /admin/edit/:id"),
   deleteAdminDeleteId: (req, res) =>
     res.send("hola desde delete /admin/delete/:id"),

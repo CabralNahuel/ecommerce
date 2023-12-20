@@ -1,10 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('partials/head.ejs') %>
-  <body>
-    <%- include('partials/header') -%>
-    <main>EDIT</main>
+  <head>
+    <%- include('partials/head.ejs') %>
+    <title>Título de tu página</title>
+  </head>
 
-    <%- include('partials/footer') -%>
+  <body>
+    <%- include('partials/admin_header') %>
+
+    <main class="container">
+      <form
+        action="/admin/edit/<%= producto.product_id %>?metodo=PUT"
+        method="POST"
+        enctype="multipart/form-data"
+        class="container-item"
+      >
+        <input type="hidden" name="_method" value="PUT" />
+        <h3 class="h3-title">EDITAR ITEM</h3>
+        <div class="contenedor-select">
+          <div class="edit-div" id="categoriaDiv">
+            <label for="collection_name">Categoria :</label>
+            <select class="edit-select" name="categoryId" id="collection_name">
+              <% categorys.forEach(items => { %>
+              <option value="<%= items.category_id %>">
+                <%= items.category_name %>
+              </option>
+              <% }); %>
+            </select>
+          </div>
+          <div class="edit-div" id="licenciaDiv">
+            <label for="collection_license">Licencia :</label>
+            <select
+              class="edit-select"
+              name="collectionId"
+              id="collection_license"
+            >
+              <% collection.forEach(items => { %>
+              <option value="<%= items.collection_id %>">
+                <%= items.collection_license %>
+              </option>
+              <% }); %>
+            </select>
+          </div>
+        </div>
+
+        <div class="nombre_del_producto">
+          <label for="product_name">Nombre del producto:</label>
+          <input
+            id="product_name"
+            class="nombre_del_producto__input"
+            type="text"
+            value="<%= producto.product_name %>"
+            name="product_name"
+          />
+        </div>
+
+        <label for="product_description">
+          <textarea
+            name="product_description"
+            id="descripcion-textarea"
+            cols="30"
+            rows="10"
+            class="descripcion-textarea"
+          >
+<%= producto.product_description %></textarea
+          >
+        </label>
+
+        <div class="contenedor-datos">
+          <div class="cpk">
+            <label for="product_sku">SKU:</label>
+            <input
+              name="product_sku"
+              class="cpk-input"
+              type="text"
+              value="<%= producto.product_sku %>"
+              id="product_sku"
+            />
+          </div>
+          <div class="cpk">
+            <label for="product_price">Precio:</label>
+            <input
+              name="product_price"
+              class="cpk-input"
+              type="number"
+              value="<%= producto.product_price %>"
+              id="product_price"
+            />
+          </div>
+          <div class="cpk">
+            <label for="product_stock">Stock:</label>
+            <input
+              name="product_stock"
+              class="cpk-input stock"
+              type="number"
+              value="<%= producto.product_stock %>"
+              id="product_stock"
+            />
+          </div>
+        </div>
+
+        <label for="dues" class="cpk">
+          Descuento:
+          <input
+            name="dues"
+            class="cpk-input"
+            type="number"
+            value="<%= producto.dues %>"
+            id="dues"
+          />
+        </label>
+
+        <label for="cuotas" class="cpk">
+          Cuotas :
+          <select id="cuotas" class="edit-select" name="cuotas">
+            <option>3 Cuotas sin interés</option>
+            <option>6 Cuotas sin interés</option>
+            <option>9 Cuotas sin interés</option>
+            <option>12 Cuotas sin interés</option>
+            <option>24 Cuotas sin interés</option>
+          </select>
+        </label>
+
+        <label for="img_front" class="contenedor-img">
+          Imágenes:
+          <input type="file" class="archivo" name="img_front" id="img_front" />
+        </label>
+
+        <input hidden name="img_back" id="img_back" value="foto" />
+
+        <div class="contenedor-botones">
+          <button class="boton" type="submit">Editar Producto</button>
+          <button class="boton" type="reset">Limpiar</button>
+        </div>
+        <input class="new_in" name="new_in" hidden value="true" />
+      </form>
+    </main>
+
+    <%- include('partials/admin_footer') %>
   </body>
 </html>
