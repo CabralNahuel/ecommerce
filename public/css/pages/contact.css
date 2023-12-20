@@ -1,23 +1,14 @@
-/*body {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family:Verdana;
-    margin: 0;
-}*/
 .contform {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family:Verdana;
     margin: 0;
 }
 
 form {
     width: 50%;
-    background-color: rgb(132, 238, 103);
+    background-color: white;
     padding: 1em 3.5em;
 }
 
@@ -27,12 +18,14 @@ fieldset {
     margin: 0;
 }
 
-legend {
-    padding: 0.5em;
+.titform h2 {
     text-align: center;
-    font-weight:bold; 
-    color: rgb(2, 93, 17);
-    font-size: 2.2em;
+    color: #1F1F1F;
+    font-size: 32px;
+    font-family: Raleway;
+    font-weight: 700;
+    letter-spacing: 1.68px;
+    word-wrap: break-word;
 }
 
 label,
@@ -40,57 +33,64 @@ input,
 textarea {
     display: block;
     width: 100%;
-    box-sizing: border-box;
-    border-radius: 0.3em;
-    font-size: 1.5em;
-    font-family:Verdana;
+    border-color:transparent;
+    border-bottom-color: red;
+    border-color:transparent;
+    font-size: 19px;
+    font-weight:400;
+    font-family: Inter;
+    letter-spacing: 0.96px;
+    word-wrap: break-word;
 }
 
 input,
 textarea {
-    background-color: rgba(104, 106, 106, 0.3);
-    border: 2px solid transparent;
-    border-bottom-color: #bbb;
+    background-color: rgba(233, 247, 247, 0.914);
+    border-bottom: 2.5px #FF3333 solid;
     padding: 0.75em;
-    margin: 0.5em 0 1em;
-    color: white;
-    outline: 0;
-    font-size: 1.3em;
+    margin-right: 16px;
+    color: black;
+    font-size: 15px;
 }
 
 input:invalid:focus,
 textarea:invalid:focus {
-    border-bottom: 2px solid #ff000d;
+    outline: none;
+    border: 0;
+    border-bottom: 3px solid #ff000d;
 }
 
 input:valid:focus,
 textarea:valid:focus {
-    border-bottom: 2px solid #0ec72a;
+    outline: none;
+    border: 0;
+    border-bottom: 3px solid #0ec72a;
 }
 
 input:focus,
 textarea:focus {
-    border-bottom: 2px solid #8e999a;
-    background-color: rgb(104, 106, 106);
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid;
+    background-color: rgb(178, 175, 175);
 }
 
 .mensaje_error {
 	color: #ef2929;
 	display: block;
 	text-align: center;
-	font-size: 15px;
+    font-family: Inter;
+	font-size: 14px;
 	font-style:normal;
 	margin: 3px auto;
-    font-weight:bold;
 }
 
 .btn {
-    background-color: rgb(9, 125, 59);
+    background-color: rgb(187, 12, 12);
     color: white;
     cursor: pointer;
     padding: 0.8em;
     margin-top: 1em;
-    font-size: 1.6em;
+    font-size: 16px;
     font-weight:bold;
-    border-radius: 1em;
 }
