@@ -11,6 +11,7 @@ router.get("/", mainController.home);
 router.get("/home", mainController.home);
 //contact
 router.get("/contact", mainController.contact);
+router.post("/contact", mainController.contact);
 //about
 router.get("/about", mainController.about);
 //faqs
