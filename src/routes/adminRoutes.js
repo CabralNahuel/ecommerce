@@ -29,7 +29,7 @@ router.post(
 //------------metodos put ----------------
 
 // /admin/edit/:id
-router.put("/edit/:id", mainServices.updProduct);
+router.post("/edit/:id", mainServices.updProduct);
 
 //------------metodos delete--------------
 
