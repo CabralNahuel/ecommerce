@@ -8,6 +8,8 @@ import adminRoutes from "./src/routes/adminRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import shopRoutes from "./src/routes/shopRoutes.js";
 import { dbConect, dbCreate, dbSync } from "./src/config/conection.js";
+import session from "express-session";
+//import cokieparser from 'cookie-parser';
 
 dbConect();
 
@@ -21,6 +23,16 @@ const app = express();
 //constantes
 const PORT = process.env.Port || 4000;
 const ROOT = path.resolve();
+
+//----------Session
+app.use(session({
+  secret:'funkoshop', 
+  resave: 'true',
+  saveUninitialized : false, 
+  //cookie:{maxAge:3000}
+}))
+
+
 
 //---------method override------------------------
 // instalar con npm

@@ -9,8 +9,9 @@
 
       <section class="container_items">
         <ul class="items">
-          <% cards.forEach(function(card) { %> <%-include('partials/shop_items',
-          {card}) %> <% }); %>
+          <% cards.forEach(function(card) { %>
+             <%-include('partials/shop_items', {card}) %> 
+          <% }); %>
         </ul>
 
         <div class="pages">

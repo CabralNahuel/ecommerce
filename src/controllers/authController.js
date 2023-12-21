@@ -1,4 +1,5 @@
 import services from "../services/authServices.js";
+import mainServices from "../services/mainServices.js";
 
 const autController = {
   getAuthLogin: (req, res) => {
@@ -15,33 +16,39 @@ const autController = {
 
   postAuthLogin: async (req, res) => {
     const user = req.body;
-    console.log("-----------------------------------user");
-    console.log(user);
     const { email } = user;
     const userDB = await services.getUserByEmail(email);
-
+    
     if (userDB) {
       if (user.password === userDB.password) {
-        if (userDB.recordarme === 1)
-          res.send(
-            " usuario registrado y recordable asi que taer el pass al input"
-          );
-        else res.send("usuario registrado vamos al index");
-        // si el usuario existe y el password coincide ir al index con un HOLA ANDREA Y LOGAOUT en el header
-        // const titulo = 'Home'
-        // const collections = await mainServices.getProductInCollection()
-        // const cards = await mainServices.getProductByNewIN()
-        // const user = data
-        // res.render ('index', {titulo, collections, cards, user})
-      } else {
+          const loggeduser={id:userDB.id,email,name:userDB.name,admin:userDB.admin}
+          req.session.loggeduser=loggeduser
+          
+          if (loggeduser.admin)
+          {
+            const titulo = "ADMIN";
+            const cards = await mainServices.getProducts();
+            res.render("admin", { titulo, cards });
+          }
+          else
+          {
+            const titulo = 'Home'
+            const collections = await mainServices.getCollections()
+            const cards = await mainServices.getProductByNewIN()
+            res.render ('index', {titulo, collections, cards })
+          }
+      } 
+      else {
         res.send("el password no coincide me quedo en login");
-        // const titulo = 'LOGIN'
-        // res.render("login.ejs",{titulo})
+        const titulo = 'LOGIN'
+        const loginerror= "Usuario o Password no coincide"
+        res.render("login.ejs",{titulo,loginerror})
       }
-    } else {
-      res.send("usuario no encontrado voy al register para registrarse");
-      // const titulo = 'REGISTER'
-      // res.render("register",{titulo})
+    } 
+    else {
+      //res.send("usuario no encontrado voy al register para registrarse");
+      const titulo = 'REGISTER'
+      res.render("register",{titulo})
     }
   },
 
@@ -51,7 +58,8 @@ const autController = {
     const data = await services.postUser(newUser);
     // actualizo la base de datos y voy al login
     const titulo = "LOGIN";
-    res.render("login", { titulo });
+    const loginerror= ""
+    res.render("login", { titulo, loginerror});
   },
 };
 

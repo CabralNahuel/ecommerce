@@ -21,7 +21,9 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.5",
     "nodemon": "^3.0.1",
-    "sequelize": "^6.35.1"
+    "sequelize": "^6.35.1",
+    "cookie-parser": "^1.4.6",
+    "express-session": "^1.17.3"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

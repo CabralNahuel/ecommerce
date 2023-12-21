@@ -1,6 +1,7 @@
 import productModel from "../models/products.model.js";
 import collectionModel from "../models/collections.model.js";
 import categoryModel from "../models/category.model.js";
+
 const getProducts = async (req, res) => {
   const result = await productModel.getProducts();
   const data = [];
@@ -16,7 +17,6 @@ const getCollections = async (req, res) => {
   result.forEach((element) => {
     data.push(element.dataValues);
   });
-
   return data;
 };
 
@@ -26,7 +26,6 @@ const getCategory = async (req, res) => {
   result.forEach((element) => {
     data.push(element.dataValues);
   });
-
   return data;
 };
 

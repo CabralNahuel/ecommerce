@@ -12,7 +12,7 @@ Si quiere investigar RELACIONES EN BD---------------------------------------
 
 */
 
--- MySQL Workbench Forward Engineering
+- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -38,12 +38,13 @@ CREATE TABLE IF NOT EXISTS `funkoshop`.`categorys` (
   `category_id` INT NOT NULL AUTO_INCREMENT,
   `category_name` VARCHAR(100) NULL DEFAULT NULL,
   `category_description` VARCHAR(250) NULL DEFAULT NULL,
-  PRIMARY KEY (`category_id`),
-  UNIQUE INDEX `category_id_UNIQUE` (`category_id` ASC) VISIBLE)
+  PRIMARY KEY (`category_id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE UNIQUE INDEX `category_id_UNIQUE` ON `funkoshop`.`categorys` (`category_id` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -55,12 +56,13 @@ CREATE TABLE IF NOT EXISTS `funkoshop`.`collections` (
   `collection_name` VARCHAR(100) NOT NULL,
   `collection_description` VARCHAR(255) NOT NULL,
   `collection_image` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`collection_id`),
-  UNIQUE INDEX `collection_id_UNIQUE` (`collection_id` ASC) VISIBLE)
+  PRIMARY KEY (`collection_id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE UNIQUE INDEX `collection_id_UNIQUE` ON `funkoshop`.`collections` (`collection_id` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -80,9 +82,6 @@ CREATE TABLE IF NOT EXISTS `funkoshop`.`products` (
   `categoryId` INT NOT NULL,
   `collectionId` INT NOT NULL,
   PRIMARY KEY (`product_id`, `categoryId`, `collectionId`),
-  UNIQUE INDEX `product_id_UNIQUE` (`product_id` ASC) VISIBLE,
-  INDEX `fk_products_category_idx` (`categoryId` ASC) VISIBLE,
-  INDEX `fk_products_collection1_idx` (`collectionId` ASC) VISIBLE,
   CONSTRAINT `fk_products_categorys`
     FOREIGN KEY (`categoryId`)
     REFERENCES `funkoshop`.`categorys` (`category_id`),
@@ -93,6 +92,12 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 20
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE UNIQUE INDEX `product_id_UNIQUE` ON `funkoshop`.`products` (`product_id` ASC) VISIBLE;
+
+CREATE INDEX `fk_products_category_idx` ON `funkoshop`.`products` (`categoryId` ASC) VISIBLE;
+
+CREATE INDEX `fk_products_collection1_idx` ON `funkoshop`.`products` (`collectionId` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -106,42 +111,46 @@ CREATE TABLE IF NOT EXISTS `funkoshop`.`users` (
   `pass` VARCHAR(12) NOT NULL,
   `admin` INT NOT NULL DEFAULT '0',
   `recordame` INT NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `idclient_UNIQUE` (`id` ASC) VISIBLE)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
+CREATE UNIQUE INDEX `idclient_UNIQUE` ON `funkoshop`.`users` (`id` ASC) VISIBLE;
+
 
 -- -----------------------------------------------------
--- Table `funkoshop`.`cart`
+-- Table `funkoshop`.`carts`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `funkoshop`.`cart` (
+CREATE TABLE IF NOT EXISTS `funkoshop`.`carts` (
   `cart_id` INT NOT NULL AUTO_INCREMENT,
   `product_id` INT NOT NULL,
   `users_id` INT NOT NULL,
   `cart_quantity` INT NOT NULL,
   `cart_price` FLOAT NOT NULL,
   `cart_total_price` FLOAT NOT NULL,
-  `cart_date` DATE NOT NULL,
-  `cart_delivered` TINYINT NOT NULL,
-  `cart_delivered_date` DATE NOT NULL,
+  `cart_date` DATETIME NOT NULL,
+  `cart_delivered` TINYINT(1) NOT NULL,
+  `cart_delivered_date` DATETIME NULL DEFAULT NULL,
+  `product_license` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`cart_id`),
-  UNIQUE INDEX `cart_id_UNIQUE` (`cart_id` ASC) VISIBLE,
-  UNIQUE INDEX `product_id_UNIQUE` (`product_id` ASC) VISIBLE,
-  UNIQUE INDEX `users_id_UNIQUE` (`users_id` ASC) VISIBLE,
-  INDEX `fk_products_has_users_users1_idx` (`users_id` ASC) VISIBLE,
-  INDEX `fk_products_has_users_products1_idx` (`product_id` ASC) VISIBLE,
-  CONSTRAINT `fk_products_has_users_products1`
+  CONSTRAINT `cart_product`
     FOREIGN KEY (`product_id`)
     REFERENCES `funkoshop`.`products` (`product_id`),
-  CONSTRAINT `fk_products_has_users_users1`
+  CONSTRAINT `cart_user`
     FOREIGN KEY (`users_id`)
     REFERENCES `funkoshop`.`users` (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 25
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE UNIQUE INDEX `cart_id` ON `funkoshop`.`carts` (`cart_id` ASC) VISIBLE;
+
+CREATE INDEX `cart_product_idx` ON `funkoshop`.`carts` (`product_id` ASC) VISIBLE;
+
+CREATE INDEX `cart_user_idx` ON `funkoshop`.`carts` (`users_id` ASC) VISIBLE;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

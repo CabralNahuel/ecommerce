@@ -20,32 +20,34 @@
             alt="BOX de <%= funko.product_description %>"
           />
         </picture>
-        <article class="item__info">
-          <p class="item__license"><%= funko.collection.collection_license %></p>
-          <h3 class="item__title"><%= funko.product_name %></h3>
-          <h4 class="item__content">
-            <%= funko.product_description %>
-          </h4>
-          <h3 class="item__price">$ <%= funko.product_price %></h3>
-          <div class="item__cart">
-            <button id="menos" class="item__quantity" type="button">-</button>
-            <input
-              class="item__input"
-              type="text"
-              id="quantity"
-              name="quantity"
-              placeholder="0"
-            />
-            <button id="mas" class="item__quantity" type="button">+</button>
-            <button class="item__submit" type="submit">
-              Agregar al Carrito
-            </button>
-          </div>
-          <p class="item__promo">
-            <a class="item__promo" href="#">Ver métodos de pago</a> - 3 CUOTAS
-            SIN INTERÉS
-          </p>
-        </article>
+        <form action="/shop/addItem/<%= funko.product_id %>" method="POST">
+          <article class="item__info">
+            <p class="item__license"><%= funko.collection.collection_license %></p>
+            <h3 class="item__title"><%= funko.product_name %></h3>
+            <h4 class="item__content">
+              <%= funko.product_description %>
+            </h4>
+            <h3 class="item__price">$ <%= funko.product_price %></h3>
+            <div class="item__cart">
+              <button id="menos" class="item__quantity" type="button">-</button>
+              <input
+                class="item__input"
+                type="text"
+                id="quantity"
+                name="quantity"
+                placeholder="0"
+              />
+              <button id="mas" class="item__quantity" type="button">+</button>
+              <button class="item__submit" type="submit">
+                Agregar al Carrito
+              </button>
+            </div>
+            <p class="item__promo">
+              <a class="item__promo" href="#">Ver métodos de pago</a> - 3 CUOTAS
+              SIN INTERÉS
+            </p>
+          </article>
+        </form>
       </section>
       <section class="slider container glide">
         <h2 class="slider__title">ÚLTIMOS LANZAMIENTOS</h2>

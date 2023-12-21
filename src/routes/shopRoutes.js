@@ -25,7 +25,10 @@ router.get("/cart", shopController.getShopCart);
 router.post("/cart", shopController.postShopCart);
 
 // /shop/item/:id/add
-router.post("/item/:id/add", shopController.postShopItemIdAdd);
+router.post("/addItem/:product_id", shopController.postShopItemIdAdd);
+
+router.post("/delItem/:cart_id", shopController.delShopItemId)
+
 
 // ---------export-----------------
 

@@ -43,20 +43,21 @@ const refresh=()=>{
 }
 
 
-const add = (product_id, product_price)=>{
+const add = (product_id, cart_price)=>{
+    console.log(cart_price);
     const count= document.getElementById(`count-${product_id}`)
     count.innerText=parseInt(count.innerText) + 1
-    totalu = Number(product_price * parseInt(count.innerText)).toFixed(2)
+    totalu = Number(cart_price * parseInt(count.innerText)).toFixed(2)
     document.getElementById(`total-${product_id}`).innerHTML = totalu;
     refresh()
 }
 
 
-const subs =(product_id, product_price)=>{
+const subs =(product_id, cart_price)=>{
     const count= document.getElementById(`count-${product_id}`)
     if (parseInt(count.innerText) >= 1)
        count.innerText=parseInt(count.innerText) - 1;
-       totalu = Number(product_price * parseInt(count.innerText)).toFixed(2)
+       totalu = Number(cart_price * parseInt(count.innerText)).toFixed(2)
        document.getElementById(`total-${product_id}`).innerHTML = totalu;
        refresh()
 }

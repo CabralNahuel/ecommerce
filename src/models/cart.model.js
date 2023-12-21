@@ -37,20 +37,20 @@ const getCart = async (cart_id) => {
         console.log(error);
     }  };
 
-const getCartByUser = async(user_id) => {
-    try {
-        const cart_delivered=false
-        const result =  await Carts.findAll( 
-            {  where : { $and:{ user_id , cart_delivered } },
-                include:[ Users,Products,Categorys,Collections]   
-            }
-            );
-        return result;
-    } 
-    catch (error) {
-        console.log(`error en CartsModel al acceder a tabla ${error}`);
+    const getCartByUser = async(users_id) => {
+        try {
+            //const cart_delivered=false
+            const result =  await Carts.findAll( 
+                {  where : {users_id} ,
+                    include:[ Users,Products]   
+                }
+                );
+            return result;
+        } 
+        catch (error) {
+            console.log(`error en CartsModel al acceder a tabla ${error}`);
+        }
     }
-}
 
 const updCart = async (cart_id,data) => {
     const result =  await Carts.update( data , { where : {cart_id} });
