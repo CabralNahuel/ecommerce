@@ -1,6 +1,6 @@
 window.onload = function () {
-//  let borrar = document.getElementById("borrar");
-//  borrar.addEventListener("click", borrar);
+  //  let borrar = document.getElementById("borrar");
+  //  borrar.addEventListener("click", borrar);
 
   let nombre = document.getElementById("nombre");
   nombre.addEventListener("input", campoNombre);
@@ -16,7 +16,6 @@ window.onload = function () {
 
   let mensaje = document.getElementById("mensaje");
   mensaje.addEventListener("input", campoMensaje);
-
 };
 
 function campoNombre() {
@@ -145,22 +144,16 @@ function validarf() {
     mensajeError.innerHTML = mensajeLargo;
     campoMensaje.style.outline = "1px solid #f00";
     return false;
-  } 
+  }
 
   if (cNombre && cApellido && cCorreo && cAsunto && cMensaje) {
-     Swal.fire({
+    Swal.fire({
       position: "top-end",
       icon: "success",
       title: "Muchas Gracias por tu consulta. Nos comunicaremos a la brevedad",
       showConfirmButton: false,
-      timer: 3000
+      timer: 3000,
     });
     document.getElementById("form").reset();
-  };
+  }
 }
-
-
-
-
-
-
