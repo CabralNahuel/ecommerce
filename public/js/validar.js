@@ -1,6 +1,6 @@
 window.onload = function () {
-  let borrar = document.getElementById("borrar");
-  borrar.addEventListener("click", borrando);
+  //  let borrar = document.getElementById("borrar");
+  //  borrar.addEventListener("click", borrar);
 
   let nombre = document.getElementById("nombre");
   nombre.addEventListener("input", campoNombre);
@@ -63,11 +63,11 @@ function campoMensaje() {
   }
 }
 
-function borrando() {
+function borrar() {
   document.location.reload(true);
 }
 
-function validar() {
+function validarf() {
   let expNomape = /^([a-zA-Z]+)(\s[a-zA-Z]+)*$/;
   let expCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   let cNombre = document.getElementById("nombre").value;
@@ -140,9 +140,20 @@ function validar() {
     campoMensaje.style.outline = "1px solid #f00";
     return false;
   } else if (cMensaje.length >= 255) {
-    mensajeLargo = "Tu Mensaje es demasiado Largo";
+    let mensajeLargo = "Tu Mensaje es demasiado Largo";
     mensajeError.innerHTML = mensajeLargo;
     campoMensaje.style.outline = "1px solid #f00";
     return false;
+  }
+
+  if (cNombre && cApellido && cCorreo && cAsunto && cMensaje) {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Muchas Gracias por tu consulta. Nos comunicaremos a la brevedad",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+    document.getElementById("form").reset();
   }
 }

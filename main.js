@@ -19,7 +19,7 @@ const root = path.resolve();
 const app = express();
 
 //constantes
-const PORT = process.env.Port || 8080;
+const PORT = process.env.Port || 4000;
 const ROOT = path.resolve();
 
 //---------method override------------------------

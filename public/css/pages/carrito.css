@@ -116,7 +116,7 @@
 .carrito-tabla-total{
     width: 100px;
     height: 40px;
-    font-size:medium;
+    font-size: x-small;
     padding-left: var(--spacing-28);
 }
 
