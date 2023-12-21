@@ -14,7 +14,10 @@
           height="25.09"
         ></iconify-icon>
       </a>
-      <a class="links eliminar">
+      <a
+        class="links eliminar"
+        onclick="eliminarProducto('<%= card.product_id %>')"
+      >
         <iconify-icon
           icon="material-symbols:delete-rounded"
           style="color: #f33"

@@ -1,4 +1,5 @@
 import services from "../services/mainServices.js";
+import model from "../models/products.model.js";
 
 const adminController = {
   getAdmin: async (req, res) => {
@@ -26,8 +27,16 @@ const adminController = {
   },
   // postAdminCreate: (req, res) => mainServices.postProducts(),
   putAdminEditId: (req, res) => res.send("hola desde put /admin/edit/:id"),
-  deleteAdminDeleteId: (req, res) =>
-    res.send("hola desde delete /admin/delete/:id"),
+  deleteAdminDeleteId: async (req, res) => {
+    const product_id = parseInt(req.params.id);
+    try {
+      const result = await model.delProduct(product_id);
+      console.log("producto eliminado correctamente");
+    } catch (error) {
+      console.error(error);
+      console.log("no se pudo eliminar el producto");
+    }
+  },
 };
 
 export default adminController;
