@@ -6,13 +6,14 @@ dotenv.config();
 
 export const sequelize= new Sequelize({
     dialect:'mysql',
-    host: process.env.HOST || 'localhost',
-    username: process.env.USER || 'root',
-    password: process.env.PASS || '',
-    database: process.env.DATABASE || 'funkoshop',
-    port : process.env.MYSQLPORT || 3306,
+    host: process.env.HOST, 
+    username: process.env.USER ,
+    password: process.env.PASS ,
+    database: process.env.DATABASE ,
+    port : process.env.MYSQLPORT, 
     pool:{ max:10,min:0,}
 });
+console.log(sequelize)
 
 export const dbConect = () => {
     sequelize.authenticate()

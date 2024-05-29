@@ -9,11 +9,14 @@ import authRoutes from "./src/routes/authRoutes.js";
 import shopRoutes from "./src/routes/shopRoutes.js";
 import { dbConect, dbCreate, dbSync } from "./src/config/conection.js";
 import session from "express-session";
+import {syncAndSeed} from  "./cargardatos.js"
 //import cokieparser from 'cookie-parser';
+
 
 dbConect();
 
 dbSync();
+// syncAndSeed()
 
 dotenv.config();
 const root = path.resolve();
