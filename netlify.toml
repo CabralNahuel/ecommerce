@@ -1,6 +1,11 @@
 [build]
   functions = "netlify/functions"
 
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["sequelize", "mysql2"]
+  included_files = ["src/views/**", "public/**"]
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"
