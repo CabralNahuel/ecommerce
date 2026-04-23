@@ -14,7 +14,10 @@ import { fileURLToPath } from "url";
 
 dotenv.config();
 
-const appFilePath = fileURLToPath(import.meta.url);
+const appFilePath =
+  typeof __filename !== "undefined"
+    ? __filename
+    : fileURLToPath(import.meta.url);
 const appDirPath = path.dirname(appFilePath);
 const isDirectRun = process.argv[1] === appFilePath;
 const app = express();
@@ -56,7 +59,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //------------------app------------------------------
 
-app.use(express.static("public"));
+app.use(express.static(path.join(appDirPath, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(appDirPath, "src", "views"));
 // //-------------rutas----------------------------
