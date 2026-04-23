@@ -9,6 +9,16 @@ const dbUser = process.env.DB_USER || process.env.USER;
 const dbPass = process.env.DB_PASS || process.env.PASS;
 const dbName = process.env.DB_NAME || process.env.DATABASE;
 const dbPort = process.env.DB_PORT || process.env.MYSQLPORT;
+const dbSslEnabled = (process.env.DB_SSL || "false").toLowerCase() === "true";
+
+const dialectOptions = dbSslEnabled
+  ? {
+      ssl: {
+        require: true,
+        rejectUnauthorized: true,
+      },
+    }
+  : {};
 
 export const sequelize= new Sequelize({
     dialect:'mysql',
@@ -17,6 +27,7 @@ export const sequelize= new Sequelize({
     password: dbPass ,
     database: dbName ,
     port : dbPort, 
+    dialectOptions,
     pool:{ max:10,min:0,}
 });
 
