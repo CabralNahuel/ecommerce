@@ -1,5 +1,6 @@
 //importacion de modulosy librerias
 import path from "path";
+import fs from "fs";
 import dotenv from "dotenv";
 import express from "express";
 import methodOverride from "method-override";
@@ -21,6 +22,31 @@ const appFilePath =
 const appDirPath = path.dirname(appFilePath);
 const isDirectRun = process.argv[1] === appFilePath;
 const app = express();
+
+const pickExistingPath = (candidates, fallback) => {
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+  return fallback;
+};
+
+const viewsPath = pickExistingPath(
+  [
+    path.join(process.cwd(), "src", "views"),
+    path.join(appDirPath, "src", "views"),
+  ],
+  path.join(appDirPath, "src", "views")
+);
+
+const publicPath = pickExistingPath(
+  [
+    path.join(process.cwd(), "public"),
+    path.join(appDirPath, "public"),
+  ],
+  path.join(appDirPath, "public")
+);
 
 dbConect();
 dbSync();
@@ -59,9 +85,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //------------------app------------------------------
 
-app.use(express.static(path.join(appDirPath, "public")));
+app.use(express.static(publicPath));
 app.set("view engine", "ejs");
-app.set("views", path.join(appDirPath, "src", "views"));
+app.set("views", viewsPath);
 // //-------------rutas----------------------------
 app.use("/", mainRoutes);
 app.use("/shop", shopRoutes);
