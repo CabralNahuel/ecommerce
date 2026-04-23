@@ -13,7 +13,6 @@ export const sequelize= new Sequelize({
     port : process.env.MYSQLPORT, 
     pool:{ max:10,min:0,}
 });
-console.log(sequelize)
 
 export const dbConect = () => {
     sequelize.authenticate()

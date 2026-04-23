@@ -1,14 +1,15 @@
 //importacion de librerias
 import express from "express";
 import mainController from "../controllers/mainController.js";
+import asyncHandler from "../middlewares/asyncHandler.js";
 //creo variables
 const router = express.Router();
 
 //metodos get
 
 //home
-router.get("/", mainController.home);
-router.get("/home", mainController.home);
+router.get("/", asyncHandler(mainController.home));
+router.get("/home", asyncHandler(mainController.home));
 //contact
 router.get("/contact", mainController.contact);
 router.post("/contact", mainController.contact);

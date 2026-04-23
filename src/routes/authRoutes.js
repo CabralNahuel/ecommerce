@@ -3,6 +3,7 @@ import { registerValidation } from "../middlewares/loginMiddleware.js";
 import express from "express";
 import autController from "../controllers/authController.js";
 import { validacion } from "../middlewares/validatorMiddleware.js";
+import asyncHandler from "../middlewares/asyncHandler.js";
 //creo variables
 const router = express.Router();
 
@@ -12,7 +13,7 @@ const router = express.Router();
 router.get("/", autController.getAuthLogin);
 
 // login/logout
-router.get("/", autController.getAuthLogout);
+router.get("/logout", autController.getAuthLogout);
 
 // /login/register
 router.get("/register", autController.getAuthRegister);
@@ -20,14 +21,14 @@ router.get("/register", autController.getAuthRegister);
 //---------metodos post-------------------
 
 // login/
-router.post("/", autController.postAuthLogin);
+router.post("/", asyncHandler(autController.postAuthLogin));
 
 // /login/register
 router.post(
   "/register",
   registerValidation,
   validacion,
-  autController.postAuthRegister
+  asyncHandler(autController.postAuthRegister)
 );
 
 // ---------export-----------------

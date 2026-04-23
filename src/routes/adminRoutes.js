@@ -1,6 +1,7 @@
 //importacion de librerias
 import express from "express";
 import { uploadMiddleware } from "../middlewares/uploadMiddleware.js";
+import asyncHandler from "../middlewares/asyncHandler.js";
 //creo variables
 const router = express.Router();
 
@@ -9,13 +10,13 @@ import mainServices from "../services/mainServices.js";
 //---------metodos get------------
 
 // admin
-router.get("/", adminController.getAdmin);
+router.get("/", asyncHandler(adminController.getAdmin));
 
 // /admin/create
-router.get("/create", adminController.getAdminCreate);
+router.get("/create", asyncHandler(adminController.getAdminCreate));
 
 // /admin/edit/:id
-router.get("/edit/:id", adminController.getAdminEditId);
+router.get("/edit/:id", asyncHandler(adminController.getAdminEditId));
 
 //---------metodos post-------------------
 
@@ -23,18 +24,18 @@ router.get("/edit/:id", adminController.getAdminEditId);
 router.post(
   "/create",
   uploadMiddleware.single("img_front"),
-  mainServices.postProducts
+  asyncHandler(mainServices.postProducts)
 );
 
 //------------metodos put ----------------
 
 // /admin/edit/:id
-router.post("/edit/:id", mainServices.updProduct);
+router.post("/edit/:id", asyncHandler(mainServices.updProduct));
 
 //------------metodos delete--------------
 
 // /admin/delete/:id
-router.delete("/delete/:id", adminController.deleteAdminDeleteId);
+router.delete("/delete/:id", asyncHandler(adminController.deleteAdminDeleteId));
 
 // ---------export-----------------
 
