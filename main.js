@@ -14,9 +14,9 @@ import { fileURLToPath } from "url";
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const isDirectRun = process.argv[1] === __filename;
+const appFilePath = fileURLToPath(import.meta.url);
+const appDirPath = path.dirname(appFilePath);
+const isDirectRun = process.argv[1] === appFilePath;
 const app = express();
 
 dbConect();
@@ -58,7 +58,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "src", "views"));
+app.set("views", path.join(appDirPath, "src", "views"));
 // //-------------rutas----------------------------
 app.use("/", mainRoutes);
 app.use("/shop", shopRoutes);
