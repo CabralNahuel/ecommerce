@@ -1,6 +1,7 @@
 import services from "../services/mainServices.js";
 import shopServices from "../services/shopServices.js";
 import productModel from "../models/products.model.js";
+import collectionModel from "../models/collections.model.js";
 
 const shopController = {
   getShop: async (req, res) => {
@@ -14,11 +15,30 @@ const shopController = {
       if (val === undefined || val === null || String(val).trim() === "") return;
       baseQuery[key] = String(val);
     });
+
+    let collectionFilter = null;
+    const cid = parseInt(String(req.query.collection_id || "").trim(), 10);
+    if (Number.isFinite(cid) && cid > 0) {
+      try {
+        const col = await collectionModel.getCollection(cid);
+        if (col) {
+          const v = col.dataValues || col;
+          collectionFilter = {
+            id: v.collection_id,
+            name: v.collection_name,
+          };
+        }
+      } catch (e) {
+        /* ignorar */
+      }
+    }
+
     res.render("shop", {
       titulo,
       cards,
       pagination: { total, page, limit, totalPages },
       baseQuery,
+      collectionFilter,
     });
   },
 

@@ -51,6 +51,8 @@ hasta las 430 px de ancho no se rompe la parte del section del login*/
 /*Register-------------------*/
 @import url("./pages/register.css");
 
+@import url("./pages/contact.css");
+
 /* Pagina SHOP CardCollections*/
 @import url("./pages/shop.css");
 /* fin Shop -----------------*/

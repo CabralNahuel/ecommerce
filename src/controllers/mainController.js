@@ -10,8 +10,7 @@ const mainController = {
   },
 
   contact: (req, res) => {
-    const titulo = "CONTACTO";
-    res.render("contact", { titulo });
+    res.render("contact", { titulo: "Contacto | Funkoshop" });
   },
   about: (req, res) => res.send("hola desde about"),
   faqs: (req, res) => res.send("hola desde faqs"),

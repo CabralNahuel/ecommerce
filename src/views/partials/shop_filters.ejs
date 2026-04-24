@@ -1,4 +1,7 @@
 <form class="shop-filters" method="get" action="/shop" aria-label="Filtros de tienda">
+  <% if (typeof baseQuery !== 'undefined' && baseQuery.collection_id) { %>
+    <input type="hidden" name="collection_id" value="<%= baseQuery.collection_id %>" />
+  <% } %>
   <div class="shop-filters__grid">
     <div class="shop-filters__primary">
       <div class="shop-filters__field">

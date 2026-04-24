@@ -356,6 +356,57 @@
     background: var(--secundary-color-300);
 }
 
+.shop-page__active-collection {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-8) var(--spacing-16);
+    margin: 0 0 var(--spacing-20);
+    padding: var(--spacing-12) var(--spacing-16);
+    box-sizing: border-box;
+    width: 100%;
+    font-family: var(--primary-font);
+    font-size: var(--font-xsmall);
+    color: var(--dark-color-solid);
+    background: rgba(29, 132, 181, 0.1);
+    border: 1px solid rgba(29, 132, 181, 0.25);
+    border-radius: 10px;
+}
+
+.shop-page__active-collection-label {
+    font-weight: 600;
+    color: var(--dark-color-500);
+}
+
+.shop-page__active-collection-name {
+    font-family: var(--secundary-font);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.shop-page__active-collection-clear {
+    margin-left: auto;
+    font-weight: 700;
+    color: var(--secundary-color-solid);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.shop-page__active-collection-clear:hover {
+    color: var(--secundary-color-900);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+    .shop-page__active-collection-clear {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
 .shop-page__results {
     display: flex;
     flex-direction: column;

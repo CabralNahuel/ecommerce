@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <%-include('partials/head.ejs', {titulo}) %>
   <body>
     <%- include('partials/header') -%>
 
     <main class="container_shop shop-page">
       <%- include('partials/shop_filters') %>
+
+      <% if (typeof collectionFilter !== 'undefined' && collectionFilter) { %>
+        <p class="shop-page__active-collection" role="status">
+          <span class="shop-page__active-collection-label">Colección:</span>
+          <strong class="shop-page__active-collection-name"><%= collectionFilter.name %></strong>
+          <a class="shop-page__active-collection-clear" href="/shop">Ver todas las colecciones</a>
+        </p>
+      <% } %>
 
       <section class="shop-page__results">
         <% if (typeof pagination !== 'undefined') { %>

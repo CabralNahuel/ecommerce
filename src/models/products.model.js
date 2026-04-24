@@ -100,6 +100,12 @@ const findShopProducts = async (query = {}) => {
       where.new_in = true;
     }
 
+    const collectionIdRaw = query.collection_id ?? query.collection;
+    const collectionId = parseInt(String(collectionIdRaw ?? "").trim(), 10);
+    if (Number.isFinite(collectionId) && collectionId > 0) {
+      where.collectionId = collectionId;
+    }
+
     const minP = parseFloat(String(query.price_min ?? "").replace(",", "."), 10);
     const maxP = parseFloat(String(query.price_max ?? "").replace(",", "."), 10);
     if (!Number.isNaN(minP) && !Number.isNaN(maxP) && maxP >= minP && minP >= 0) {

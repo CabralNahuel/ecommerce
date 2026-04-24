@@ -13,8 +13,10 @@ const getCollections= async () =>{
   return data;
 };
 
-const getCollection= async (id) =>{
-  const data =  await Collections.findOne({ where : {id} });
+const getCollection = async (collection_id) => {
+  const data = await Collections.findOne({
+    where: { collection_id },
+  });
   return data;
 };
 
