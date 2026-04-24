@@ -1,66 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/pages/carrito.css" />
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
-    <title>CARRITO</title>
-  </head>
+<html lang="es">
+  <%- include('partials/head.ejs', { titulo }) %>
   <body>
     <%- include('partials/header') -%>
+    <main class="cart-page container">
+      <h1 class="cart-page__title">Carrito de compras</h1>
 
-    <main class="carrito">
-      <h1 class="carrito-titulo">CARRITO DE COMPRAS</h1>
+      <div class="cart-page__panel">
+        <% if (Array.isArray(carrito) && carrito.length) { %>
+          <div class="carrito-tabla" role="table" aria-label="Productos en el carrito">
+            <div class="carrito-tabla-h" role="row">
+              <div class="carrito-tabla-h-text" role="columnheader">Detalle</div>
+              <div class="carrito-tabla-h-text" role="columnheader">Cantidad</div>
+              <div class="carrito-tabla-h-text" role="columnheader">Total</div>
+              <div class="carrito-tabla-h-text carrito-tabla-h-text--action" role="columnheader">Quitar</div>
+            </div>
 
-      <div class="carrito-tabla">
-        <div class="carrito-tabla-h">
-          <div class="carrito-tabla-h-text">Detalle de Producto</div>
-          <div class="carrito-tabla-h-text">Cantidad</div>
-          <div class="carrito-tabla-h-text">Total</div>
-        </div>
-
-        <% carrito.forEach(item => {%>  
-          <%-include('partials/cart_tablerow', {item}) %>
-        <%})%> 
+            <% carrito.forEach(function (item) { %>
+              <%- include('partials/cart_tablerow', { item }) %>
+            <% }) %>
+          </div>
+        <% } else { %>
+          <p class="cart-page__empty">Tu carrito está vacío. <a href="/shop">Ver productos</a></p>
+        <% } %>
       </div>
 
-      <section class="total container">
-        <article class="total-grid">
-          <div>
-            <h2 class="carrito-titulo">RESUMEN</h2>
-          </div>
-          <div class="total-card">
-            <div class="total-grupo-card">
-              <div class="total-descri-card">
-                <span>CANTIDAD DE ELEMENTOS </span>
-                <span>SUBTOTAL</span>
-                <span>ENVIO </span>
+      <% if (Array.isArray(carrito) && carrito.length) { %>
+        <section class="cart-page__summary total" aria-labelledby="resumen-heading">
+          <article class="total-grid">
+            <h2 id="resumen-heading" class="cart-page__summary-title">Resumen</h2>
+            <div class="total-card">
+              <div class="total-grupo-card">
+                <div class="total-descri-card">
+                  <span>Cantidad de ítems</span>
+                  <span>Subtotal</span>
+                  <span>Envío</span>
+                </div>
+                <div class="total-precio-card">
+                  <span id="canti">0</span>
+                  <span id="subtot">0.00</span>
+                  <span>0.00</span>
+                </div>
               </div>
-              <div class="total-precio-card">
-                <span id="canti">0</span>
-                <span id="subtot"> 0.00</span>
-                <span> 0.00</span>
+              <div class="total-grupo-card total-grupo-card-cont">
+                <span>Total</span>
+                <span id="total">0.00</span>
               </div>
+              <input type="button" id="pagar" class="total-item-boton" value="Ir a pagar" />
             </div>
-            <div class="total-grupo-card total-grupo-card-cont">
-              <span>TOTAL</span>
-              <span id="total"> 0.00</span>
-            </div>
-            <input type="button" id="pagar" class ="total-item-boton" value="IR A PAGAR" />
-          </div>
-        </article>
-      </section>
-
+          </article>
+        </section>
+      <% } %>
     </main>
 
     <%- include('partials/footer') -%>
-
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <%- include('partials/scripts') %>
     <script src="/js/carrito.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
-
-

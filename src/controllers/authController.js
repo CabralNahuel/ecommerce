@@ -3,8 +3,10 @@ import mainServices from "../services/mainServices.js";
 
 const autController = {
   getAuthLogin: (req, res) => {
-    const titulo = "LOGIN";
-    res.render("login.ejs", { titulo });
+    res.render("login.ejs", {
+      titulo: "LOGIN | Funkoshop",
+      loginerror: "",
+    });
   },
 
   getAuthLogout: (req, res) => {
@@ -14,8 +16,11 @@ const autController = {
   },
 
   getAuthRegister: (req, res) => {
-    const titulo = "REGISTER";
-    res.render("register", { titulo });
+    res.render("register", {
+      titulo: "Crear cuenta | Funkoshop",
+      errors: null,
+      oldBody: null,
+    });
   },
 
   postAuthLogin: async (req, res) => {
@@ -52,26 +57,48 @@ const autController = {
           }
       } 
       else {
-        const titulo = 'LOGIN'
-        const loginerror= "Usuario o Password no coincide"
-        res.render("login.ejs",{titulo,loginerror})
+        res.render("login.ejs", {
+          titulo: "LOGIN | Funkoshop",
+          loginerror: "Usuario o contraseña no coinciden",
+        });
       }
     } 
     else {
       //res.send("usuario no encontrado voy al register para registrarse");
-      const titulo = 'REGISTER'
-      res.render("register",{titulo})
+      res.render("register", {
+        titulo: "Crear cuenta | Funkoshop",
+        errors: null,
+        oldBody: null,
+      });
     }
   },
 
   postAuthRegister: async (req, res) => {
-    console.log(req.body);
-    const newUser = req.body;
-    const data = await services.postUser(newUser);
-    // actualizo la base de datos y voy al login
-    const titulo = "LOGIN";
-    const loginerror= ""
-    res.render("login", { titulo, loginerror});
+    const { name, last_name, email, pass } = req.body;
+    try {
+      await services.postUser({
+        name: String(name).trim(),
+        last_name: String(last_name).trim(),
+        email: String(email).trim(),
+        pass: String(pass),
+        admin: 0,
+      });
+      res.render("login.ejs", {
+        titulo: "LOGIN | Funkoshop",
+        loginerror: "",
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).render("register", {
+        titulo: "Crear cuenta | Funkoshop",
+        errors: {
+          _form: {
+            msg: "No se pudo crear la cuenta. Probá de nuevo o usá otro email.",
+          },
+        },
+        oldBody: req.body || {},
+      });
+    }
   },
 };
 

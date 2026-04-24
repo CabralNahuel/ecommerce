@@ -1,96 +1,115 @@
-.contform {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-}
+/* Contacto — misma línea que login / registro */
 
-form {
-    width: 50%;
-    background-color: white;
-    padding: 1em 3.5em;
-}
-
-fieldset {
-    border: none;
-    padding: 0;
-    margin: 0;
-}
-
-.titform h2 {
-    text-align: center;
-    color: #1F1F1F;
-    font-size: 32px;
-    font-family: Raleway;
-    font-weight: 700;
-    letter-spacing: 1.68px;
-    word-wrap: break-word;
-}
-
-label,
-input,
-textarea {
-    display: block;
+.contact-page {
+    box-sizing: border-box;
     width: 100%;
-    border-color:transparent;
-    border-bottom-color: red;
-    border-color:transparent;
-    font-size: 19px;
-    font-weight:400;
-    font-family: Inter;
-    letter-spacing: 0.96px;
-    word-wrap: break-word;
+    min-height: min(70vh, 640px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(var(--spacing-16), 4vw, var(--spacing-36))
+        max(var(--spacing-16), env(safe-area-inset-left, 0px))
+        clamp(var(--spacing-28), 6vw, var(--spacing-68))
+        max(var(--spacing-16), env(safe-area-inset-right, 0px));
+    background: linear-gradient(
+        180deg,
+        rgba(250, 250, 255, 0.96) 0%,
+        rgba(240, 241, 248, 0.98) 100%
+    );
 }
 
-input,
-textarea {
-    background-color: rgba(233, 247, 247, 0.914);
-    border-bottom: 2.5px #FF3333 solid;
-    padding: 0.75em;
-    margin-right: 16px;
-    color: black;
-    font-size: 15px;
+.contact-card {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: clamp(var(--spacing-24), 4vw, var(--spacing-36))
+        clamp(var(--spacing-20), 4vw, var(--spacing-28));
+    box-sizing: border-box;
+    background: var(--light-bg-color);
+    border: 1px solid rgba(48, 52, 63, 0.1);
+    border-radius: 1rem;
+    box-shadow:
+        0 4px 6px rgba(31, 31, 31, 0.04),
+        0 12px 32px rgba(31, 31, 31, 0.1);
+    animation: contact-card-in 0.45s ease-out both;
 }
 
-input:invalid:focus,
-textarea:invalid:focus {
-    outline: none;
-    border: 0;
-    border-bottom: 3px solid #ff000d;
+@keyframes contact-card-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-input:valid:focus,
-textarea:valid:focus {
-    outline: none;
-    border: 0;
-    border-bottom: 3px solid #0ec72a;
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+    min-width: 0;
 }
 
-input:focus,
-textarea:focus {
-    outline: none;
-    border: 0;
-    border-bottom: 2px solid;
-    background-color: rgb(178, 175, 175);
+.contact-card__title {
+    margin: 0 0 var(--spacing-8);
+    text-align: center;
+    font-family: var(--secundary-font);
+    font-size: clamp(1.35rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.25;
+    color: var(--dark-color-solid);
+    text-transform: uppercase;
 }
 
-.mensaje_error {
-	color: #ef2929;
-	display: block;
-	text-align: center;
-    font-family: Inter;
-	font-size: 14px;
-	font-style:normal;
-	margin: 3px auto;
+.contact-card__subtitle {
+    margin: 0 0 var(--spacing-8);
+    text-align: center;
+    font-family: var(--secundary-font);
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--dark-color-500);
 }
 
-.btn {
-    background-color: rgb(187, 12, 12);
-    color: white;
+.contact-form__textarea {
+    min-height: 8rem;
+    resize: vertical;
+    line-height: 1.45;
+}
+
+.contact-form__actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: var(--spacing-12);
+    width: 100%;
+    margin-top: var(--spacing-4);
+}
+
+.contact-form__actions .login-submit,
+.contact-form__actions .contact-form__reset {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 48px;
+    box-sizing: border-box;
+}
+
+.contact-form__reset {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--secundary-font);
+    font-size: var(--font-xsmall);
+    font-weight: 700;
     cursor: pointer;
-    padding: 0.8em;
-    margin-top: 1em;
-    font-size: 16px;
-    font-weight:bold;
+}
+
+@media (max-width: 480px) {
+    .contact-form__actions {
+        flex-direction: column;
+    }
 }

@@ -2,7 +2,7 @@
 import { registerValidation } from "../middlewares/loginMiddleware.js";
 import express from "express";
 import autController from "../controllers/authController.js";
-import { validacion } from "../middlewares/validatorMiddleware.js";
+import { registerValidationHandler } from "../middlewares/validatorMiddleware.js";
 import asyncHandler from "../middlewares/asyncHandler.js";
 //creo variables
 const router = express.Router();
@@ -27,7 +27,7 @@ router.post("/", asyncHandler(autController.postAuthLogin));
 router.post(
   "/register",
   registerValidation,
-  validacion,
+  registerValidationHandler,
   asyncHandler(autController.postAuthRegister)
 );
 

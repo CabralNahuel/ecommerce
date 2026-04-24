@@ -23,7 +23,10 @@
 @import url("./pages/collecciones.css"); 
 
 /* SLIDER  */
-@import url("./pages/slider.css"); 
+@import url("./pages/slider.css");
+
+/* HOME: alto viewport + slider */
+@import url("./pages/home-layout.css");
 
 /*   FOOTER   */
 @import url("./header-footer/footer.css");
@@ -47,6 +50,8 @@ hasta las 430 px de ancho no se rompe la parte del section del login*/
 
 /*Register-------------------*/
 @import url("./pages/register.css");
+
+@import url("./pages/contact.css");
 
 /* Pagina SHOP CardCollections*/
 @import url("./pages/shop.css");

@@ -92,23 +92,6 @@
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: var(--spacing-16);
-  }
-
-  .navbar__menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-12);
-  }
-
-  .submenu {
-    position: static;
-    width: 100%;
-  }
-
   .footer .navbar {
     align-items: flex-start;
   }
@@ -190,8 +173,4 @@
     width: 100%;
   }
 
-  .titulos,
-  .producto-articulo {
-    min-width: 700px;
-  }
 }

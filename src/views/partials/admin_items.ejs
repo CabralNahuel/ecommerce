@@ -1,11 +1,21 @@
 <li class="producto-lista-item">
   <article class="producto-articulo">
-    <p class="producto-id"><%= card.product_id %></p>
-    <p class="producto-sku"><%= card.product_sku %></p>
-    <h4 class="producto-name"><%= card.product_name %></h4>
-    <p class="producto-collection"><%= card.collection.collection_name %></p>
+    <p class="producto-id" data-label="ID"><%= card.product_id %></p>
+    <p class="producto-sku" data-label="Código"><%= card.product_sku %></p>
+    <div class="producto-thumb-wrap" data-label="Imagen">
+      <img
+        class="producto-thumb"
+        src="<%= card.img_front %>"
+        alt="Imagen de <%= card.product_name %>"
+        loading="lazy"
+      />
+    </div>
+    <h4 class="producto-name" data-label="Producto"><%= card.product_name %></h4>
+    <p class="producto-collection" data-label="Categoría">
+      <%= card.collection ? card.collection.collection_name : '' %>
+    </p>
 
-    <div class="links">
+    <div class="links producto-actions" data-label="Acciones">
       <a href="/admin/edit/<%= card.product_id %>" class="links editar">
         <iconify-icon
           icon="ic:baseline-edit"

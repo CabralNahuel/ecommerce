@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar container">
+  <nav class="navbar container" aria-label="Principal">
     <picture class="navbar__logo">
       <a href="/">
         <img
@@ -8,7 +8,18 @@
         />
       </a>
     </picture>
-    <ul class="navbar__menu">
+    <button
+      type="button"
+      class="navbar__toggle"
+      aria-label="Abrir o cerrar menú"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+    >
+      <span class="navbar__toggle-bar" aria-hidden="true"></span>
+      <span class="navbar__toggle-bar" aria-hidden="true"></span>
+      <span class="navbar__toggle-bar" aria-hidden="true"></span>
+    </button>
+    <ul class="navbar__menu" id="primary-navigation">
       <li class="navbar__item">
         <a class="navbar__link with-icon" href="/shop"
           >SHOP<iconify-icon icon="bi:chevron-down"> </iconify-icon>

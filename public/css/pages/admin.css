@@ -82,16 +82,17 @@ p,h4{
     border: 1px solid #ececec;
     border-radius: 12px;
     background: #fff;
+    overflow: hidden;
 
 }
 .titulos{
     display: grid;
-    grid-template-columns: 10% 20% 30% 30% 10%;
+    grid-template-columns: 8% 18% 14% 28% 22% 10%;
     justify-content: space-between;
     border-bottom: 1px solid #efefef;
     padding-bottom: var(--spacing-8);
 }
-.id,.codigo,.item-nombre, .categoria{
+.id,.codigo,.thumb-col,.item-nombre, .categoria{
     font-family: var(--primary-font);
     font-size: 24px;
     font-weight: 700;
@@ -108,9 +109,9 @@ p,h4{
 }
 .producto-articulo{
     display: grid;
-    grid-template-columns: 10% 20% 30% 30% 10%;
-    align-items: baseline;
-    border-bottom: 1px solid #f5f5f5;
+    grid-template-columns: 8% 18% 14% 28% 22% 10%;
+    align-items: center;
+    border-bottom: 1px solid black;
     padding: var(--spacing-8) 0;
 }
 
@@ -121,8 +122,29 @@ p,h4{
     font-family:var(--primary-font);
     font-size: var(--font-medium);
     font-weight: 500;
-    min-height: 61px;
+    min-height: 0;
+    display: block;
+    line-height: 1.25;
 
+}
+
+.thumb-col {
+    text-align: center;
+}
+
+.producto-thumb-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-thumb {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ececec;
+    background: #fff;
 }
 
 @media (max-width: 900px) {
@@ -133,12 +155,130 @@ p,h4{
   }
 
   .productos-items {
-    overflow-x: auto;
-  }
-
-  .titulos,
-  .producto-articulo {
-    min-width: 780px;
+    padding: var(--spacing-12);
   }
 }
 
+@media (max-width: 768px) {
+  .admin_main {
+    padding: var(--spacing-24) var(--spacing-12);
+  }
+
+  .search {
+    margin: 0 0 var(--spacing-24);
+  }
+
+  .admin_input {
+    font-size: 1.8rem;
+  }
+
+  .productos_titulo {
+    font-size: clamp(2.4rem, 7vw, 3.2rem);
+    line-height: 1.15;
+  }
+
+  .botonAdmin {
+    width: auto;
+    height: auto;
+    margin-left: 0;
+    gap: var(--spacing-8);
+    justify-content: flex-start;
+  }
+
+  .boton_h5 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .titulos {
+    display: none;
+  }
+
+  .productos-items {
+    background: #f3f5fa;
+    border-color: #dde3ef;
+  }
+
+  .productos-items ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+    margin: 0;
+  }
+
+  .producto-lista-item {
+    margin: 0;
+  }
+
+  .producto-articulo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-10) var(--spacing-12);
+    border: 1px solid #d6ddeb;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%);
+    box-shadow: 0 3px 10px rgba(48, 52, 63, 0.1);
+    padding: var(--spacing-14);
+  }
+
+  .producto-lista-item:nth-child(even) .producto-articulo {
+    background: linear-gradient(180deg, #f3f6ff 0%, #eef2fb 100%);
+    border-color: #cfd8ea;
+  }
+
+  .producto-id,
+  .producto-sku,
+  .producto-name,
+  .producto-collection,
+  .producto-actions,
+  .producto-thumb-wrap {
+    min-height: 0;
+    display: block;
+    font-size: var(--font-xsmall);
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .producto-id::before,
+  .producto-sku::before,
+  .producto-name::before,
+  .producto-collection::before,
+  .producto-actions::before,
+  .producto-thumb-wrap::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #3f4652;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .producto-thumb-wrap {
+    justify-content: flex-start;
+    grid-column: 1 / -1;
+    margin-top: var(--spacing-2);
+  }
+
+  .producto-thumb {
+    width: 64px;
+    height: 64px;
+  }
+
+  .producto-name,
+  .producto-collection,
+  .producto-actions {
+    grid-column: 1 / -1;
+    margin-top: var(--spacing-2);
+  }
+
+  .producto-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-12);
+    padding-top: var(--spacing-10);
+    margin-top: var(--spacing-6);
+    border-top: 1px solid #d8deeb;
+  }
+}

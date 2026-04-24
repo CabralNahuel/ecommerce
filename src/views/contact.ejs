@@ -1,57 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/pages/contact.css" />
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
-    <title>CONTACTO</title>
-  </head>
-
+<html lang="es">
+  <%- include('partials/head.ejs', { titulo }) %>
   <body>
     <%- include('partials/header') -%>
-    <main>
-      <section class="contform">
-        <form id="form" action="/contact" method="POST">
-          <fieldset class="titform">
-            <h2>CONTACTO</h2>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required />
-            <span id="nombre_error" class="mensaje_error"></span>
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" placeholder="Apellido" required />
-            <span id="apellido_error" class="mensaje_error"></span>
-            <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" placeholder="usuario@dominio.com" required />
-            <span id="correo_error" class="mensaje_error"></span>
-            <label for="asunto">Asunto:</label>
-            <input type="text" id="asunto" name="asunto" placeholder="Titulo del Asunto" required />
-            <span id="asunto_error" class="mensaje_error"></span>
-            <label for="mensaje">Mensaje:</label>
+    <main class="contact-page container">
+      <section class="contact-card" aria-labelledby="contact-heading">
+        <form id="form" class="contact-form" action="/contact" method="POST" novalidate>
+          <h2 id="contact-heading" class="contact-card__title">Contacto</h2>
+          <p class="contact-card__subtitle">
+            Escribinos y te respondemos a la brevedad.
+          </p>
+
+          <div class="login-field">
+            <label class="login-field__label" for="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              class="login-input"
+              placeholder="Tu nombre"
+              autocomplete="given-name"
+              required
+            />
+            <span id="nombre_error" class="login-field__error" role="alert"></span>
+          </div>
+
+          <div class="login-field">
+            <label class="login-field__label" for="apellido">Apellido</label>
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              class="login-input"
+              placeholder="Tu apellido"
+              autocomplete="family-name"
+              required
+            />
+            <span id="apellido_error" class="login-field__error" role="alert"></span>
+          </div>
+
+          <div class="login-field">
+            <label class="login-field__label" for="correo">Correo</label>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              class="login-input"
+              placeholder="usuario@dominio.com"
+              autocomplete="email"
+              required
+            />
+            <span id="correo_error" class="login-field__error" role="alert"></span>
+          </div>
+
+          <div class="login-field">
+            <label class="login-field__label" for="asunto">Asunto</label>
+            <input
+              type="text"
+              id="asunto"
+              name="asunto"
+              class="login-input"
+              placeholder="Motivo de la consulta"
+              autocomplete="off"
+              required
+            />
+            <span id="asunto_error" class="login-field__error" role="alert"></span>
+          </div>
+
+          <div class="login-field">
+            <label class="login-field__label" for="mensaje">Mensaje</label>
             <textarea
               id="mensaje"
               name="mensaje"
-              placeholder="Descripción del Asunto"
+              class="login-input contact-form__textarea"
               rows="5"
-              cols="50"
+              placeholder="Contanos en qué podemos ayudarte"
+              autocomplete="off"
               required
             ></textarea>
-            <span id="mensaje_error" class="mensaje_error"></span>
-            <div class="cont-3">
-              <input type="submit" class="btn" id="enviar" value="Enviar" />
-              <input type="reset" class="btn" value="Borrar" />
-            </div>
-          </fieldset>
+            <span id="mensaje_error" class="login-field__error" role="alert"></span>
+          </div>
+
+          <div class="contact-form__actions">
+            <input
+              type="submit"
+              class="login-submit"
+              id="enviar"
+              value="Enviar"
+            />
+            <input type="reset" class="shop-filters__reset contact-form__reset" value="Borrar" />
+          </div>
         </form>
       </section>
     </main>
-    
-    <%- include('partials/footer') -%>
 
+    <%- include('partials/footer') -%>
+    <%- include('partials/scripts') %>
     <script src="/js/validar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
-

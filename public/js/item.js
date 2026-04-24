@@ -1,11 +1,15 @@
-const add = document.querySelector("#mas");
-const substract = document.querySelector("#menos");
-const quantity = document.querySelector("#quantity");
+const btnMas = document.querySelector("#mas");
+const btnMenos = document.querySelector("#menos");
+const quantityInput = document.querySelector("#quantity");
 
-add.addEventListener("click", () => {
-  quantity.value = Number(quantity.value) + 1;
-});
+if (btnMas && btnMenos && quantityInput) {
+  btnMas.addEventListener("click", () => {
+    quantityInput.value = Number(quantityInput.value || 0) + 1;
+  });
 
-substract.addEventListener("click", () => {
-  if (quantity.value > 0) quantity.value = Number(quantity.value) - 1;
-});
+  btnMenos.addEventListener("click", () => {
+    if (Number(quantityInput.value) > 0) {
+      quantityInput.value = Number(quantityInput.value) - 1;
+    }
+  });
+}

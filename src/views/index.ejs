@@ -3,36 +3,35 @@
 <html lang="en">
   <%-include('partials/head.ejs', {titulo}) %>
   
-  <body>
+  <body class="page-home">
     <%- include('partials/header') -%>
 
     <%-include('partials/hero.ejs') %>
     
     
-    <main class="main-container">
-      
-        <!-- colecciones -->
+    <main class="main-container container">
+        <!-- colecciones: comparten un solo ancho máximo y la misma línea de borde -->
         <% collections.forEach(function(collection) { %>
           <%-include('partials/collection', {collection}) %>
         <% }); %>
 
-      <section class="slider container glide">
+      <section class="slider glide">
           <h2 class="slider__title">ÚLTIMOS LANZAMIENTOS</h2>
-          <div class="glide__track" data-glide-el="track">
-            <ul class="slider__items glide__slides">
-
-              <% cards.forEach(function(card) { %>
-                <li class="slider__item glide__slide">
-                  <%-include('partials/card', {card}) %>
-                </li>
-              <% }); %>
-              
-            </ul>
+          <div class="slider__body">
+            <%- include('partials/glide_edge', { side: 'prev' }) %>
+            <div class="slider__stage">
+              <div class="glide__track" data-glide-el="track">
+                <ul class="slider__items glide__slides">
+                  <% cards.forEach(function(card) { %>
+                    <li class="slider__item glide__slide">
+                      <%-include('partials/card', {card}) %>
+                    </li>
+                  <% }); %>
+                </ul>
+              </div>
+            </div>
+            <%- include('partials/glide_edge', { side: 'next' }) %>
           </div>
-
-          <%-include('partials/glide_arrows.ejs') %> 
-
-          
       </section>
     </main>
 

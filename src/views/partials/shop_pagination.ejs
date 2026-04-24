@@ -1,0 +1,29 @@
+<% if (typeof pagination !== 'undefined' && pagination.totalPages > 1) { %>
+  <% var bq = typeof baseQuery !== 'undefined' && baseQuery ? baseQuery : {}; %>
+  <nav class="shop-pagination pages" aria-label="Paginación">
+    <% if (pagination.page > 1) { %>
+      <% var prevParams = Object.assign({}, bq, { page: String(pagination.page - 1) }); %>
+      <a
+        class="link_pages"
+        href="/shop?<%= new URLSearchParams(prevParams).toString() %>"
+        aria-label="Página anterior"
+      >&lt;</a>
+    <% } %>
+    <% for (var p = 1; p <= pagination.totalPages; p++) { %>
+      <% var pageParams = Object.assign({}, bq, { page: String(p) }); %>
+      <a
+        class="link_pages <%= p === pagination.page ? 'link_pages1' : '' %>"
+        href="/shop?<%= new URLSearchParams(pageParams).toString() %>"
+        <%= p === pagination.page ? 'aria-current="page"' : '' %>
+      ><%= p %></a>
+    <% } %>
+    <% if (pagination.page < pagination.totalPages) { %>
+      <% var nextParams = Object.assign({}, bq, { page: String(pagination.page + 1) }); %>
+      <a
+        class="link_pages"
+        href="/shop?<%= new URLSearchParams(nextParams).toString() %>"
+        aria-label="Página siguiente"
+      >&gt;</a>
+    <% } %>
+  </nav>
+<% } %>

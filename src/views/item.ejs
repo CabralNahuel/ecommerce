@@ -1,79 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-  
-  <%-include('partials/head.ejs', {titulo}) %>
-  
-  <body>
-    <%- include('partials/header') -%>
-    <main class="container">
-      <section class="item">
-        <!-- PRODUCTO SELECCIONADO -->
-        <picture class="item__img card-item__cover">
-          <img
-            class="card-item__img--front"
-            src="<%= funko.img_front %>"
-            alt="<%= funko.product_description %>"
-          />
-          <img
-            class="card-item__img--back"
-            src="<%= funko.img_back %>"
-            alt="BOX de <%= funko.product_description %>"
-          />
-        </picture>
-        <form action="/shop/addItem/<%= funko.product_id %>" method="POST">
-          <article class="item__info">
-            <p class="item__license"><%= funko.collection.collection_license %></p>
-            <h3 class="item__title"><%= funko.product_name %></h3>
-            <h4 class="item__content">
-              <%= funko.product_description %>
-            </h4>
-            <h3 class="item__price">$ <%= funko.product_price %></h3>
-            <div class="item__cart">
-              <button id="menos" class="item__quantity" type="button">-</button>
-              <input
-                class="item__input"
-                type="text"
-                id="quantity"
-                name="quantity"
-                placeholder="0"
-              />
-              <button id="mas" class="item__quantity" type="button">+</button>
-              <button class="item__submit" type="submit">
-                Agregar al Carrito
-              </button>
-            </div>
-            <p class="item__promo">
-              <a class="item__promo" href="#">Ver métodos de pago</a> - 3 CUOTAS
-              SIN INTERÉS
-            </p>
-          </article>
-        </form>
-      </section>
-      <section class="slider container glide">
-        <h2 class="slider__title">ÚLTIMOS LANZAMIENTOS</h2>
-        <div class="glide__track" data-glide-el="track">
-          <ul class="slider__items glide__slides">
-            
-              <% cards.forEach(function(card) { %>
-                <li class="slider__item glide__slide">
-                  <%-include('partials/card', {card}) %>
-                </li>
-              <% }); %>
-              
-          </ul>
-        </div>
-        <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-            <iconify-icon icon="material-symbols:chevron-left"></iconify-icon>
-          </button>
-          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-            <iconify-icon icon="material-symbols:chevron-right"></iconify-icon>
-          </button>
-        </div>
-      </section>
-    </main>
-
-    <%- include('partials/footer') -%>
-    <%- include('partials/scripts') -%>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head.ejs', { titulo }) %>
+
+  <body class="page-item">
+    <%- include('partials/header') -%>
+    <main class="main-container container">
+      <section class="item-product" aria-label="Detalle del producto">
+        <article class="item-product-card">
+          <div class="item-product-card__body">
+            <picture class="card-item__cover item-product-card__cover">
+              <span class="card-item__tag">NUEVO</span>
+              <img
+                class="card-item__img--front"
+                src="<%= funko.img_front %>"
+                alt="<%= funko.product_description %>"
+              />
+              <img
+                class="card-item__img--back"
+                src="<%= funko.img_back %>"
+                alt="BOX de <%= funko.product_description %>"
+              />
+            </picture>
+            <form
+              class="item-product-card__form"
+              action="/shop/addItem/<%= funko.product_id %>"
+              method="POST"
+            >
+              <div class="card-item__content item-product-card__info">
+                <p class="card-item__licence"><%= funko.collection.collection_license %></p>
+                <h3 class="card-item__name"><%= funko.product_name %></h3>
+                <p class="item-product-card__description"><%= funko.product_description %></p>
+                <p class="card-item__price">$ <%= funko.product_price %></p>
+                <div class="item-product-card__cart">
+                  <button id="menos" class="item-product-card__qty" type="button" aria-label="Menos">
+                    -
+                  </button>
+                  <input
+                    class="item-product-card__qty-input"
+                    type="text"
+                    id="quantity"
+                    name="quantity"
+                    placeholder="0"
+                  />
+                  <button id="mas" class="item-product-card__qty" type="button" aria-label="Más">
+                    +
+                  </button>
+                  <button class="item-product-card__submit" type="submit">
+                    Agregar al Carrito
+                  </button>
+                </div>
+                <p class="card-item__promo item-product-card__promo">
+                  <a class="item-product-card__promo-link" href="#">Ver métodos de pago</a>
+                  — 3 CUOTAS SIN INTERÉS
+                </p>
+              </div>
+            </form>
+          </div>
+        </article>
+      </section>
+
+      <section class="slider glide">
+        <h2 class="slider__title">ÚLTIMOS LANZAMIENTOS</h2>
+        <div class="slider__body">
+          <%- include('partials/glide_edge', { side: 'prev' }) %>
+          <div class="slider__stage">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="slider__items glide__slides">
+                <% cards.forEach(function(card) { %>
+                  <li class="slider__item glide__slide">
+                    <%- include('partials/card', { card }) %>
+                  </li>
+                <% }); %>
+              </ul>
+            </div>
+          </div>
+          <%- include('partials/glide_edge', { side: 'next' }) %>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer') -%>
+    <%- include('partials/scripts') %>
+    <script src="/js/item.js"></script>
+  </body>
+</html>

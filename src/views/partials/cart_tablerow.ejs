@@ -1,31 +1,46 @@
-
-    <div name="items" id="item-<%= item.product_id%>" class="carrito-tabla-item">
-      <div  class="carrito-item">
-        <img class="item-imagen" img src="<%= item.product.img_front %>"  alt="Producto"/>
-        <div>
-          <h2 class="item-texto-titulo"><%=item.product.product_name%></h2>
-          <p class="item-texto-licencia"><%=item.product_license%></p>
-          <p class="item-texto-precio">Precio: $ <%=item.cart_price%></p>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <span class="item-count" name="count" id="count-<%=item.product_id%>"><%=item.cart_quantity%></span>
-        <div>
-          <button onclick="add(<%=item.product_id%>, <%=item.cart_price%>)" class="item__quantityadd">+</button>
-          <button onclick="subs(<%=item.product_id%>, <%=item.cart_price%>)" class="item__quantitysubtract">-</button>
-        </div>
-      </div>
-       
-      <div class="carrito-tabla-total">
-        <p name="totalp" id="total-<%= item.product_id%>"><%=item.cart_total_price%></p>
-      </div>
-      
-      <form action="/shop/delItem/<%= item.cart_id %>" method="POST">
-        <button class="carrito-tabla-boton" >
-          <img src="/multimedia/icons/gg_close-o (1).svg" alt="" />
-        </button>
-      </form>
+<div name="items" id="item-<%= item.product_id %>" class="carrito-tabla-item">
+  <div class="carrito-item">
+    <img
+      class="item-imagen"
+      src="<%= item.product.img_front %>"
+      alt="<%= item.product.product_name %>"
+    />
+    <div>
+      <h2 class="item-texto-titulo"><%= item.product.product_name %></h2>
+      <p class="item-texto-licencia"><%= item.product_license %></p>
+      <p class="item-texto-precio">Precio unit.: $ <%= item.cart_price %></p>
     </div>
+  </div>
 
+  <div class="item-card">
+    <span class="item-count" name="count" id="count-<%= item.product_id %>"><%= item.cart_quantity %></span>
+    <div>
+      <button
+        type="button"
+        class="item__quantityadd"
+        onclick="cartIncrementQuantity(<%= item.product_id %>, <%= item.cart_price %>)"
+        aria-label="Aumentar cantidad"
+      >
+        +
+      </button>
+      <button
+        type="button"
+        class="item__quantitysubtract"
+        onclick="subs(<%= item.product_id %>, <%= item.cart_price %>)"
+        aria-label="Disminuir cantidad"
+      >
+        −
+      </button>
+    </div>
+  </div>
 
+  <div class="carrito-tabla-total">
+    <p name="totalp" id="total-<%= item.product_id %>"><%= item.cart_total_price %></p>
+  </div>
+
+  <form class="carrito-tabla-item__remove" action="/shop/delItem/<%= item.cart_id %>" method="POST">
+    <button type="submit" class="carrito-tabla-boton" aria-label="Quitar del carrito">
+      <img src="/multimedia/icons/gg_close-o (1).svg" alt="" />
+    </button>
+  </form>
+</div>

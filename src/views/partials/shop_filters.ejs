@@ -1,0 +1,92 @@
+<form class="shop-filters" method="get" action="/shop" aria-label="Filtros de tienda">
+  <% if (typeof baseQuery !== 'undefined' && baseQuery.collection_id) { %>
+    <input type="hidden" name="collection_id" value="<%= baseQuery.collection_id %>" />
+  <% } %>
+  <div class="shop-filters__grid">
+    <div class="shop-filters__primary">
+      <div class="shop-filters__field">
+        <label class="shop-filters__label" for="shop-search">BUSCAR</label>
+        <input
+          class="shop-filters__input"
+          type="search"
+          name="search"
+          id="shop-search"
+          placeholder=""
+          value="<%= typeof baseQuery !== 'undefined' && baseQuery.search ? baseQuery.search : '' %>"
+        />
+      </div>
+
+      <div class="shop-filters__field">
+        <label class="shop-filters__label" for="shop-orderby">ORDENAR POR</label>
+        <select class="shop-filters__select" name="orderby" id="shop-orderby">
+          <% const ord = typeof baseQuery !== 'undefined' ? baseQuery.orderby : ''; %>
+          <option value="AZ" <%= ord === 'AZ' || !ord ? 'selected' : '' %>>A-Z</option>
+          <option value="ZA" <%= ord === 'ZA' ? 'selected' : '' %>>Z-A</option>
+          <option value="Mayor" <%= ord === 'Mayor' ? 'selected' : '' %>>Mayor precio</option>
+          <option value="Menor" <%= ord === 'Menor' ? 'selected' : '' %>>Menor precio</option>
+        </select>
+      </div>
+
+      <div class="shop-filters__field shop-filters__field--price">
+        <span class="shop-filters__label">PRECIO</span>
+        <div class="shop-filters__price-row">
+          <label class="shop-filters__sublabel" for="price_min">MIN</label>
+          <input
+            class="shop-filters__input shop-filters__input--num"
+            type="number"
+            name="price_min"
+            id="price_min"
+            min="0"
+            step="0.01"
+            placeholder="0"
+            value="<%= typeof baseQuery !== 'undefined' && baseQuery.price_min != null && baseQuery.price_min !== '' ? baseQuery.price_min : '' %>"
+          />
+          <span class="shop-filters__dash">—</span>
+          <label class="shop-filters__sublabel" for="price_max">MAX</label>
+          <input
+            class="shop-filters__input shop-filters__input--num"
+            type="number"
+            name="price_max"
+            id="price_max"
+            min="0"
+            step="0.01"
+            placeholder="Sin tope"
+            value="<%= typeof baseQuery !== 'undefined' && baseQuery.price_max != null && baseQuery.price_max !== '' ? baseQuery.price_max : '' %>"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-filters__field shop-filters__field--checks">
+      <span class="shop-filters__label">FILTRAR</span>
+      <div class="shop-filters__checks">
+        <label class="shop-filters__check">
+          <input
+            type="checkbox"
+            name="nuevos"
+            value="1"
+            <%= typeof baseQuery !== 'undefined' && baseQuery.nuevos === '1' ? 'checked' : '' %>
+          />
+          NUEVOS
+        </label>
+        <label class="shop-filters__check shop-filters__check--disabled" title="Próximamente">
+          <input type="checkbox" disabled />
+          OFERTAS
+        </label>
+        <label class="shop-filters__check shop-filters__check--disabled" title="Próximamente">
+          <input type="checkbox" disabled />
+          EDICIÓN ESPECIAL
+        </label>
+        <label class="shop-filters__check shop-filters__check--disabled" title="Próximamente">
+          <input type="checkbox" disabled />
+          FAVORITOS
+        </label>
+      </div>
+    </div>
+
+    <div class="shop-filters__actions">
+      <button type="submit" class="shop-filters__submit">BUSCAR</button>
+      <a class="shop-filters__reset" href="/shop">Limpiar</a>
+    </div>
+  </div>
+</form>
