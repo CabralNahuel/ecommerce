@@ -12,6 +12,48 @@ header{
     height: 100%;
 }
 
+.navbar__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: var(--light-font-color);
+}
+
+.navbar__toggle:focus-visible {
+    outline: 2px solid var(--primary-color-solid);
+    outline-offset: 2px;
+}
+
+.navbar__toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar.navbar--open .navbar__toggle-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar.navbar--open .navbar__toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar.navbar--open .navbar__toggle-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 .navbar__menu{
     display: flex;
     align-items: center;
@@ -21,6 +63,23 @@ header{
 
 .navbar__item{
     position: relative;
+}
+
+/* El normalize global pone img { width: 100% }; el carrito no debe estirarse */
+.navbar__cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-8);
+    line-height: 0;
+}
+
+.navbar__cart img {
+    width: 3.2rem;
+    height: 3.2rem;
+    max-width: 32px;
+    max-height: 32px;
+    object-fit: contain;
 }
 
 .navbar__link{
@@ -76,16 +135,75 @@ header{
 }
 
 
-@media (max-width:800px) {
+@media (max-width: 800px) {
     .navbar{
-        justify-content:center; /* ahora los separamos cada uno en un extremo*/
-        gap: var(--spacing-20); 
+        justify-content: flex-start;
+        gap: var(--spacing-12);
+    }
+    .navbar__logo {
+        max-width: 220px;
     }
 }
 
-@media (max-width:478px) {
-    .navbar__menu{
-        display:none; 
-        /* con js deberiamos poner un menu hamburguesa */
+@media (max-width: 768px) {
+    header {
+        padding: var(--spacing-16) var(--spacing-12);
     }
+
+    .navbar__toggle {
+        display: inline-flex;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        order: 3;
+        margin-top: var(--spacing-12);
+        padding: var(--spacing-12) 0 var(--spacing-8);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .navbar.navbar--open .navbar__menu {
+        display: flex;
+    }
+
+    .navbar__link {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .navbar__item:hover .submenu {
+        display: none;
+    }
+
+    .navbar.navbar--open .submenu {
+        display: block;
+        position: static;
+        width: 100%;
+        margin-top: var(--spacing-8);
+        padding-left: var(--spacing-8);
+        box-shadow: none;
+    }
+
+    .navbar__cart {
+        align-self: flex-start;
+        padding: var(--spacing-8);
+    }
+
+    .navbar__cart img {
+        width: 28px;
+        height: 28px;
+        max-width: 28px;
+        max-height: 28px;
+    }
+
 }

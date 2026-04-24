@@ -1,36 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-  <%-include('partials/head.ejs', {titulo}) %>
+<html lang="es">
+  <%- include('partials/head.ejs', { titulo }) %>
 
   <body>
     <%- include('partials/header') -%>
-    <main>
-      <section class="login-container">
-        <form action="/login" method="POST">
-          <h2>INGRESAR A MI CUENTA</h2>
-          <div class="cont-1">
-            <label class="email"
-              >Email:
-              <input id="email" name="email" type="text" class="email-input"
-            /></label>
+    <main class="login-page">
+      <section class="login-card" aria-labelledby="login-heading">
+        <form
+          id="login-form"
+          class="login-form"
+          action="/login"
+          method="POST"
+          novalidate
+        >
+          <h2 id="login-heading" class="login-card__title">INGRESAR A MI CUENTA</h2>
+
+          <% if (typeof loginerror !== 'undefined' && loginerror) { %>
+            <p class="login-card__alert" role="alert"><%= loginerror %></p>
+          <% } %>
+
+          <div class="login-field" data-field="email">
+            <label class="login-field__label" for="login-email">Email</label>
+            <div class="login-field__control login-field__control--icon">
+              <span class="login-field__icon" aria-hidden="true">
+                <iconify-icon icon="mdi:email-outline"></iconify-icon>
+              </span>
+              <input
+                id="login-email"
+                class="login-input"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+                placeholder="Ingresá tu email"
+                aria-describedby="login-email-error"
+              />
+            </div>
+            <span id="login-email-error" class="login-field__error" hidden></span>
           </div>
-          <div class="cont-2">
-            <label class="pass"
-              >Contraseña:
-              <input id="pass" name="pass" type="password" class="pass-input"
-            /></label>
+
+          <div class="login-field" data-field="password">
+            <label class="login-field__label" for="login-password">Contraseña</label>
+            <div class="login-field__control login-field__control--icon">
+              <span class="login-field__icon" aria-hidden="true">
+                <iconify-icon icon="mdi:lock-outline"></iconify-icon>
+              </span>
+              <input
+                id="login-password"
+                class="login-input"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                placeholder="Ingresá tu contraseña"
+                aria-describedby="login-password-error"
+              />
+            </div>
+            <span id="login-password-error" class="login-field__error" hidden></span>
           </div>
-          <div class="cont-3">
-            <button>Ingresar</button>
-            <label class="label-check"
-              ><input type="checkbox" class="check-input" />Recordarme</label
-            >
+
+          <button type="submit" class="login-submit">Ingresar</button>
+
+          <div class="login-meta">
+            <label class="login-check">
+              <input
+                type="checkbox"
+                name="remember"
+                value="1"
+                class="login-check__input"
+              />
+              <span class="login-check__text">Recordarme</span>
+            </label>
+            <a class="login-forgot" href="#">Olvidé mi contraseña</a>
           </div>
-          <a href="">Olvide mi Contraseña</a>
         </form>
       </section>
     </main>
 
     <%- include('partials/footer') -%>
+    <%- include('partials/scripts') %>
+    <script src="/js/login.js"></script>
   </body>
 </html>

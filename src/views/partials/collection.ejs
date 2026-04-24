@@ -1,7 +1,7 @@
 
-<section class="collection container">
+<section class="collection collection-card" aria-labelledby="collection-<%= collection.collection_id %>-title">
     <article class="collection__content">
-      <h3 class="collection__title"><%= collection.collection_name %></h3>
+      <h3 class="collection__title" id="collection-<%= collection.collection_id %>-title"><%= collection.collection_name %></h3>
       <p class="collection__text">
         <%= collection.collection_description %>
       </p>

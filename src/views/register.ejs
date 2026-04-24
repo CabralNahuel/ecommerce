@@ -1,50 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
-  <%- include('partials/head.ejs', {titulo}) %>
+<html lang="es">
+  <%- include('partials/head.ejs', { titulo }) %>
   <body>
     <%- include('partials/header') -%>
-    <main>
-      <section class="reg-container">
-        <h2>CREA TU CUENTA</h2>
-        <h3>Completa el formulario para ser parte del mundo de los Funkos</h3>
-        <form action="/login/register" method="POST">
-          <div class="inner-container">
-            <div class="name">
-              <label for="name">Nombre:</label>
-              <input id="name" name="name" type="text" />
-            </div>
-            <div class="last-name">
-              <label for="last_name">Apellido:</label>
-              <input id="last_name" name="last_name" type="text" />
-            </div>
-            <div class="email">
-              <label for="email">Email:</label>
-              <input id="email" name="email" type="text" />
-            </div>
-            <div class="pass">
-              <label for="pass">Contraseña:</label>
-              <input id="pass" name="pass" type="password" />
-            </div>
-            <div class="pass2">
-              <label for="pass2">Repita Contraseña:</label>
-              <input id="pass2" name="pass2" type="password" />
-            </div>
-            <div class="lastdiv">
-              <button type="submit">Registrar</button>
-              <label>
+    <main class="login-page">
+      <section class="login-card login-card--wide" aria-labelledby="register-heading">
+        <form
+          id="register-form"
+          class="login-form"
+          action="/login/register"
+          method="POST"
+          novalidate
+        >
+          <h2 id="register-heading" class="login-card__title">CREÁ TU CUENTA</h2>
+          <p class="login-card__subtitle">
+            Completá el formulario para ser parte del mundo Funko.
+          </p>
+
+          <% if (errors && errors._form) { %>
+            <p class="login-card__alert" role="alert"><%= errors._form.msg %></p>
+          <% } %>
+
+          <div class="login-fields-row">
+            <div class="login-field" data-field="name">
+              <label class="login-field__label" for="register-name">Nombre</label>
+              <div class="login-field__control login-field__control--icon">
+                <span class="login-field__icon" aria-hidden="true">
+                  <iconify-icon icon="mdi:account-outline"></iconify-icon>
+                </span>
                 <input
-                  id="termsAccepted"
-                  name="termsAccepted"
-                  type="checkbox"
+                  id="register-name"
+                  class="login-input <%= errors && errors.name ? 'login-input--error' : '' %>"
+                  name="name"
+                  type="text"
+                  autocomplete="given-name"
+                  required
+                  minlength="3"
+                  placeholder="Tu nombre"
+                  value="<%= oldBody && oldBody.name ? oldBody.name : '' %>"
+                  aria-describedby="register-name-error"
                 />
-                <a class="terms" href="#">Acepto terminos y condiciones</a>
-              </label>
+              </div>
+              <span id="register-name-error" class="login-field__error" <%= !(errors && errors.name) ? 'hidden' : '' %>><%= errors && errors.name ? errors.name.msg : '' %></span>
+            </div>
+
+            <div class="login-field" data-field="last_name">
+              <label class="login-field__label" for="register-last-name">Apellido</label>
+              <div class="login-field__control login-field__control--icon">
+                <span class="login-field__icon" aria-hidden="true">
+                  <iconify-icon icon="mdi:account-badge-outline"></iconify-icon>
+                </span>
+                <input
+                  id="register-last-name"
+                  class="login-input <%= errors && errors.last_name ? 'login-input--error' : '' %>"
+                  name="last_name"
+                  type="text"
+                  autocomplete="family-name"
+                  required
+                  minlength="2"
+                  placeholder="Tu apellido"
+                  value="<%= oldBody && oldBody.last_name ? oldBody.last_name : '' %>"
+                  aria-describedby="register-last-name-error"
+                />
+              </div>
+              <span id="register-last-name-error" class="login-field__error" <%= !(errors && errors.last_name) ? 'hidden' : '' %>><%= errors && errors.last_name ? errors.last_name.msg : '' %></span>
             </div>
           </div>
+
+          <div class="login-field" data-field="email">
+            <label class="login-field__label" for="register-email">Email</label>
+            <div class="login-field__control login-field__control--icon">
+              <span class="login-field__icon" aria-hidden="true">
+                <iconify-icon icon="mdi:email-outline"></iconify-icon>
+              </span>
+              <input
+                id="register-email"
+                class="login-input <%= errors && errors.email ? 'login-input--error' : '' %>"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+                placeholder="Ingresá tu email"
+                value="<%= oldBody && oldBody.email ? oldBody.email : '' %>"
+                aria-describedby="register-email-error"
+              />
+            </div>
+            <span id="register-email-error" class="login-field__error" <%= !(errors && errors.email) ? 'hidden' : '' %>><%= errors && errors.email ? errors.email.msg : '' %></span>
+          </div>
+
+          <div class="login-field" data-field="pass">
+            <label class="login-field__label" for="register-pass">Contraseña</label>
+            <div class="login-field__control login-field__control--icon">
+              <span class="login-field__icon" aria-hidden="true">
+                <iconify-icon icon="mdi:lock-outline"></iconify-icon>
+              </span>
+              <input
+                id="register-pass"
+                class="login-input <%= errors && errors.pass ? 'login-input--error' : '' %>"
+                name="pass"
+                type="password"
+                autocomplete="new-password"
+                required
+                minlength="8"
+                maxlength="50"
+                placeholder="Mín. 8 caracteres"
+                aria-describedby="register-pass-error register-pass-hint"
+              />
+            </div>
+            <p id="register-pass-hint" class="login-field__hint">
+              Incluí mayúscula, minúscula, número y un símbolo (p. ej. @$!%*?&amp;,
+              punto, guión o guión bajo).
+            </p>
+            <span id="register-pass-error" class="login-field__error" <%= !(errors && errors.pass) ? 'hidden' : '' %>><%= errors && errors.pass ? errors.pass.msg : '' %></span>
+          </div>
+
+          <div class="login-field" data-field="pass2">
+            <label class="login-field__label" for="register-pass2">Repetir contraseña</label>
+            <div class="login-field__control login-field__control--icon">
+              <span class="login-field__icon" aria-hidden="true">
+                <iconify-icon icon="mdi:lock-check-outline"></iconify-icon>
+              </span>
+              <input
+                id="register-pass2"
+                class="login-input <%= errors && errors.pass2 ? 'login-input--error' : '' %>"
+                name="pass2"
+                type="password"
+                autocomplete="new-password"
+                required
+                placeholder="Repetí la contraseña"
+                aria-describedby="register-pass2-error"
+              />
+            </div>
+            <span id="register-pass2-error" class="login-field__error" <%= !(errors && errors.pass2) ? 'hidden' : '' %>><%= errors && errors.pass2 ? errors.pass2.msg : '' %></span>
+          </div>
+
+          <div class="login-field">
+            <label class="login-check login-check--terms" for="register-terms">
+              <input
+                type="checkbox"
+                id="register-terms"
+                class="login-check__input"
+                name="termsAccepted"
+                value="1"
+                <%= oldBody && oldBody.termsAccepted ? 'checked' : '' %>
+              />
+              <span class="login-check__text">
+                Acepto los
+                <a class="login-terms-link" href="#" target="_blank" rel="noopener noreferrer"
+                  >términos y condiciones</a
+                >.
+              </span>
+            </label>
+            <span
+              id="register-terms-error"
+              class="login-field__error"
+              <%= !(errors && errors.termsAccepted) ? 'hidden' : '' %>
+              ><%= errors && errors.termsAccepted ? errors.termsAccepted.msg : '' %></span>
+          </div>
+
+          <button type="submit" class="login-submit">Crear cuenta</button>
+
+          <p class="login-aux">
+            ¿Ya tenés cuenta?
+            <a href="/login">Ingresar</a>
+          </p>
         </form>
       </section>
     </main>
 
     <%- include('partials/footer') -%>
+    <%- include('partials/scripts') %>
+    <script src="/js/register.js"></script>
   </body>
 </html>

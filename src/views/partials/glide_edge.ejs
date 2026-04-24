@@ -1,0 +1,23 @@
+<% if (side === 'prev') { %>
+<div class="slider__edge slider__edge--prev" data-glide-el="controls">
+  <button
+    type="button"
+    class="slider__fab glide__arrow glide__arrow--left"
+    data-glide-dir="<"
+    aria-label="Productos anteriores"
+  >
+    <iconify-icon icon="material-symbols:chevron-left" aria-hidden="true"></iconify-icon>
+  </button>
+</div>
+<% } else { %>
+<div class="slider__edge slider__edge--next" data-glide-el="controls">
+  <button
+    type="button"
+    class="slider__fab glide__arrow glide__arrow--right"
+    data-glide-dir=">"
+    aria-label="Productos siguientes"
+  >
+    <iconify-icon icon="material-symbols:chevron-right" aria-hidden="true"></iconify-icon>
+  </button>
+</div>
+<% } %>

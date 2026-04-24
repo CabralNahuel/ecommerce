@@ -54,3 +54,18 @@
     background-color: var(--primary-color-900);
     color: var(--light-font-color);
 }
+
+@media (max-width: 768px) {
+    .hero {
+        padding: var(--spacing-36) var(--spacing-16);
+        background-attachment: scroll;
+    }
+
+    .hero__title {
+        font-size: var(--font-xlarge);
+    }
+
+    .hero__text {
+        font-size: var(--font-small);
+    }
+}

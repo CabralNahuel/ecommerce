@@ -1,0 +1,144 @@
+/* Home e item (/shop/item/:id): shell flex + mismo slider que el home */
+:is(.page-home, .page-item) {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+:is(.page-home, .page-item) > header {
+    flex-shrink: 0;
+}
+
+.page-home > .hero {
+    flex-shrink: 0;
+    max-height: min(42vh, 520px);
+    min-height: 10rem;
+    overflow: hidden;
+}
+
+.page-home > .hero .hero__content {
+    max-height: 100%;
+}
+
+:is(.page-home, .page-item) > main.main-container.container {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-20);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.page-home .collection {
+    flex-shrink: 0;
+}
+
+/* Slider: mismas reglas en home e ítem (cards solo dentro de .slider) */
+:is(.page-home, .page-item) .slider.glide {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--spacing-24);
+    margin-bottom: var(--spacing-16);
+    gap: var(--spacing-16);
+}
+
+:is(.page-home, .page-item) .slider__title {
+    flex-shrink: 0;
+    font-size: clamp(1.4rem, 3.5vw, var(--font-jumbo));
+}
+
+:is(.page-home, .page-item) .slider__body {
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+:is(.page-home, .page-item) .slider__stage {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+:is(.page-home, .page-item) .slider__stage .glide__track {
+    flex: 1 1 auto;
+    min-height: 11rem;
+    min-width: 0;
+}
+
+:is(.page-home, .page-item) .slider__items {
+    height: 100%;
+}
+
+:is(.page-home, .page-item) .slider__item {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+:is(.page-home, .page-item) .slider .card-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    min-width: 0;
+}
+
+:is(.page-home, .page-item) .slider .card-item__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    max-width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+:is(.page-home, .page-item) .slider .card-item__cover {
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+:is(.page-home, .page-item) .slider .card-item__cover img {
+    width: auto;
+    max-width: 100%;
+    max-height: min(28vh, 260px);
+    height: auto;
+    object-fit: contain;
+}
+
+:is(.page-home, .page-item) .slider .card-item__content {
+    flex-shrink: 0;
+    min-width: 0;
+    max-width: 100%;
+}
+
+:is(.page-home, .page-item) > footer.footer {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .page-home > .hero {
+        max-height: min(36vh, 380px);
+    }
+
+    :is(.page-home, .page-item) .slider .card-item__cover img {
+        max-height: min(22vh, 220px);
+    }
+
+    :is(.page-home, .page-item) .slider.glide {
+        margin-top: var(--spacing-16);
+    }
+}

@@ -1,17 +1,31 @@
 import services from "../services/mainServices.js";
 import shopServices from "../services/shopServices.js";
+import productModel from "../models/products.model.js";
 
 const shopController = {
   getShop: async (req, res) => {
     const titulo = "Funkoshop";
-    const cards = await services.getProducts();
-    res.render("shop", { titulo, cards });
+    const { rows, total, page, limit, totalPages } =
+      await productModel.findShopProducts(req.query);
+    const cards = rows.map((r) => r.dataValues || r);
+    const baseQuery = {};
+    Object.entries(req.query).forEach(([key, val]) => {
+      if (key === "page") return;
+      if (val === undefined || val === null || String(val).trim() === "") return;
+      baseQuery[key] = String(val);
+    });
+    res.render("shop", {
+      titulo,
+      cards,
+      pagination: { total, page, limit, totalPages },
+      baseQuery,
+    });
   },
 
 
   getShopItemId: async (req, res) => {
-    const titulo = "ITEM";
     const funko = await services.getProduct(req.params.product_id);
+    const titulo = funko?.product_name ? `${funko.product_name} | Funkoshop` : "Funkoshop";
     const cards = await services.getProductByNewIN();
     res.render("item", { titulo, funko, cards });
   },
@@ -19,11 +33,10 @@ const shopController = {
   delShopItemId: async (req, res) => {
       if (req.session.loggeduser) {
         const {id}= req.session.loggeduser;
-        const titulo = "CARRITO";
-        const result = await shopServices.delShopItemId(req.params.cart_id)
-        const carrito = await shopServices.getCartByUser(id)
-        const cantCart =carrito.length
-        res.render("carrito" , {titulo, carrito})
+        const titulo = "Carrito | Funkoshop";
+        await shopServices.delShopItemId(req.params.cart_id);
+        const carrito = await shopServices.getCartByUser(id);
+        res.render("carrito", { titulo, carrito });
       } 
       else {
         const titulo="pagina de error"
@@ -33,24 +46,15 @@ const shopController = {
     },
 
   getShopCart: async (req, res) => {
-    const titulo = "CARRITO";
-    //const selected = services.ge
-    res.render("carrito", { titulo, product });
-  },
-  getShopCart: async (req, res) => {
     if (req.session.loggeduser) {
-      const {id}= req.session.loggeduser;
-      const titulo = "CARRITO";
-      const carrito = await shopServices.getCartByUser(id)
-      const cantCart = carrito.length
-      console.log('---------------------------------------carrito');
-      console.log(carrito);
-      res.render("carrito" , {titulo, carrito})
-    } 
-    else {
-       const titulo="pagina de error"
-       const error={msj:"El usuario debe estar logueado"}
-       res.render("error", { titulo, error });
+      const { id } = req.session.loggeduser;
+      const titulo = "Carrito | Funkoshop";
+      const carrito = await shopServices.getCartByUser(id);
+      res.render("carrito", { titulo, carrito });
+    } else {
+      const titulo = "Error | Funkoshop";
+      const error = { msj: "Tenés que iniciar sesión para ver el carrito." };
+      res.render("error", { titulo, error });
     }
   },
 
@@ -74,10 +78,8 @@ const shopController = {
     const product_id = parseInt(req.params.product_id);
     if (req.session.loggeduser) {
       const {id}= req.session.loggeduser;
-      const data= await shopServices.postShopCartItem(product_id, id, quantity)
-      const titulo = "Funkoshop";
-      const cards = await services.getProducts();
-      res.render("shop", { titulo, cards })
+      await shopServices.postShopCartItem(product_id, id, quantity);
+      res.redirect("/shop");
     } 
 
     else {

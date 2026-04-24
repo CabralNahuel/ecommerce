@@ -23,7 +23,10 @@
 @import url("./pages/collecciones.css"); 
 
 /* SLIDER  */
-@import url("./pages/slider.css"); 
+@import url("./pages/slider.css");
+
+/* HOME: alto viewport + slider */
+@import url("./pages/home-layout.css");
 
 /*   FOOTER   */
 @import url("./header-footer/footer.css");
