@@ -52,6 +52,7 @@
             type="text"
             value="<%= producto.product_name %>"
             name="product_name"
+            required
           />
         </div>
 
@@ -62,6 +63,7 @@
             cols="30"
             rows="10"
             class="descripcion-textarea"
+            required
           >
 <%= producto.product_description %></textarea
           >
@@ -76,6 +78,7 @@
               type="text"
               value="<%= producto.product_sku %>"
               id="product_sku"
+              required
             />
           </div>
           <div class="cpk">
@@ -86,6 +89,9 @@
               type="number"
               value="<%= producto.product_price %>"
               id="product_price"
+              step="0.01"
+              min="0"
+              required
             />
           </div>
           <div class="cpk">
@@ -96,6 +102,8 @@
               type="number"
               value="<%= producto.product_stock %>"
               id="product_stock"
+              min="0"
+              required
             />
           </div>
         </div>
@@ -108,6 +116,8 @@
             type="number"
             value="<%= producto.dues %>"
             id="dues"
+            min="0"
+            required
           />
         </label>
 

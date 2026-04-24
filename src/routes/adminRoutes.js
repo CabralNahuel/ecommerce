@@ -2,11 +2,14 @@
 import express from "express";
 import { uploadMiddleware } from "../middlewares/uploadMiddleware.js";
 import asyncHandler from "../middlewares/asyncHandler.js";
+import adminOnlyMiddleware from "../middlewares/adminOnlyMiddleware.js";
 //creo variables
 const router = express.Router();
 
 import adminController from "../controllers/adminController.js";
 import mainServices from "../services/mainServices.js";
+
+router.use(adminOnlyMiddleware);
 //---------metodos get------------
 
 // admin

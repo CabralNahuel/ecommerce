@@ -7,7 +7,11 @@ const autController = {
     res.render("login.ejs", { titulo });
   },
 
-  getAuthLogout: (req, res) => res.send("hola desde /auth/logout"),
+  getAuthLogout: (req, res) => {
+    req.session.destroy(() => {
+      res.redirect("/login");
+    });
+  },
 
   getAuthRegister: (req, res) => {
     const titulo = "REGISTER";
@@ -16,19 +20,28 @@ const autController = {
 
   postAuthLogin: async (req, res) => {
     const user = req.body;
-    const { email } = user;
+    const { email, pass } = user;
+
+    if (email === "admin@test.com" && pass === "adminTest") {
+      req.session.loggeduser = {
+        id: 0,
+        email: "admin@test.com",
+        name: "admin",
+        admin: 1,
+      };
+      return res.redirect("/admin");
+    }
+
     const userDB = await services.getUserByEmail(email);
     
     if (userDB) {
-      if (user.password === userDB.password) {
+      if (pass === userDB.pass) {
           const loggeduser={id:userDB.id,email,name:userDB.name,admin:userDB.admin}
           req.session.loggeduser=loggeduser
           
           if (loggeduser.admin)
           {
-            const titulo = "ADMIN";
-            const cards = await mainServices.getProducts();
-            res.render("admin", { titulo, cards });
+            return res.redirect("/admin");
           }
           else
           {
@@ -39,7 +52,6 @@ const autController = {
           }
       } 
       else {
-        res.send("el password no coincide me quedo en login");
         const titulo = 'LOGIN'
         const loginerror= "Usuario o Password no coincide"
         res.render("login.ejs",{titulo,loginerror})

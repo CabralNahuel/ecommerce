@@ -51,6 +51,7 @@
             type="text"
             placeholder="Kakashi Hatake Shippuden Saga"
             name="product_name"
+            required
           />
         </div>
 
@@ -62,6 +63,7 @@
             rows="10"
             placeholder="Descripción del producto"
             class="descripcion-textarea"
+            required
           ></textarea>
         </label>
 
@@ -74,6 +76,7 @@
               type="text"
               placeholder="SSK111AB001"
               id="product_sku"
+              required
             />
           </div>
           <div class="cpk">
@@ -84,6 +87,9 @@
               type="number"
               placeholder="$ 0.000,00"
               id="product_price"
+              step="0.01"
+              min="0"
+              required
             />
           </div>
           <div class="cpk">
@@ -94,6 +100,8 @@
               type="number"
               placeholder="0"
               id="product_stock"
+              min="0"
+              required
             />
           </div>
         </div>
@@ -106,6 +114,8 @@
             type="number"
             placeholder="0%"
             id="dues"
+            min="0"
+            required
           />
         </label>
 
@@ -122,7 +132,7 @@
 
         <label for="img_front" class="contenedor-img">
           Imágenes:
-          <input type="file" class="archivo" name="img_front" id="img_front" />
+          <input type="file" class="archivo" name="img_front" id="img_front" required />
         </label>
 
         <input hidden name="img_back" id="img_back" value="foto" />

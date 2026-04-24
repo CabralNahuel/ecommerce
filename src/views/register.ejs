@@ -11,23 +11,23 @@
           <div class="inner-container">
             <div class="name">
               <label for="name">Nombre:</label>
-              <input id="name" name="name" type="text" />
+              <input id="name" name="name" type="text" required />
             </div>
             <div class="last-name">
               <label for="last_name">Apellido:</label>
-              <input id="last_name" name="last_name" type="text" />
+              <input id="last_name" name="last_name" type="text" required />
             </div>
             <div class="email">
               <label for="email">Email:</label>
-              <input id="email" name="email" type="text" />
+              <input id="email" name="email" type="email" required />
             </div>
             <div class="pass">
               <label for="pass">Contraseña:</label>
-              <input id="pass" name="pass" type="password" />
+              <input id="pass" name="pass" type="password" required />
             </div>
             <div class="pass2">
               <label for="pass2">Repita Contraseña:</label>
-              <input id="pass2" name="pass2" type="password" />
+              <input id="pass2" name="pass2" type="password" required />
             </div>
             <div class="lastdiv">
               <button type="submit">Registrar</button>
@@ -36,6 +36,7 @@
                   id="termsAccepted"
                   name="termsAccepted"
                   type="checkbox"
+                  required
                 />
                 <a class="terms" href="#">Acepto terminos y condiciones</a>
               </label>

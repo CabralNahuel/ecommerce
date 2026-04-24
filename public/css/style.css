@@ -56,6 +56,9 @@ hasta las 430 px de ancho no se rompe la parte del section del login*/
 @import url("./pages/cart.css");
 /* fin    carrito        */
 
+/* Responsive */
+@import url("./pages/responsive.css");
+
 /* ANIMATIONS */
 @keyframes fade{
     0%{
