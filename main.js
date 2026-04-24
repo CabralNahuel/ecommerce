@@ -57,8 +57,12 @@ const PORT = process.env.PORT || 4000;
 //----------Session
 app.use(session({
   secret:'funkoshop', 
-  resave: 'true',
+  resave: false,
   saveUninitialized : false, 
+  cookie: {
+    httpOnly: true,
+    sameSite: "lax",
+  },
   //cookie:{maxAge:3000}
 }))
 

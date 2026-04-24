@@ -34,7 +34,16 @@ const autController = {
         name: "admin",
         admin: 1,
       };
-      return res.redirect("/admin");
+      return req.session.save((err) => {
+        if (err) {
+          console.error("No se pudo guardar la sesión de admin:", err);
+          return res.status(500).render("error", {
+            titulo: "Error",
+            error: { msj: "No se pudo iniciar sesión. Intentá nuevamente." },
+          });
+        }
+        return res.redirect("/admin");
+      });
     }
 
     const userDB = await services.getUserByEmail(email);
@@ -43,18 +52,25 @@ const autController = {
       if (pass === userDB.pass) {
           const loggeduser={id:userDB.id,email,name:userDB.name,admin:userDB.admin}
           req.session.loggeduser=loggeduser
-          
-          if (loggeduser.admin)
-          {
-            return res.redirect("/admin");
-          }
-          else
-          {
-            const titulo = 'Home'
-            const collections = await mainServices.getCollections()
-            const cards = await mainServices.getProductByNewIN()
-            res.render ('index', {titulo, collections, cards })
-          }
+
+          return req.session.save(async (err) => {
+            if (err) {
+              console.error("No se pudo guardar la sesión:", err);
+              return res.status(500).render("error", {
+                titulo: "Error",
+                error: { msj: "No se pudo iniciar sesión. Intentá nuevamente." },
+              });
+            }
+
+            if (loggeduser.admin) {
+              return res.redirect("/admin");
+            }
+
+            const titulo = "Home";
+            const collections = await mainServices.getCollections();
+            const cards = await mainServices.getProductByNewIN();
+            return res.render("index", { titulo, collections, cards });
+          });
       } 
       else {
         res.render("login.ejs", {
