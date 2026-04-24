@@ -3,40 +3,45 @@
 * ::after{box-sizing: border-box;}
 
 .container-item{
-    width: 827.63px;
-    height: 669.3px;
+    width: min(100%, 860px);
+    margin: 0 auto;
     padding: var(--spacing-36) 0;
     display: grid;
-    align-items: center;
+    align-items: start;
+    gap: var(--spacing-20);
 }
 .h3-title{
-    width: 431px;
-    height: 49px;  
-    font-family: var(---secundary-font);
-    font-size: 42px;
+    width: 100%;
+    font-family: var(--secundary-font);
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
     font-weight: 700;
     box-sizing: border-box;
+    margin: 0;
 }
 .contenedor-select{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: var(--spacing-20);
 }
 .edit-div{
     display: flex;
-    width: 387.29px;
-    height: 44.28px;
+    flex: 1 1 320px;
+    min-height: 44px;
     font-family: var(--primary-font);
     font-size: 24px;
     font-weight: 300;
-    text-align: right;
-    justify-content: space-around
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-12);
 
 }
 
 .edit-select{
-    width: 243.03px;
-    height: 44.28px;
+    width: 100%;
+    max-width: 243px;
+    min-height: 44px;
     font-size: 20px;
     font-family: var(--primary-font);
     font-weight: 500;
@@ -49,8 +54,7 @@
 
 }
 .nombre_del_producto{
-    max-width: 581.06px;
-    height: 29px;
+    width: 100%;
     font-family: var(--primary-font);
     font-size: 24px;
     font-weight: 400;
@@ -59,8 +63,8 @@
     gap: 1%;
 }
 .nombre_del_producto__input{
-    width: 296px;
-    height: 27.36px;
+    width: min(100%, 360px);
+    min-height: 32px;
     border: none;
     border-bottom: 2px solid #FF3333;
     font-family: var(--primary-font);
@@ -70,8 +74,8 @@
 
 }
 .descripcion-textarea{
-    width: clamp(150px,100%,827px);
-    height: 194.83px;
+    width: 100%;
+    min-height: 180px;
     border-radius: 4px;
     border: 1px solid #1F1F1F;
     font-family: var(--primary-font);
@@ -84,7 +88,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 4%;
+    gap: var(--spacing-20);
+    flex-wrap: wrap;
 }
 .cpk{
     font-family: var(--primary-font);
@@ -94,8 +99,8 @@
 
 }
 .cpk-input{
-    max-width: 130.26px;
-    height: 27.36px;
+    width: 130px;
+    min-height: 32px;
     border:none;
     border-bottom: 2px solid #FF3333;
     font-family: var(--primary-font);
@@ -108,7 +113,7 @@
     height: 27.36px
 }
 .contenedor-img{
-    height: 29px;
+    min-height: 29px;
     display: flex;
     font-family: var(--primary-font);
     font-size: 24px;
@@ -133,16 +138,18 @@
 }
 .contenedor-botones{
     display: flex;
-    width: 384.14px;
-    height: 44.33px;
-    gap:8%;
+    width: 100%;
+    max-width: 420px;
+    min-height: 44px;
+    gap: var(--spacing-16);
+    flex-wrap: wrap;
 
 
 
 }
 .boton{
-    max-width: 175px;
-    height: 44.33px;
+    width: 175px;
+    min-height: 44px;
     background: #FF3333;
     font-family: var(--primary-font);
     color: #FFFFFF;
@@ -152,4 +159,87 @@
     border: none;
     margin: 0;
 
+}
+
+@media (max-width: 900px) {
+    .container-item {
+        width: 100%;
+    }
+
+    .contenedor-select {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-item {
+        padding: var(--spacing-24) 0;
+        gap: var(--spacing-16);
+    }
+
+    .h3-title {
+        line-height: 1.1;
+    }
+
+    .edit-div,
+    .nombre_del_producto,
+    .contenedor-img {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-8);
+        font-size: 2rem;
+    }
+
+    .edit-select {
+        max-width: none;
+        width: 100%;
+    }
+
+    .nombre_del_producto__input {
+        width: 100%;
+    }
+
+    .contenedor-datos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--spacing-12);
+        align-items: end;
+    }
+
+    .cpk {
+        font-size: 2rem;
+    }
+
+    .cpk-input,
+    .stock {
+        width: 100%;
+        max-width: none;
+    }
+
+    #dues,
+    #cuotas {
+        width: 100%;
+    }
+
+    .contenedor-img {
+        min-height: 0;
+    }
+
+    .archivo {
+        width: 100%;
+    }
+
+    .contenedor-botones {
+        max-width: none;
+    }
+
+    .boton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor-datos {
+        grid-template-columns: 1fr;
+    }
 }

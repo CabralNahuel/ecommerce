@@ -10,6 +10,8 @@ import authRoutes from "./src/routes/authRoutes.js";
 import shopRoutes from "./src/routes/shopRoutes.js";
 import { dbConect, dbSync } from "./src/config/conection.js";
 import session from "express-session";
+import connectSessionSequelize from "connect-session-sequelize";
+import { sequelize } from "./src/config/conection.js";
 import { fileURLToPath } from "url";
 //import cokieparser from 'cookie-parser';
 
@@ -22,6 +24,7 @@ const appFilePath =
 const appDirPath = path.dirname(appFilePath);
 const isDirectRun = process.argv[1] === appFilePath;
 const app = express();
+const SequelizeStore = connectSessionSequelize(session.Store);
 
 const pickExistingPath = (candidates, fallback) => {
   for (const candidate of candidates) {
@@ -55,16 +58,37 @@ dbSync();
 const PORT = process.env.PORT || 4000;
 
 //----------Session
-app.use(session({
-  secret:'funkoshop', 
-  resave: false,
-  saveUninitialized : false, 
-  cookie: {
-    httpOnly: true,
-    sameSite: "lax",
-  },
-  //cookie:{maxAge:3000}
-}))
+const isProduction = process.env.NODE_ENV === "production";
+const usePersistentSessionStore =
+  isProduction || (process.env.USE_DB_SESSION || "false").toLowerCase() === "true";
+const sessionStore = usePersistentSessionStore
+  ? new SequelizeStore({
+      db: sequelize,
+      tableName: "sessions",
+      checkExpirationInterval: 15 * 60 * 1000,
+      expiration: 24 * 60 * 60 * 1000,
+    })
+  : null;
+
+app.set("trust proxy", 1);
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "funkoshop",
+    resave: false,
+    saveUninitialized: false,
+    ...(sessionStore ? { store: sessionStore } : {}),
+    cookie: {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: isProduction,
+      maxAge: 24 * 60 * 60 * 1000,
+    },
+  })
+);
+
+if (sessionStore) {
+  sessionStore.sync();
+}
 
 
 

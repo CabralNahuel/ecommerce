@@ -10,6 +10,7 @@ const dbPass = process.env.DB_PASS || process.env.PASS;
 const dbName = process.env.DB_NAME || process.env.DATABASE;
 const dbPort = process.env.DB_PORT || process.env.MYSQLPORT;
 const dbSslEnabled = (process.env.DB_SSL || "false").toLowerCase() === "true";
+const dbLoggingEnabled = (process.env.DB_LOGGING || "false").toLowerCase() === "true";
 
 const dialectOptions = dbSslEnabled
   ? {
@@ -28,6 +29,7 @@ export const sequelize= new Sequelize({
     database: dbName ,
     port : dbPort, 
     dialectOptions,
+    logging: dbLoggingEnabled ? console.log : false,
     pool:{ max:10,min:0,}
 });
 

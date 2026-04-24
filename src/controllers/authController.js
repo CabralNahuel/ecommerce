@@ -1,5 +1,21 @@
 import services from "../services/authServices.js";
-import mainServices from "../services/mainServices.js";
+
+const withTimeout = (promise, ms, message) =>
+  Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error(message)), ms)),
+  ]);
+
+const saveSession = (req) =>
+  new Promise((resolve, reject) => {
+    req.session.save((err) => (err ? reject(err) : resolve()));
+  });
+
+const destroySession = (req) =>
+  new Promise((resolve, reject) => {
+    if (!req.session) return resolve();
+    req.session.destroy((err) => (err ? reject(err) : resolve()));
+  });
 
 const autController = {
   getAuthLogin: (req, res) => {
@@ -9,10 +25,22 @@ const autController = {
     });
   },
 
-  getAuthLogout: (req, res) => {
-    req.session.destroy(() => {
-      res.redirect("/login");
-    });
+  getAuthLogout: async (req, res) => {
+    try {
+      await withTimeout(
+        destroySession(req),
+        5000,
+        "Timeout al destruir la sesión"
+      );
+      res.clearCookie("connect.sid");
+      return res.redirect("/login");
+    } catch (err) {
+      console.error("Error al cerrar sesión:", err);
+      return res.status(500).render("error", {
+        titulo: "Error",
+        error: { msj: "No se pudo cerrar la sesión. Intentá nuevamente." },
+      });
+    }
   },
 
   getAuthRegister: (req, res) => {
@@ -34,16 +62,20 @@ const autController = {
         name: "admin",
         admin: 1,
       };
-      return req.session.save((err) => {
-        if (err) {
-          console.error("No se pudo guardar la sesión de admin:", err);
-          return res.status(500).render("error", {
-            titulo: "Error",
-            error: { msj: "No se pudo iniciar sesión. Intentá nuevamente." },
-          });
-        }
+      try {
+        await withTimeout(
+          saveSession(req),
+          5000,
+          "Timeout al guardar la sesión de admin"
+        );
         return res.redirect("/admin");
-      });
+      } catch (err) {
+        console.error("No se pudo guardar la sesión de admin:", err);
+        return res.status(500).render("error", {
+          titulo: "Error",
+          error: { msj: "No se pudo iniciar sesión. Intentá nuevamente." },
+        });
+      }
     }
 
     const userDB = await services.getUserByEmail(email);
@@ -52,25 +84,23 @@ const autController = {
       if (pass === userDB.pass) {
           const loggeduser={id:userDB.id,email,name:userDB.name,admin:userDB.admin}
           req.session.loggeduser=loggeduser
-
-          return req.session.save(async (err) => {
-            if (err) {
-              console.error("No se pudo guardar la sesión:", err);
-              return res.status(500).render("error", {
-                titulo: "Error",
-                error: { msj: "No se pudo iniciar sesión. Intentá nuevamente." },
-              });
-            }
-
+          try {
+            await withTimeout(
+              saveSession(req),
+              5000,
+              "Timeout al guardar la sesión"
+            );
             if (loggeduser.admin) {
               return res.redirect("/admin");
             }
-
-            const titulo = "Home";
-            const collections = await mainServices.getCollections();
-            const cards = await mainServices.getProductByNewIN();
-            return res.render("index", { titulo, collections, cards });
-          });
+            return res.redirect("/");
+          } catch (err) {
+            console.error("No se pudo guardar la sesión:", err);
+            return res.status(500).render("error", {
+              titulo: "Error",
+              error: { msj: "No se pudo iniciar sesión. Intentá nuevamente." },
+            });
+          }
       } 
       else {
         res.render("login.ejs", {
